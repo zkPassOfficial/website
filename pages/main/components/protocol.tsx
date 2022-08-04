@@ -1,5 +1,8 @@
 import styled from "styled-components"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+import Texty from 'rc-texty';
+import 'rc-texty/assets/index.css';
 
 import Image from "next/image"
 import icon1 from "public/images/protocol/icon1.png"
@@ -9,8 +12,7 @@ import icon4 from "public/images/protocol/icon4.png"
 import dot from "public/images/protocol/dot.png"
 
 const Container = styled.div`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +27,7 @@ const Container = styled.div`
   }
 `
 
-const Header = styled.div`
+const Header = styled(Texty)`
   font-size: 60px;
   color: #FFFFFF;
   text-align: center;
@@ -34,16 +36,13 @@ const Header = styled.div`
     font-size: 30px;
   }
 `
-const SubHeader = styled.div`
+const SubHeader = styled(Texty)`
   width: 60%;
   font-size: 14px;
   color: #FFFFFF;
   text-align: center;
   font-family: Gothic720BT-LightB;
   margin: 20px auto;
-`
-
-const TextContainer = styled.div`
 `
 
 const Text = styled.span`
@@ -102,12 +101,12 @@ const Dot = styled.div`
 const Protocol = forwardRef((props, ref) => {
   return <>
     <Container ref={ref} id="protocol">
-      <TextContainer>
-        <Header>The zkPass Protocol</Header>
+      <ScrollOverpack>
+        <Header type="bottom">The zkPass Protocol</Header>
         <Dot>
           <Image src={dot} width={180} height={5} layout="fill" quality={100} />
         </Dot>
-        <SubHeader>A decentralized KYC solution protocol offers a secure,easy, convenient KYC authentication for the crypto economy.</SubHeader>
+        <SubHeader type="right" delay={200} duration={400}>A decentralized KYC solution protocol offers a secure,easy, convenient KYC authentication for the crypto economy.</SubHeader>
         <ContentList>
           <Content>
             <Icon>
@@ -138,7 +137,7 @@ const Protocol = forwardRef((props, ref) => {
             <Text>Module and circuit development contributors, who are able to receive reward from protocol</Text>
           </Content>
         </ContentList>
-      </TextContainer>
+      </ScrollOverpack>
     </Container>
   </>
 })

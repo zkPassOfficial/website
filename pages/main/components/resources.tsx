@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+import QueueAnim from "rc-queue-anim"
 
 const Container = styled.div`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,9 +98,10 @@ const TimeLine = styled.div`
   }
 `
 
-const Content = styled.div`
+const Content = styled(QueueAnim)`
   display: flex;
   align-items: start;
+  min-height: 360px;
   flex-direction: column;
   padding: 20px 10px;
   background: #19191A;
@@ -109,54 +111,56 @@ const Content = styled.div`
 const Resources = forwardRef((props, ref) => {
   return <>
     <Container ref={ref} id="resourses">
-      <TextContainer>
-        <Header>Resources</Header>
-        <SubHeader>Roadmap</SubHeader>
-        <ListContaner>
-          <ItemContaienr>
-            <TimeLine>2022</TimeLine>
-            <Content>
-              <Title>Q1-Q2</Title>
-              <Text>Technical Architecture Design.</Text>
-              <Text>Set Up Dev Team and Dev Plan.</Text>
-              <Text>Initial Marketing Promotion.</Text>
-            </Content>
-          </ItemContaienr>
-          <ItemContaienr>
-            <TimeLine>2022</TimeLine>
-            <Content>
-              <Title>Q3-Q4</Title>
-              <Text>Build a Protocol Prototype for Multiple-parties Participating in the zkPass Product.</Text>
-              <Text>Generate HMAC Key and Sign Message using 2PC.</Text>
-              <Text>Developer Hackathons.</Text>
-              <Text>Advanced Go-to-Market Strategies.</Text>
-              <Text>Early Access to The Community.</Text>
-              <Text>Seed Round Fundraising.</Text>
-            </Content>
-          </ItemContaienr>
-          <ItemContaienr>
-            <TimeLine>2023</TimeLine>
-            <Content>
-              <Title>Q1-Q2</Title>
-              <Text>Building a Three-party TLS protocol.</Text>
-              <Text>Building Zero-knowledge Proofs and Verifications.</Text>
-              <Text>Extend 2PC to MPC and Add MPC Node.</Text>
-              <Text>Global Partnership Development.</Text>
-              <Text>Testnet NFTs Distribution campaign.</Text>
-            </Content>
-          </ItemContaienr>
-          <ItemContaienr>
-            <TimeLine>2023</TimeLine>
-            <Content>
-              <Title>Q3-Q4</Title>
-              <Text>Enhance the zkPass Decentralized Network.</Text>
-              <Text>{'UIUX Design & Product Experience and Testnet Launch.'}</Text>
-              <Text>zkPass Protocol Mainnet Launch.</Text>
-              <Text>zkPass v1 Launch.</Text>
-            </Content>
-          </ItemContaienr>
-        </ListContaner>
-      </TextContainer>
+      <ScrollOverpack appear={false}>
+        <TextContainer>
+          <Header>Resources</Header>
+          <SubHeader>Roadmap</SubHeader>
+          <ListContaner>
+            <ItemContaienr>
+              <TimeLine>2022</TimeLine>
+              <Content type="bottom" duration={1000}>
+                <Title key="title">Q1-Q2</Title>
+                <Text key="text1">Technical Architecture Design.</Text>
+                <Text key="text2">Set Up Dev Team and Dev Plan.</Text>
+                <Text key="text3">Initial Marketing Promotion.</Text>
+              </Content>
+            </ItemContaienr>
+            <ItemContaienr>
+              <TimeLine>2022</TimeLine>
+              <Content type="bottom" duration={1800} delay={200}>
+                <Title key="title">Q3-Q4</Title>
+                <Text key="text1">Build a Protocol Prototype for Multiple-parties Participating in the zkPass Product.</Text>
+                <Text key="text2">Generate HMAC Key and Sign Message using 2PC.</Text>
+                <Text key="text3">Developer Hackathons.</Text>
+                <Text key="text4">Advanced Go-to-Market Strategies.</Text>
+                <Text key="text5">Early Access to The Community.</Text>
+                <Text key="text6">Seed Round Fundraising.</Text>
+              </Content>
+            </ItemContaienr>
+            <ItemContaienr>
+              <TimeLine>2023</TimeLine>
+              <Content type="bottom" duration={1500} delay={400}>
+                <Title key="title">Q1-Q2</Title>
+                <Text key="text1">Building a Three-party TLS protocol.</Text>
+                <Text key="text2">Building Zero-knowledge Proofs and Verifications.</Text>
+                <Text key="text3">Extend 2PC to MPC and Add MPC Node.</Text>
+                <Text key="text4">Global Partnership Development.</Text>
+                <Text key="text5">Testnet NFTs Distribution campaign.</Text>
+              </Content>
+            </ItemContaienr>
+            <ItemContaienr>
+              <TimeLine>2023</TimeLine>
+              <Content type="bottom" duration={1000} delay={600}>
+                <Title key="title">Q3-Q4</Title>
+                <Text key="text1">Enhance the zkPass Decentralized Network.</Text>
+                <Text key="text2">{'UIUX Design & Product Experience and Testnet Launch.'}</Text>
+                <Text key="text3">zkPass Protocol Mainnet Launch.</Text>
+                <Text key="text4">zkPass v1 Launch.</Text>
+              </Content>
+            </ItemContaienr>
+          </ListContaner>
+        </TextContainer>
+      </ScrollOverpack>
     </Container>
   </>
 })

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 
 import useMatchBreakpoints from "hooks/useMatchBreakpoints";
@@ -206,7 +206,6 @@ const Navigation = ({ indexPage }: NavigationProps) => {
       mobileBar.current.style.maxHeight = "0"
     }
   }
-
 
   const getContactList = () => {
     return <ContactContainer>

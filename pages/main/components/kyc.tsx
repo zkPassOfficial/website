@@ -1,5 +1,9 @@
 import styled from "styled-components"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+import QueueAnim from "rc-queue-anim"
+import Texty from 'rc-texty';
+import 'rc-texty/assets/index.css';
 
 import Image from "next/image"
 import line1 from "public/images/kyc/line1.png"
@@ -7,8 +11,7 @@ import line2 from "public/images/kyc/line2.png"
 import line3 from "public/images/kyc/line3.png"
 
 const Container = styled.div`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +31,7 @@ const Container = styled.div`
   }
 `
 
-const Header = styled.div`
+const Header = styled(Texty)`
   font-weight: bold;
   font-size: 100px;
   color: #FFFFFF;
@@ -54,6 +57,7 @@ const TextContainer = styled.div`
     padding-top: 30%;
     top: 0;
     right: 0;
+    width: 100%;
   }
 `
 
@@ -84,25 +88,27 @@ const ContentList = styled.div`
 const KYCModal = forwardRef((props, ref) => {
   return <>
     <Container ref={ref} id="kyc">
-      <TextContainer>
-        <Header>KYC Model</Header>
-        <ContentList>
-          <div>
-          </div>
-          <div>
-            <Image src={line1} layout="responsive"></Image>
-            <Text>The verifier communicates directly with the identity issuer to obtain the authentication result</Text>
-          </div>
-          <div>
-            <Image src={line2} layout="responsive"></Image>
-            <Text>The prover generates a proof of KYC Verification Passed and sends it to the verifier</Text>
-          </div>
-          <div>
-            <Image src={line3} layout="responsive"></Image>
-            <Text>The verifier  verifies the legitimacy of the proof and performs subsequent business logic processing based on the verification result</Text>
-          </div>
-        </ContentList>
-      </TextContainer>
+      <ScrollOverpack>
+        <TextContainer>
+          <Header type="left">KYC Model</Header>
+          <ContentList>
+            <div>
+            </div>
+            <QueueAnim>
+              <Image key="image" src={line1} layout="responsive"></Image>
+              <Text key="text">The verifier communicates directly with the identity issuer to obtain the authentication result</Text>
+            </QueueAnim>
+            <QueueAnim delay={200}>
+              <Image key="image" src={line2} layout="responsive"></Image>
+              <Text key="text">The prover generates a proof of KYC Verification Passed and sends it to the verifier</Text>
+            </QueueAnim>
+            <QueueAnim delay={400}>
+              <Image key="image" src={line3} layout="responsive"></Image>
+              <Text key="text">The verifier  verifies the legitimacy of the proof and performs subsequent business logic processing based on the verification result</Text>
+            </QueueAnim>
+          </ContentList>
+        </TextContainer>
+      </ScrollOverpack>
     </Container>
   </>
 })

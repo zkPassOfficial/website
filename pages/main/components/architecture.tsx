@@ -1,9 +1,11 @@
 import styled from "styled-components"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+import Texty from 'rc-texty';
+import 'rc-texty/assets/index.css';
 
 const Container = styled.div`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +24,7 @@ const Container = styled.div`
   }
 `
 
-const Header = styled.div`
+const Header = styled(Texty)`
   font-size: 50px;
   color: #FFFFFF;
   text-align: right;
@@ -38,10 +40,12 @@ const TextContainer = styled.div`
 const Architecture = forwardRef((props, ref) => {
   return <>
     <Container ref={ref} id="architecture">
-      <TextContainer>
-        <Header>The Overall</Header>
-        <Header>System Architecture</Header>
-      </TextContainer>
+      <ScrollOverpack>
+        <TextContainer>
+          <Header type="left">The Overall</Header>
+          <Header type="left" delay={200}>System Architecture</Header>
+        </TextContainer>
+      </ScrollOverpack>
     </Container>
   </>
 })

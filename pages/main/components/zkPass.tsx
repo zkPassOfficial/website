@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+import QueueAnim from "rc-queue-anim"
 
 const Container = styled.div`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,11 +71,15 @@ const TextBanner = styled(Text)`
 const ZKPass = forwardRef((props, ref) => {
   return <>
     <Container ref={ref} id="zkPass">
-      <TextContainer>
-        <Header>What is zkPass</Header>
-        <TextBanner>zkPass is a decentralized KYC solution based</TextBanner>
-        <Text>zkPass is a decentralized KYC solution based on MPC (Multi-Party Computation) and ZKP (Zero-Knowledge Proof), which aims to overcome the various flaws in the current KYC system, eliminate the pain points related to identity authentication, and protect user privacy while expanding KYC capabilities.</Text>
-      </TextContainer>
+      <ScrollOverpack appear={false}>
+        <TextContainer>
+          <QueueAnim type="right" leaveReverse duration={500}>
+            <Header key="header">What is zkPass</Header>
+            <TextBanner key="banner">zkPass is a decentralized KYC solution based</TextBanner>
+            <Text key="text">zkPass is a decentralized KYC solution based on MPC (Multi-Party Computation) and ZKP (Zero-Knowledge Proof), which aims to overcome the various flaws in the current KYC system, eliminate the pain points related to identity authentication, and protect user privacy while expanding KYC capabilities.</Text>
+          </QueueAnim>
+        </TextContainer>
+      </ScrollOverpack>
     </Container>
   </>
 })

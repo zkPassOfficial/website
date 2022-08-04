@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+import QueueAnim from 'rc-queue-anim';
 
 const Container = styled.div`
-  position: sticky;
-  top: 0;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,30 +122,34 @@ const WhyZKPass = forwardRef((props, ref) => {
     <Container ref={ref} id="whyZkPass">
       <Header>Why zkPass?</Header>
       <TextContainer>
-        <ItemContainer>
-          <TextBanner text="Privacy-Preserving"></TextBanner>
-          <Text>zkPass is a decentralized solution with Zero-Knowledge Proof(ZKP) and Multi-Party Computation(MPC) to ensure that user privacy is protected.The status of each participant is equal, and there is no participation of privileged third parties.</Text>
-        </ItemContainer>
-        <ItemContainer>
-          <TextBanner text="Security"></TextBanner>
-          <Text>The data input of each party in the secure multi-party calculation process is independent, and no local raw data is leaked during the calculation.</Text>
-        </ItemContainer>
-        <ItemContainer>
-          <TextBanner text="Computability"></TextBanner>
-          <Text>The results obtained by the secure multi-party computation algorithm are consistent with the local computation results of the original plaintext data.</Text>
-        </ItemContainer>
-        <ItemContainer>
-          <TextBanner text="Customized Modules"></TextBanner>
-          <Text>Multiple preset modules to meet your custom KYC needs.</Text>
-        </ItemContainer>
-        <ItemContainer>
-          <TextBanner text="All-in-one Identity"></TextBanner>
-          <Text>Users can generate an identity once and use it repeatedly, and their information is not disclosed to any third party throughout the multi-party interaction.</Text>
-        </ItemContainer>
-        <ItemContainer>
-          <TextBanner text="Compatibility"></TextBanner>
-          <Text>zkPass protocol has backward compatibility and is widely adapted to data source protocols, while the data source has no knowledge of the data destination.</Text>
-        </ItemContainer>
+        <ScrollOverpack>
+          <QueueAnim delay={200} leaveReverse>
+            <ItemContainer key="text1">
+              <TextBanner text="Privacy-Preserving"></TextBanner>
+              <Text>zkPass is a decentralized solution with Zero-Knowledge Proof(ZKP) and Multi-Party Computation(MPC) to ensure that user privacy is protected.The status of each participant is equal, and there is no participation of privileged third parties.</Text>
+            </ItemContainer>
+            <ItemContainer key="text2">
+              <TextBanner text="Security"></TextBanner>
+              <Text>The data input of each party in the secure multi-party calculation process is independent, and no local raw data is leaked during the calculation.</Text>
+            </ItemContainer>
+            <ItemContainer key="text3">
+              <TextBanner text="Computability"></TextBanner>
+              <Text>The results obtained by the secure multi-party computation algorithm are consistent with the local computation results of the original plaintext data.</Text>
+            </ItemContainer>
+            <ItemContainer key="text4">
+              <TextBanner text="Customized Modules"></TextBanner>
+              <Text>Multiple preset modules to meet your custom KYC needs.</Text>
+            </ItemContainer>
+            <ItemContainer key="text5">
+              <TextBanner text="All-in-one Identity"></TextBanner>
+              <Text>Users can generate an identity once and use it repeatedly, and their information is not disclosed to any third party throughout the multi-party interaction.</Text>
+            </ItemContainer>
+            <ItemContainer key="text6">
+              <TextBanner text="Compatibility"></TextBanner>
+              <Text>zkPass protocol has backward compatibility and is widely adapted to data source protocols, while the data source has no knowledge of the data destination.</Text>
+            </ItemContainer>
+          </QueueAnim>
+        </ScrollOverpack>
       </TextContainer>
     </Container>
   </>

@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import Navigation from 'components/Navigation'
 import Home from './components/home'
 import ZKPass from './components/zkPass'
@@ -9,20 +8,16 @@ import WhyZKPass from './components/whyZkPass'
 import Resources from './components/resources'
 import { RefObject, useEffect, useRef, useState } from 'react'
 
-const MainContainer = styled.div`
-  position: relative;
-  scroll-behavior: smooth;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-`
+import { scrollScreen } from 'rc-scroll-anim';
 
+import useMatchBreakpoints from 'hooks/useMatchBreakpoints'
 
 const Main = () => {
   const [current, setCurrent] = useState(0)
-  const mainContainer = useRef('mianContainer')
-  const home = useRef('Home')
-  const zkPass = useRef('ZKPass')
+  const { isMobile } = useMatchBreakpoints()
+  
+  const home = useRef('home')
+  const zkPass = useRef('zkPass')
   const kyc = useRef('kyc')
   const architecture = useRef('architecture')
   const protocol = useRef('protocol')
@@ -44,7 +39,7 @@ const Main = () => {
     const h = window.innerHeight
 
     function updateScrollPosition() {
-      const t = mainContainer.current.scrollTop
+      let t = document.documentElement.scrollTop || document.body.scrollTop;
       const mul = Math.floor(t / h)
       setCurrent(Math.round(t / h))
       changeOpacity(home, mul, t, h)
@@ -56,26 +51,32 @@ const Main = () => {
       changeOpacity(resources, mul - 6, t - 6 * h, h)
     }
 
-    if (mainContainer && mainContainer.current) {
-      mainContainer.current.addEventListener("scroll", updateScrollPosition, false);
+    if (window && window.document) {
+      window.document.addEventListener("scroll", updateScrollPosition, false);
       return function cleanup() {
-        mainContainer.current.removeEventListener("scroll", updateScrollPosition, false);
+        window.document.removeEventListener("scroll", updateScrollPosition, false);
       };
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
+    scrollScreen.init({ loop: false, duration: 150, location: [home, zkPass, kyc, architecture, protocol, whyzkpass, resources] })
+    return () => {
+      scrollScreen.unMount();
     }
   }, [])
 
 
   return <>
     <Navigation indexPage={current}></Navigation>
-    <MainContainer ref={mainContainer}>
-      <Home ref={home} ></Home>
-      <ZKPass ref={zkPass}></ZKPass>
-      <KYCModal ref={kyc}></KYCModal>
-      <Architecture ref={architecture}></Architecture>
-      <Protocol ref={protocol}></Protocol>
-      <WhyZKPass ref={whyzkpass}></WhyZKPass>
-      <Resources ref={resources}></Resources>
-    </MainContainer>
+    <Home ref={home} ></Home>
+    <ZKPass ref={zkPass}></ZKPass>
+    <KYCModal ref={kyc}></KYCModal>
+    <Architecture ref={architecture}></Architecture>
+    <Protocol ref={protocol}></Protocol>
+    <WhyZKPass ref={whyzkpass}></WhyZKPass>
+    <Resources ref={resources}></Resources>
   </>
 }
 
