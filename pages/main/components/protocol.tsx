@@ -37,12 +37,15 @@ const Header = styled(Texty)`
   }
 `
 const SubHeader = styled(Texty)`
-  width: 60%;
+  width: 460px;
   font-size: 14px;
   color: #FFFFFF;
   text-align: center;
   font-family: Gothic720BT-LightB;
   margin: 20px auto;
+  ${({ theme }) => theme.sm} {
+    width: 300px;
+  }
 `
 
 const Text = styled.span`
