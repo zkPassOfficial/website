@@ -146,6 +146,7 @@ const Resources = forwardRef((props, ref) => {
                 <Text key="text3">Extend 2PC to MPC and Add MPC Node.</Text>
                 <Text key="text4">Global Partnership Development.</Text>
                 <Text key="text5">Testnet NFTs Distribution campaign.</Text>
+                <Text key="text6">Testnet Launch.</Text>
               </Content>
             </ItemContaienr>
             <ItemContaienr>
@@ -153,9 +154,8 @@ const Resources = forwardRef((props, ref) => {
               <Content type="bottom" duration={1000} delay={600}>
                 <Title key="title">Q3-Q4</Title>
                 <Text key="text1">Enhance the zkPass Decentralized Network.</Text>
-                <Text key="text2">{'UIUX Design & Product Experience and Testnet Launch.'}</Text>
-                <Text key="text3">zkPass Protocol Mainnet Launch.</Text>
-                <Text key="text4">zkPass v1 Launch.</Text>
+                <Text key="text2">zkPass Protocol Mainnet Launch.</Text>
+                <Text key="text3">zkPass v1 Launch.</Text>
               </Content>
             </ItemContaienr>
           </ListContaner>
