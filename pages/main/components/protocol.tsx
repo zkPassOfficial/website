@@ -109,21 +109,23 @@ const Protocol = forwardRef((props, ref) => {
         <Dot>
           <Image src={dot} width={180} height={5} layout="fill" quality={100} />
         </Dot>
-        <SubHeader type="right" delay={200} duration={400}>A decentralized KYC solution protocol offers a secure,easy, convenient KYC authentication for the crypto economy.</SubHeader>
+        <SubHeader type="bottom" delay={200} duration={400} split={()=>{
+          return ['A', ' decentralized', ' KYC', ' solution', ' protocol', ' offers', ' secured,', ' easy,', ' convenient', ' KYC', ' authentication', ' for', ' the', ' crypto', ' economy.']
+        }}> A decentralized KYC solution protocol offers secured, easy, convenient KYC authentication for the crypto economy.</SubHeader>
         <ContentList>
           <Content>
             <Icon>
               <Image src={icon1} layout="fill" quality={100}></Image>
             </Icon>
             <Title>Customer</Title>
-            <Text>Web3 address owners who need to verify their identity to have priority to gain airdrop or Initial sales</Text>
+            <Text>Web3 address owners who need to verify their identities and gain priority access to airdrop or initial sales </Text>
           </Content>
           <Content>
             <Icon>
               <Image src={icon2} layout="fill" quality={100}></Image>
             </Icon>
-            <Title>Entrepreneurs</Title>
-            <Text>Entrepreneurs with KYC verification requirement, spend certain amount of to use ZKPass, bring income to zkPass platform</Text>
+            <Title>Business</Title>
+            <Text>Business user with KYC verification requirement, spend certain amount of $ZKPS to use ZKPass, bring income to zkPass ecosystem participants.</Text>
           </Content>
           <Content>
             <Icon>
