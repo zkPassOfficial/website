@@ -5,6 +5,7 @@ import { CSSProperties } from "react"
 import github from "public/images/github.png"
 import medium from "public/images/medium.png"
 import twitter from "public/images/twitter.png"
+import discord from "public/images/discord.png"
 
 
 const SocialMediaContainer = styled.div`
@@ -49,6 +50,9 @@ export default function SocialMedia(style?: CSSProperties) {
     </SocialIcon>
     <SocialIcon href="https://github.com/zkPassOfficial" target="_blank">
       <Image layout="fill" objectFit="contain" quality={100} src={github} />
+    </SocialIcon>
+    <SocialIcon href="https://discord.gg/zkpass" target="_blank">
+      <Image layout="fill" objectFit="contain" quality={100} src={discord} />
     </SocialIcon>
   </SocialMediaContainer>
 }
