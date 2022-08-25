@@ -75,7 +75,7 @@ const ZKPass = forwardRef((props, ref) => {
         <TextContainer>
           <QueueAnim type="right" leaveReverse duration={500}>
             <Header key="header">What is zkPass</Header>
-            <TextBanner key="banner">zkPass is a decentralized KYC solution based</TextBanner>
+            <TextBanner key="banner">A Protocol-level KYC Privacy Portal in Web3</TextBanner>
             <Text key="text">zkPass is a decentralized KYC solution based on MPC (Multi-Party Computation) and ZKP (Zero-Knowledge Proof), which aims to overcome the various flaws in the current KYC system, eliminate the pain points related to identity authentication, and protect user privacy while expanding KYC capabilities.</Text>
           </QueueAnim>
         </TextContainer>
