@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { CSSProperties } from "react"
+import Link from "next/link"
 
 
 const DotContainer = styled.div`
@@ -12,6 +13,7 @@ const DotContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 999;
+  cursor: pointer;
   ${({ theme }) => theme.md} {
     display: none;
   }
@@ -63,7 +65,12 @@ export default function Dot(props: { style?: CSSProperties, ids?: Array<{ key: s
       if (index === current) {
         return <ActiveDot key={index} >{item.label}</ActiveDot>
       }
-      return <DefaultDot key={index} href={`#${item.key}`} >{item.label}</DefaultDot>
+      return <Link href={item.key} scroll={false}>
+        <DefaultDot key={index}>
+          {item.label}
+        </DefaultDot>
+      </Link>
+
     })}
   </DotContainer>
 }

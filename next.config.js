@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
+  compiler: {
     styledComponents: true,
   },
   reactStrictMode: false,
@@ -10,6 +10,14 @@ const nextConfig = {
   },
   eslint:{
     ignoreDuringBuilds: true,
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/:path*',
+        destination: '/',
+      },
+    ]
   },
 }
 

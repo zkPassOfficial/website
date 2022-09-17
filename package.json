@@ -19,7 +19,10 @@
     "react": "18.0.0",
     "react-animation-on-scroll": "^5.0.0",
     "react-dom": "18.0.0",
+    "react-player": "^2.11.0",
+    "react-slick": "^0.29.0",
     "sharp": "^0.30.7",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

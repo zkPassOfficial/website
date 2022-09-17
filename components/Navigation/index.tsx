@@ -1,16 +1,20 @@
-import { useRef, useState } from "react";
-import Image from "next/image";
+import { useRef, useState } from "react"
+import styled from "styled-components"
+import ReactPlayer from 'react-player'
 
-import useMatchBreakpoints from "hooks/useMatchBreakpoints";
+import Image from "next/image"
+import Link from "next/link"
 
-import Dot from "components/Dot";
-import SocialMedia from "components/SocialMedia";
-import styled from "styled-components";
-import Logo from "../Logo";
-import { Text } from "../Text";
-import Modal from "../Modal";
-import comingsoon from "public/images/comingsoon.jpg";
 
+import useMatchBreakpoints from "hooks/useMatchBreakpoints"
+
+import Dot from "components/Dot"
+import SocialMedia from "components/SocialMedia"
+import { DropDown, DropItem } from "components/DropDown"
+import Logo from "../Logo"
+import { Text } from "../Text"
+import Modal from "../Modal"
+import comingsoon from "public/images/comingsoon.jpg"
 
 const Position = styled.div`
   position: fixed;
@@ -157,6 +161,9 @@ const RemindingText = styled.div`
   font-size: 12px;
 `
 
+const CustomerLink = styled.a`
+`
+
 interface MenuItem {
   id: string;
   content: string;
@@ -173,6 +180,7 @@ const Navigation = ({ indexPage }: NavigationProps) => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
+  const [playVideo, setPlayVideo] = useState(false)
 
   const { isMobile } = useMatchBreakpoints()
 
@@ -192,10 +200,10 @@ const Navigation = ({ indexPage }: NavigationProps) => {
     key: 'protocol',
     label: 'Protocol'
   }, {
-    key: 'whyZkPass',
+    key: 'whyzkpass',
     label: 'Why ZkPass'
   }, {
-    key: 'resourses',
+    key: 'roadmap',
     label: 'Resourses'
   }]
 
@@ -227,15 +235,30 @@ const Navigation = ({ indexPage }: NavigationProps) => {
         <Logo />
         <div></div>
         <MobileMenuIcon onClick={() => handleClick('open')} />
-        <MobileMenuContainer ref={mobileBar}>
-          <MenuItem href={`#home`} onClick={() => handleClick()}>
-            <Text dangerouslySetInnerHTML={{ __html: 'HOME' }}></Text>
+        <MobileMenuContainer ref={mobileBar} onClick={() => handleClick()}>
+          <MenuItem >
+            <Link href="/home" scroll={false}> HOME </Link>
           </MenuItem>
           <MenuItem onClick={() => { handleClick(); setIsOpen(true) }}  >
             <Text dangerouslySetInnerHTML={{ __html: 'GET STARTED' }}></Text>
           </MenuItem>
-          <MenuItem href="#resourses" onClick={() => handleClick()}>
-            <Text dangerouslySetInnerHTML={{ __html: 'RESOURSES' }}></Text>
+          <MenuItem>
+            <CustomerLink href="https://docsend.com/view/x8aeie95qugdgpxn" target="_blank">TECH WHITEPAPER</CustomerLink>
+          </MenuItem>
+          <MenuItem>
+            <CustomerLink href="https://docsend.com/view/ythgh83fq5dqpffq" target="_blank">TECH ONE PAGE</CustomerLink>
+          </MenuItem>
+          <MenuItem>
+            <CustomerLink href="https://docsend.com/view/s/ebnbkz6i77bz37ka" target="_blank">DATA ROOM</CustomerLink>
+          </MenuItem>
+          <MenuItem>
+            <Link href="/roadmap" scroll={false}> ROADMAP </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href="/tokenomic" scroll={false}> TOKENOMIC </Link>
+          </MenuItem>
+          <MenuItem>
+            <CustomerLink href=" https://github.com/zkPassOfficial/Meet-the-team" target="_blank">TEAM</CustomerLink>
           </MenuItem>
           <MenuItem onClick={() => { handleClick(); setIsContactOpen(true) }} >
             <Text dangerouslySetInnerHTML={{ __html: 'CONTACT' }}></Text>
@@ -263,21 +286,36 @@ const Navigation = ({ indexPage }: NavigationProps) => {
       <Box>
         <Logo />
         <MenuContainer>
-          <MenuItem active={indexPage === 0} href={`#home`} >
-            <Text dangerouslySetInnerHTML={{ __html: 'HOME' }}></Text>
+          <MenuItem active={indexPage === 0} >
+            <Link href="/home" scroll={false}> HOME </Link>
           </MenuItem>
           <MenuItem onClick={() => setIsOpen(true)} >
             <Text dangerouslySetInnerHTML={{ __html: 'GET STARTED' }}></Text>
           </MenuItem>
-          <MenuItem active={indexPage === 6} href="#resourses" >
-            <Text dangerouslySetInnerHTML={{ __html: 'RESOURSES' }}></Text>
+          <MenuItem active={indexPage === 6} >
+            <DropDown text="RESOURSES">
+              <DropItem><CustomerLink href="https://docsend.com/view/x8aeie95qugdgpxn" target="_blank">Tech WhitePaper</CustomerLink></DropItem>
+              <DropItem><CustomerLink href="https://docsend.com/view/ythgh83fq5dqpffq" target="_blank">Tech One Page</CustomerLink></DropItem>
+              <DropItem><CustomerLink href="https://docsend.com/view/s/ebnbkz6i77bz37ka" target="_blank">Data Room</CustomerLink></DropItem>
+              <DropItem>
+                <Link href="/roadmap" scroll={false}>Roadmap</Link>
+              </DropItem>
+              <DropItem>
+                <Link href="/tokenomic" scroll={false}>
+                  Tokenomic
+                </Link>
+              </DropItem>
+            </DropDown>
+          </MenuItem>
+          <MenuItem >
+            <CustomerLink href="https://github.com/zkPassOfficial/Meet-the-team" target="_blank">TEAM</CustomerLink>
           </MenuItem>
           <MenuItem onClick={() => setIsContactOpen(true)} >
-            <Text dangerouslySetInnerHTML={{ __html: 'CONTACT' }}></Text>
+            CONTACT
           </MenuItem>
         </MenuContainer>
-        <ButtonContainer onClick={() => setIsOpen(true)}>
-          <LaunchApp>{'LAUNCH APP >>'}</LaunchApp>
+        <ButtonContainer>
+          <LaunchApp onClick={() => setPlayVideo(true)}>{'LAUNCH DEMO >>'}</LaunchApp>
         </ButtonContainer>
       </Box>
     </Position>
@@ -291,6 +329,11 @@ const Navigation = ({ indexPage }: NavigationProps) => {
     {
       isOpen && <Modal closeable close={() => setIsOpen(false)}>
         <Image src={comingsoon} layout="responsive"></Image>
+      </Modal>
+    }
+    {
+      playVideo && <Modal closeable close={() => setPlayVideo(false)}>
+        <ReactPlayer url="/files/demo.mp4" playing/>
       </Modal>
     }
   </>

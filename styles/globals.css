@@ -18,7 +18,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   position: relative;
   width: 100vw;
-  height: 100vh; 
+  height: 100vh;
 }
 
 a {
@@ -30,7 +30,7 @@ a {
   box-sizing: border-box;
 }
 
-pre{
+pre {
   display: inline;
   font-size: inherit;
   font-family: inherit;
@@ -40,10 +40,47 @@ pre{
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
+  }
+}
+
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-we {
+  0% {
+    transform: translate(51%, -50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-mpc {
+  0% {
+    transform: translate(-54%, 52%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
   }
 }

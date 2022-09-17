@@ -56,7 +56,7 @@ const ContentContainer = styled.div`
 `
 
 const Modal = (props: { children: ReactNode, closeable?: boolean, close?: () => void, style?: CSSProperties }) => {
-  const { children, closeable, close, style={width: '600px', height: '399px'} } = props
+  const { children, closeable, close, style={minWidth: '600px', height: '399px'} } = props
 
   return < Container >
     <MaskLayer onClick={closeable ? close : () => { }}></MaskLayer>

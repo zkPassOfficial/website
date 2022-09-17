@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+
 import Navigation from 'components/Navigation'
 import Home from './components/home'
 import ZKPass from './components/zkPass'
@@ -13,16 +15,20 @@ import { scrollScreen } from 'rc-scroll-anim';
 import useMatchBreakpoints from 'hooks/useMatchBreakpoints'
 
 const Main = () => {
+  const router = useRouter()
   const [current, setCurrent] = useState(0)
+  const [defaultTab, setDefaultTab] = useState('Roadmap')
   const { isMobile } = useMatchBreakpoints()
-  
-  const home = useRef('home')
-  const zkPass = useRef('zkPass')
-  const kyc = useRef('kyc')
-  const architecture = useRef('architecture')
-  const protocol = useRef('protocol')
-  const whyzkpass = useRef('whyzkpass')
-  const resources = useRef('resources')
+
+  const routerMap = {
+    home: useRef('home'),
+    zkPass: useRef('zkPass'),
+    kyc: useRef('kyc'),
+    architecture: useRef('architecture'),
+    protocol: useRef('protocol'),
+    whyzkpass: useRef('whyzkpass'),
+    resources: useRef('resources')
+  }
 
   const changeOpacity = (ref: RefObject<any>, mul: number, scrollPosition: number, windowHeight: number) => {
 
@@ -42,16 +48,16 @@ const Main = () => {
       let t = document.documentElement.scrollTop || document.body.scrollTop;
       const mul = Math.floor(t / h)
       setCurrent(Math.round(t / h))
-      changeOpacity(home, mul, t, h)
-      changeOpacity(zkPass, mul - 1, t - h, h)
-      changeOpacity(kyc, mul - 2, t - 2 * h, h)
-      changeOpacity(architecture, mul - 3, t - 3 * h, h)
-      changeOpacity(protocol, mul - 4, t - 4 * h, h)
-      changeOpacity(whyzkpass, mul - 5, t - 5 * h, h)
-      changeOpacity(resources, mul - 6, t - 6 * h, h)
+      changeOpacity(routerMap.home, mul, t, h)
+      changeOpacity(routerMap.zkPass, mul - 1, t - h, h)
+      changeOpacity(routerMap.kyc, mul - 2, t - 2 * h, h)
+      changeOpacity(routerMap.architecture, mul - 3, t - 3 * h, h)
+      changeOpacity(routerMap.protocol, mul - 4, t - 4 * h, h)
+      changeOpacity(routerMap.whyzkpass, mul - 5, t - 5 * h, h)
+      changeOpacity(routerMap.resources, mul - 6, t - 6 * h, h)
     }
 
-    if (window && window.document) {
+    if (!isMobile && window && window.document) {
       window.document.addEventListener("scroll", updateScrollPosition, false);
       return function cleanup() {
         window.document.removeEventListener("scroll", updateScrollPosition, false);
@@ -60,8 +66,31 @@ const Main = () => {
   }, [])
 
   useEffect(() => {
+    if (router.asPath) {
+      const currentPath = router.asPath.split('/')[1]
+      let currentElement = routerMap[currentPath]
+
+      if (window && window.document) {
+        if (currentPath === "roadmap") {
+          setDefaultTab('Roadmap')
+          currentElement = routerMap.resources
+        }
+
+        if (currentPath === "tokenomic") {
+          setDefaultTab('Tokenomic')
+          currentElement = routerMap.resources
+        }
+
+        if (currentElement && currentElement.current) {
+          currentElement.current.scrollIntoView()
+        }
+      }
+    }
+  }, [router])
+
+  useEffect(() => {
     if (isMobile) return
-    scrollScreen.init({ loop: false, duration: 150, location: [home, zkPass, kyc, architecture, protocol, whyzkpass, resources] })
+    scrollScreen.init({ loop: false, duration: 150, location: [routerMap.home, routerMap.zkPass, routerMap.kyc, routerMap.architecture, routerMap.protocol, routerMap.whyzkpass, routerMap.resources] })
     return () => {
       scrollScreen.unMount();
     }
@@ -70,13 +99,13 @@ const Main = () => {
 
   return <>
     <Navigation indexPage={current}></Navigation>
-    <Home ref={home} ></Home>
-    <ZKPass ref={zkPass}></ZKPass>
-    <KYCModal ref={kyc}></KYCModal>
-    <Architecture ref={architecture}></Architecture>
-    <Protocol ref={protocol}></Protocol>
-    <WhyZKPass ref={whyzkpass}></WhyZKPass>
-    <Resources ref={resources}></Resources>
+    <Home ref={routerMap.home} ></Home>
+    <ZKPass ref={routerMap.zkPass}></ZKPass>
+    <KYCModal ref={routerMap.kyc}></KYCModal>
+    <Architecture ref={routerMap.architecture}></Architecture>
+    <Protocol ref={routerMap.protocol}></Protocol>
+    <WhyZKPass ref={routerMap.whyzkpass}></WhyZKPass>
+    <Resources ref={routerMap.resources} defaultTab={defaultTab}></Resources>
   </>
 }
 

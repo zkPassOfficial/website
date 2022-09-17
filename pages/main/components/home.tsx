@@ -1,9 +1,11 @@
 import styled from "styled-components"
 import Image from "next/image"
-import mainPic from 'public/images/home/main.png'
 import footerPic from 'public/images/home/footer.png'
 import SocialMedia from "components/SocialMedia"
 import { forwardRef } from "react"
+import ScrollOverpack from "components/ScrollOverpack"
+
+import HomeImage from './homeImage'
 
 const HomeContainer = styled.div`
   position: relative;
@@ -26,13 +28,13 @@ const HomeContainer = styled.div`
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 55%;
-  width: 45%;
+  height: 400px;
+  width: 648px;
   ${({ theme }) => theme.sm} {
     position: relative;
-    height: 300px;
-    width: 200px;
-    margin: auto;
+    height: 200px;
+    width: 324px;
+    margin: 80px auto 32px;
   }
 }
 `
@@ -54,7 +56,7 @@ const TextContainer = styled.div`
   bottom: 100px;
   ${({ theme }) => theme.sm} {
     position: relative;
-    bottom: 50px;
+    bottom: 0px;
     padding: 0 20px;
   }
 `
@@ -73,21 +75,23 @@ const Text = styled.span`
 const Home = forwardRef((props, ref) => {
   return <>
     <HomeContainer ref={ref} id="home">
-      <ImageContainer>
-        <Image layout="fill" objectFit="contain" quality={100} src={mainPic} />
-      </ImageContainer>
-      <SocialMedia></SocialMedia>
-      <TextContainer>
-        <Text>
-          zkPass is a decentralized KYC solution based
-        </Text>
-        <Text>
-          on MPC(Multi-Party Computation) and ZKP(Zero-Knowledge Proof)
-        </Text>
-      </TextContainer>
-      <FooterContainer>
-        <Image layout="fill" objectFit="contain" quality={100} src={footerPic} />
-      </FooterContainer>
+      <ScrollOverpack>
+        <ImageContainer>
+          <HomeImage></HomeImage>
+        </ImageContainer>
+        <SocialMedia></SocialMedia>
+        <TextContainer>
+          <Text>
+            zkPass is a decentralized KYC solution based
+          </Text>
+          <Text>
+            on MPC(Multi-Party Computation) and ZKP(Zero-Knowledge Proof)
+          </Text>
+        </TextContainer>
+        <FooterContainer>
+          <Image layout="fill" objectFit="contain" quality={100} src={footerPic} />
+        </FooterContainer>
+      </ScrollOverpack>
     </HomeContainer>
   </>
 })
