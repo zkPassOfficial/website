@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "animate.css": "^4.1.1",
     "next": "^12.2.1-canary.1",
+    "next-videos": "^1.5.0",
     "rc-banner-anim": "^2.4.5",
     "rc-queue-anim": "^2.0.0",
     "rc-scroll-anim": "2.7.6",

@@ -333,7 +333,7 @@ const Navigation = ({ indexPage }: NavigationProps) => {
     }
     {
       playVideo && <Modal closeable close={() => setPlayVideo(false)}>
-        <ReactPlayer url="/files/demo.mp4" playing/>
+        <ReactPlayer url={require("public/files/demo.mp4")} playing/>
       </Modal>
     }
   </>
