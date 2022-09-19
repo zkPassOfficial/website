@@ -315,7 +315,7 @@ const Navigation = ({ indexPage }: NavigationProps) => {
           </MenuItem>
         </MenuContainer>
         <ButtonContainer>
-          <LaunchApp onClick={() => setPlayVideo(true)}>{'LAUNCH DEMO >>'}</LaunchApp>
+        <CustomerLink href="https://demovideo.zkpass.org" target="_blank"><LaunchApp>{'LAUNCH DEMO >>'}</LaunchApp></CustomerLink>
         </ButtonContainer>
       </Box>
     </Position>
