@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'KH Interference';
+  src: url('/fonts/kh-interference/KHInterference-Light.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'KH Interference';
+  src: url('/fonts/kh-interference/KHInterference-Regular.woff2')
+    format('woff2');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'PP FraktionMono';
+  src: url('/fonts/pp-fraktion/PPFraktionMono-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+}
+
+:root {
+  --font-kh: 'KH Interference';
+  --font-pp: 'PP FraktionMono';
+}

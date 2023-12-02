@@ -1,0 +1,10 @@
+.mask {
+  position: relative;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  img {
+    visibility: hidden;
+  }
+}

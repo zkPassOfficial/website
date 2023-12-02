@@ -1,0 +1,75 @@
+.h1 {
+  font-family: var(--font-kh);
+  font-style: normal;
+  font-weight: 300;
+  font-size: mobile-vw(44px);
+  line-height: 0.91;
+  text-transform: uppercase;
+
+  @include desktop {
+    font-size: desktop-vw(92px);
+    line-height: 0.902;
+  }
+}
+
+.h2 {
+  font-family: var(--font-kh);
+  font-style: normal;
+  font-weight: 300;
+  font-size: mobile-vw(32px);
+  line-height: 0.90625;
+  text-transform: uppercase;
+
+  @include desktop {
+    font-size: desktop-vw(32px);
+  }
+}
+
+.h3 {
+  font-family: var(--font-kh);
+  font-style: normal;
+  font-weight: 400;
+  font-size: mobile-vw(24px);
+  line-height: 0.917;
+  text-transform: uppercase;
+
+  @include desktop {
+    font-size: desktop-vw(22px);
+  }
+}
+
+.p {
+  font-family: var(--font-pp);
+  font-style: normal;
+  font-weight: 400;
+  font-size: mobile-vw(12px);
+  line-height: 1.0833;
+  text-transform: uppercase;
+
+  &.indent {
+    text-indent: mobile-vw(31px);
+  }
+
+  @include desktop {
+    font-size: desktop-vw(12px);
+
+    &.indent {
+      text-indent: desktop-vw(31px);
+    }
+  }
+}
+
+a,
+button,
+input,
+p {
+  font-family: var(--font-kh);
+  font-weight: 400;
+  font-size: mobile-vw(12px);
+  line-height: 1.0833;
+  text-transform: uppercase;
+
+  @include desktop {
+    font-size: desktop-vw(12px);
+  }
+}

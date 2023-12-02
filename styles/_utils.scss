@@ -1,0 +1,40 @@
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.mobile-only {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+html:not(.has-scroll-smooth) {
+  .hide-on-native-scroll {
+    display: none;
+  }
+}
+
+html.has-scroll-smooth {
+  .hide-on-smooth-scroll {
+    display: none;
+  }
+}

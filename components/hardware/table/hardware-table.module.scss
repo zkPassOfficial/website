@@ -1,0 +1,146 @@
+.hardwareTable {
+  position: relative;
+  grid-column: 1/-1;
+  grid-row: 41 / span 13;
+  grid-template-rows: repeat(13, minmax(0, 1fr));
+  display: grid;
+  color: var(--white);
+
+  .bg {
+    @include fill;
+    grid-column: 1/-1;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .spacer {
+    grid-column: 1/-1;
+  }
+  .row {
+    &:not(.header) {
+      > *:not(.bg) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        &:hover {
+          background: rgba(#3d3d3d, 0.64);
+        }
+        &.active {
+          background: rgba(#3d3d3d, 0.32);
+        }
+      }
+    }
+    > * {
+      border: solid var(--theme-dot);
+      border-width: 0 1px 1px 0;
+
+      h3 strong {
+        @include body-text;
+      }
+    }
+    &.header > * {
+      border-top: none;
+      border-bottom: none;
+    }
+    &:nth-child(3) > * {
+      border-top: none;
+    }
+    > *:first-child {
+      border-left: none;
+    }
+    &:nth-last-child(3) > * {
+      border-bottom: none;
+    }
+    &:not(.header):hover {
+      background: rgba(#3d3d3d, 0.32);
+    }
+  }
+
+  @include mobile {
+    overflow-x: auto;
+    border: 1px solid var(--theme-dot);
+    margin-bottom: -2px;
+
+    .row {
+      width: calc(var(--layout-column-width) * 4 * 7);
+      grid-template-columns: repeat(7, 1fr);
+      display: grid;
+
+      .title {
+        position: sticky;
+        background: var(--theme-primary);
+        left: 0;
+        width: calc(var(--layout-column-width) * 4);
+        height: calc(var(--layout-column-width) * 3);
+      }
+      &.header {
+        border-bottom: 1px solid var(--theme-dot);
+
+        > * {
+          height: 100%;
+        }
+        .title {
+          background: var(--theme-contrast);
+          color: var(--theme-primary);
+        }
+      }
+      &:not(.header) {
+        grid-row: span 3;
+      }
+      > * {
+        padding: mobile-vw(8px);
+        background: var(--theme-primary);
+      }
+    }
+  }
+
+  @include desktop {
+    grid-row: 43 / span 14;
+    grid-template-rows: repeat(14, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
+
+    .row {
+      grid-column: 1 / span 36;
+      grid-template-columns: repeat(36, minmax(0, 1fr));
+      display: grid;
+      position: relative;
+
+      &:not(.header) {
+        grid-row: span 3;
+
+        > * {
+          padding: desktop-vw(8px);
+        }
+      }
+      > *:not(.bg) {
+        grid-column: span 5;
+      }
+      &.header > * {
+        padding: desktop-vw(6px) desktop-vw(8px);
+
+        &:first-child {
+          background: var(--theme-contrast);
+          color: var(--theme-primary);
+        }
+      }
+      .title {
+        grid-column: span 6;
+      }
+    }
+
+    .headerEnd {
+      grid-column: -3 / span 2;
+      grid-row: 1;
+      position: relative;
+    }
+    .rowEnd {
+      grid-column: -3 / span 2;
+      grid-row: 3 / -1;
+      position: relative;
+
+      .barLevel {
+        right: desktop-vw(12px);
+      }
+    }
+  }
+}

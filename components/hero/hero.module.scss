@@ -1,0 +1,446 @@
+.hero {
+  position: relative;
+  padding-top: calc(2 * var(--layout-column-width));
+  color: var(--white);
+
+  .first {
+    grid-column: 1/ -1;
+    grid-row: 1 / span 14;
+    position: relative;
+
+    .background {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(
+        var(--layout-columns-count),
+        minmax(0, 1fr)
+      );
+      grid-template-rows: repeat(14, minmax(0, 1fr));
+      z-index: -1;
+
+      > * {
+        position: relative;
+
+        &:nth-child(1) {
+          grid-column: 2 / 4;
+          z-index: 5;
+          border-bottom: none;
+        }
+        &:nth-child(2) {
+          grid-column: 1 / -2;
+          grid-row: 2 / span 2;
+          z-index: 4;
+          margin-top: -1px;
+          border-bottom: none;
+        }
+        &:nth-child(3) {
+          grid-column: 1/-1;
+          grid-row: 4 / span 2;
+          margin-top: -1px;
+          margin-bottom: -1px;
+        }
+        &:nth-child(4) {
+          grid-column: 2 / -1;
+          grid-row: 6 / span 3;
+          border-top: none;
+        }
+        &:nth-child(5) {
+          grid-column: 3 / -1;
+          grid-row: 9;
+          z-index: 3;
+          margin-top: -1px;
+          margin-bottom: -1px;
+          border-top: none;
+          border-bottom: none;
+        }
+        &:nth-child(6) {
+          grid-column: 1/-1;
+          grid-row: 10 / span 2;
+        }
+        &:nth-child(7) {
+          grid-column: 3 /-1;
+          grid-row: 12 / span 3;
+          margin-top: -1px;
+          border-top: none;
+        }
+      }
+
+      @include desktop {
+        grid-template-rows: repeat(18, minmax(0, 1fr));
+
+        > * {
+          &:nth-child(1) {
+            grid-column: span 11 / -1;
+            grid-row: 1 / span 2;
+          }
+
+          &:nth-child(2) {
+            grid-row: 2 / span 1;
+            grid-column: 3 / span 2;
+          }
+
+          &:nth-child(3) {
+            grid-row: 2 / span 1;
+            grid-column: 10 / span 5;
+          }
+
+          &:nth-child(4) {
+            grid-column: 3 / -2;
+            grid-row: 3 / span 8;
+          }
+
+          &:nth-child(5) {
+            grid-column: 1 / span 2;
+            grid-row: 8 / span 4;
+          }
+
+          &:nth-child(6) {
+            grid-column: 3 / -9;
+            grid-row: 11 / span 5;
+          }
+
+          &:nth-child(7) {
+            grid-column: 14 / -9;
+            grid-row: span 3 / -1;
+          }
+        }
+      }
+    }
+
+    .fg {
+      @include fill;
+
+      > * {
+        position: absolute;
+      }
+      h1:first-child {
+        left: calc(2.5 * var(--layout-column-width));
+        top: calc(2.5 * var(--layout-column-width));
+      }
+      h1:nth-child(2) {
+        text-align: center;
+        left: calc(2.5 * var(--layout-column-width));
+        top: calc(4.5 * var(--layout-column-width));
+        width: calc(24 * var(--layout-column-width));
+      }
+      h1:nth-child(3) {
+        left: calc(0.5 * var(--layout-column-width));
+        top: calc(7.5 * var(--layout-column-width));
+      }
+      h1:nth-child(4) {
+        left: calc(2.5 * var(--layout-column-width));
+        top: calc(9.5 * var(--layout-column-width));
+      }
+      .body {
+        left: calc(13 * var(--layout-column-width));
+        right: calc(8 * var(--layout-column-width));
+        bottom: 0;
+        grid-template-columns: repeat(17, minmax(0, 1fr));
+        display: grid;
+        align-items: flex-end;
+
+        .logoWrap {
+          color: var(--green);
+          grid-column: 1 / span 2;
+          align-self: center;
+          justify-self: center;
+          // padding-left: calc(0.5 * var(--layout-column-width));
+
+          svg {
+            width: desktop-vw(36px);
+            height: auto;
+
+            path {
+              fill: currentColor;
+            }
+          }
+        }
+        .left {
+          grid-column: 4 / span 5;
+          padding-bottom: calc(0.5 * var(--layout-column-width));
+        }
+
+        .right {
+          grid-column: 11 / span 5;
+          padding-bottom: calc(0.5 * var(--layout-column-width));
+        }
+      }
+
+      .lottieWrap {
+        position: absolute;
+        top: calc(1 * var(--layout-column-width));
+        right: calc(3 * var(--layout-column-width));
+        width: calc(17 * var(--layout-column-width));
+        aspect-ratio: 17 / 13;
+      }
+
+      .cross1 {
+        position: absolute;
+        width: desktop-vw(16px);
+        aspect-ratio: 1;
+        left: calc(3 * var(--layout-column-width));
+        top: calc(2 * var(--layout-column-width));
+        transform: translate(-50%, -50%);
+      }
+
+      .cross2 {
+        position: absolute;
+        width: desktop-vw(16px);
+        aspect-ratio: 1;
+        left: calc(3 * var(--layout-column-width));
+        bottom: calc(4 * var(--layout-column-width));
+        transform: translate(-50%, 50%);
+      }
+
+      .cross3 {
+        position: absolute;
+        width: desktop-vw(16px);
+        aspect-ratio: 1;
+        right: var(--layout-column-width);
+        top: var(--layout-column-width);
+        transform: translate(50%, -50%);
+      }
+
+      @include mobile {
+        h1:nth-child(1) {
+          left: mobile-vw(24px);
+          top: mobile-vw(56px);
+        }
+        h1:nth-child(2) {
+          left: mobile-vw(24px);
+          top: mobile-vw(135px);
+          text-align: left;
+          width: unset;
+        }
+        h1:nth-child(3) {
+          left: mobile-vw(78px);
+          top: mobile-vw(195px);
+        }
+        h1:nth-child(4) {
+          left: mobile-vw(119px);
+          top: mobile-vw(235px);
+        }
+        .body {
+          left: 0;
+          right: var(--layout-column-width);
+          bottom: 0;
+          height: calc(var(--layout-column-width) * 5);
+          grid-template-columns: repeat(7, minmax(0, 1fr));
+          grid-template-rows: repeat(5, minmax(0, 1fr));
+
+          .logoWrap {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+
+            svg {
+              width: mobile-vw(36px);
+            }
+          }
+          .left {
+            grid-column: 4 / span 4;
+            grid-row: 1 / span 2;
+          }
+          .right {
+            grid-column: 4 / span 4;
+            grid-row: 3 / span 3;
+          }
+        }
+
+        .cross1,
+        .cross2,
+        .cross3 {
+          width: mobile-vw(16px);
+        }
+        .cross1 {
+          left: calc(2 * var(--layout-column-width));
+          top: calc(0.5 * var(--layout-column-width));
+        }
+        .cross2 {
+          left: calc(3 * var(--layout-column-width));
+          top: calc(8.5 * var(--layout-column-width));
+          transform: translate(50%, -50%);
+        }
+        .cross3 {
+          right: calc(1 * var(--layout-column-width));
+          top: calc(8.5 * var(--layout-column-width));
+          transform: translate(100%, -50%);
+        }
+      }
+    }
+
+    .levelWrap {
+      position: absolute;
+      right: calc(var(--layout-column-width) * 1);
+      top: calc(var(--layout-column-width) * 3);
+      width: var(--layout-column-width);
+      top: calc(var(--layout-column-width) * 3 - desktop-vw(24px));
+      height: calc(var(--layout-column-width) * 6 + (2 * desktop-vw(24px)));
+    }
+
+    @include desktop {
+      grid-row: 1 / span 18;
+    }
+  }
+
+  .second {
+    grid-column: span 7 / -1;
+    grid-row: 14 / span 6;
+    position: relative;
+
+    .background {
+      position: absolute;
+      inset: 0;
+    }
+
+    .fg {
+      grid-template-rows: 1fr auto auto;
+      display: grid;
+      height: 100%;
+      position: relative;
+
+      .iconWrap {
+        position: relative;
+      }
+      .marquee {
+        overflow-x: hidden;
+        padding: desktop-vw(8px) 0;
+        border-top: 1px solid var(--grey);
+      }
+      .cta {
+        background: var(--theme-contrast);
+        color: var(--theme-primary);
+        padding: desktop-vw(8px) desktop-vw(6px);
+      }
+    }
+
+    .top {
+      position: absolute;
+      bottom: 100%;
+      right: 0;
+      width: var(--layout-column-width);
+      aspect-ratio: 1;
+      border-bottom: 1px solid var(--grey);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        width: desktop-vw(16px);
+        aspect-ratio: 1;
+      }
+    }
+
+    @include mobile {
+      grid-column: 1/-1;
+      grid-row: 18 / span 7;
+
+      .top {
+        border-bottom: none;
+
+        .background {
+          border-bottom: none;
+        }
+        .icon {
+          width: mobile-vw(16px);
+          z-index: 5;
+        }
+      }
+      .fg {
+        .marquee {
+          padding: mobile-vw(8px) 0;
+        }
+        .iconWrap {
+          border: solid var(--theme-dot);
+          border-width: 0 1px;
+        }
+        .cta {
+          padding: mobile-vw(8px);
+        }
+      }
+    }
+  }
+
+  .arrow {
+    grid-column: 1 / span 1;
+    grid-row: 19 / span 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .background {
+      position: absolute;
+      inset: 0;
+    }
+
+    .icon {
+      width: desktop-vw(8px);
+      height: auto;
+    }
+
+    @include mobile {
+      grid-row: 15 / span 1;
+
+      .icon {
+        width: mobile-vw(10px);
+      }
+      .background {
+        z-index: -1;
+      }
+    }
+  }
+
+  .third {
+    grid-column: 2 / -9;
+    grid-row: 21 / span 17;
+    position: relative;
+
+    .bg {
+      grid-template-columns: repeat(29, minmax(0, 1fr));
+      grid-template-rows: repeat(17, minmax(0, 1fr));
+      display: grid;
+      height: 100%;
+
+      :nth-child(1) {
+        grid-column: 1 / -8;
+        grid-row: 1 / 10;
+      }
+      :nth-child(2) {
+        grid-column: -8 / -1;
+        grid-row: 2 / 10;
+      }
+      :nth-child(3) {
+        grid-column: -8 / -3;
+        grid-row: 10;
+      }
+      :nth-child(4) {
+        grid-column: 8 / span 10;
+        grid-row: 10 / span 7;
+      }
+      :nth-child(5) {
+        grid-column: 7;
+        grid-row: 10 / span 3;
+      }
+    }
+
+    .lottieWrap {
+      position: absolute;
+      top: desktop-vw(20px);
+      left: desktop-vw(40px);
+      width: desktop-vw(770px);
+      height: desktop-vw(540px);
+      //   right: desktop-vw(156px);
+      //   bottom: calc(desktop-vw(48px) + var(--layout-column-width));
+    }
+
+    .cross {
+      position: absolute;
+      width: desktop-vw(16px);
+      aspect-ratio: 1;
+      right: var(--layout-column-width);
+      top: calc(var(--layout-column-width) * 2);
+      transform: translate(50%, -50%);
+    }
+  }
+}

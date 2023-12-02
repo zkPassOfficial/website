@@ -1,0 +1,263 @@
+.hardware {
+  .bg {
+    @include fill;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .header {
+    grid-column: 1/-1;
+    grid-row: 6 / span 11;
+    position: relative;
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(
+        var(--layout-columns-count),
+        var(--layout-column-width)
+      );
+      grid-template-rows: repeat(14, var(--layout-column-width));
+    }
+
+    .cross {
+      svg {
+        position: absolute;
+        height: auto;
+        width: mobile-vw(16px);
+        z-index: 5;
+        transform: translate(-50%, -50%);
+
+        &:first-child {
+          top: 0;
+          left: 0;
+        }
+        &:nth-child(2) {
+          right: 0;
+          top: calc(var(--layout-column-width) * 4);
+          transform: translate(50%, -50%);
+        }
+        &:nth-child(3) {
+          display: none;
+        }
+
+        @include desktop {
+          width: desktop-vw(17px);
+
+          &:first-child {
+            top: 0;
+          }
+          &:nth-child(2) {
+            left: calc(var(--layout-column-width) * 24);
+            top: calc(var(--layout-column-width) * 7);
+            transform: translate(-50%, -50%);
+          }
+          &:nth-child(3) {
+            display: block;
+            top: calc(var(--layout-column-width) * 8);
+          }
+        }
+      }
+    }
+
+    .lineWrap {
+      h2 {
+        display: inline-block;
+        // background: var(--theme-layout);
+        // padding: mobile-vw(6px);
+
+        @include mobile {
+          font-size: mobile-vw(32px);
+
+          &:first-child {
+            top: 0;
+            left: mobile-vw(43px);
+          }
+          &:nth-child(2) {
+            top: mobile-vw(64px);
+            right: 0;
+          }
+          &:nth-child(3) {
+            top: mobile-vw(100px);
+            left: 0;
+          }
+        }
+      }
+
+      @include desktop {
+        .line {
+          display: inline-flex;
+          height: 100%;
+          align-items: center;
+          position: relative;
+
+          .background {
+            position: absolute;
+            inset: 0;
+          }
+        }
+
+        &:nth-child(1) {
+          grid-column: 1 / -1;
+          grid-row: 1 / span 3;
+          text-align: center;
+        }
+
+        &:nth-child(2) {
+          grid-column: 1 / -1;
+          grid-row: 3 / span 3;
+          text-align: right;
+        }
+
+        &:nth-child(3) {
+          grid-column: 1 / -1;
+          grid-row: 5 / span 3;
+          text-align: left;
+        }
+
+        // &:first-child {
+        //   top: desktop-vw(27px);
+        //   left: 0;
+        //   right: 0;
+        //   text-align: center;
+        // }
+        // &:nth-child(2) {
+        //   top: desktop-vw(118px);
+        //   right: desktop-vw(-11px);
+        //   text-align: right;
+        // }
+        // &:nth-child(3) {
+        //   top: desktop-vw(201px);
+        //   left: desktop-vw(-10px);
+        // }
+      }
+    }
+
+    > span {
+      position: absolute;
+      background: var(--theme-contrast);
+      color: var(--theme-primary);
+      padding: 0 0.25em;
+      top: calc(var(--layout-column-width) * 5);
+      left: 0;
+
+      @include desktop {
+        top: desktop-vw(358px);
+        left: desktop-vw(72px);
+      }
+    }
+    > p {
+      position: absolute;
+      background: var(--theme-layout);
+      top: calc(var(--layout-column-width) * 5 - mobile-vw(16px));
+      left: calc(var(--layout-column-width) * 3 - mobile-vw(16px));
+      right: calc(-1 * mobile-vw(16px));
+      padding: mobile-vw(16px);
+
+      @include desktop {
+        top: desktop-vw(347px);
+        left: desktop-vw(276px);
+        width: desktop-vw(286px);
+        padding: desktop-vw(11px) desktop-vw(10px) desktop-vw(13px)
+          desktop-vw(14px);
+      }
+    }
+
+    @include desktop {
+      grid-row: 7 / span 12;
+    }
+  }
+
+  .cardsSection {
+    grid-column: 1/-1;
+    grid-row: 17 / span 20;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
+    position: relative;
+    display: grid;
+    color: var(--white);
+
+    .sectionTitle {
+      position: relative;
+      border-right: 1px solid var(--theme-dot);
+      grid-column: 1 / span 4;
+      grid-row: 5;
+      padding: mobile-vw(8px);
+
+      @include desktop {
+        padding: desktop-vw(6px) desktop-vw(8px);
+        grid-column: 1 / span 5;
+        grid-row: 1;
+      }
+    }
+
+    .cardWrap {
+      grid-row: 6/-1;
+      grid-column: 1/-1;
+      grid-template-rows: 1fr 1fr;
+      display: grid;
+      position: relative;
+
+      .card {
+        position: relative;
+        z-index: 2;
+        padding: mobile-vw(16px);
+
+        &:first-child {
+          border-bottom: 1px solid var(--theme-dot);
+        }
+        svg {
+          position: absolute;
+          height: auto;
+          width: mobile-vw(16px);
+          left: mobile-vw(16px);
+          bottom: mobile-vw(16px);
+        }
+        > span {
+          background: var(--green);
+          padding: 0 0.25em;
+          color: var(--theme-primary);
+          position: absolute;
+          top: mobile-vw(8px);
+          left: mobile-vw(8px);
+        }
+
+        @include mobile {
+          p {
+            margin-top: mobile-vw(70px);
+            font-size: mobile-vw(24px);
+          }
+        }
+      }
+
+      @include desktop {
+        grid-column: 6/-1;
+        grid-row: 1/-1;
+
+        .card {
+          padding: desktop-vw(16px);
+          grid-template-columns: 1fr 1fr;
+          display: grid;
+
+          svg {
+            width: desktop-vw(17px);
+            bottom: desktop-vw(16px);
+            left: desktop-vw(16px);
+          }
+          span {
+            top: desktop-vw(8px);
+            left: desktop-vw(8px);
+          }
+          p {
+            grid-column: 2;
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+
+    @include desktop {
+      grid-template-rows: repeat(9, minmax(0, 1fr));
+      grid-row: 27 / span 9;
+    }
+  }
+}

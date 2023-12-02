@@ -1,0 +1,141 @@
+.news {
+  color: var(--white);
+
+  .bg {
+    @include fill;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  h6 {
+    position: relative;
+    grid-row: 6;
+    grid-column: span 4;
+    padding: mobile-vw(8px);
+  }
+
+  .articles {
+    grid-column: 1/-1;
+    grid-row: 7 / span 30;
+    position: relative;
+    grid-template-rows: repeat(30, 1fr);
+    display: grid;
+
+    .imgWrap {
+      position: relative;
+      height: mobile-vw(150px);
+    }
+
+    .article {
+      position: relative;
+      padding: mobile-vw(16px);
+
+      .titleArea {
+        margin-top: mobile-vw(16px);
+      }
+    }
+  }
+
+  @include mobile {
+    .articles {
+      .article {
+        grid-row: span 10;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid var(--theme-dot);
+        }
+        .titleArea h3 {
+          margin-top: mobile-vw(16px);
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    h6 {
+      grid-column: span 6;
+      padding: desktop-vw(6px) desktop-vw(8px);
+      // border-bottom: 1px solid var(--theme-dot);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--theme-dot);
+      }
+    }
+
+    .articles {
+      grid-row: 7 / span 14;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      .article {
+        padding: desktop-vw(16px);
+        transition:
+          background 400ms ease,
+          color 400ms ease;
+
+        &:first-child {
+          grid-row: span 2;
+          border-right: 1px solid var(--theme-dot);
+
+          .imgWrap {
+            height: desktop-vw(363px);
+          }
+          .titleArea {
+            margin-top: desktop-vw(16px);
+            grid-template-columns: desktop-vw(200px) 1fr;
+            display: grid;
+          }
+          .cta {
+            left: desktop-vw(216px);
+          }
+        }
+        &:not(:first-child) {
+          grid-template-columns: desktop-vw(272px) 1fr;
+          display: grid;
+          gap: desktop-vw(36px);
+
+          .imgWrap {
+            height: desktop-vw(150px);
+          }
+          .titleArea {
+            margin: 0;
+          }
+          .titleArea h3 {
+            margin-top: desktop-vw(16px);
+          }
+          .cta {
+            left: desktop-vw(324px);
+          }
+        }
+        &:nth-child(2) {
+          border-bottom: 1px solid var(--theme-dot);
+        }
+
+        .cta {
+          position: absolute;
+          background: var(--theme-primary);
+          color: var(--white);
+          padding: 0 0.1em;
+          bottom: desktop-vw(16px);
+          opacity: 0;
+          transition: opacity 400ms ease;
+        }
+
+        &:hover {
+          background: var(--theme-contrast);
+          color: var(--theme-primary);
+
+          .cta {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

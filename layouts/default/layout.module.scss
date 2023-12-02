@@ -1,0 +1,58 @@
+.layout {
+  background-color: var(--theme-layout);
+  color: var(--theme-secondary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--theme-layout);
+    z-index: 100;
+    transition: 1s opacity var(--ease-out-expo);
+  }
+
+  &.isLoaded::before {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // Mobile Grid
+  @include mobile {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+
+    &::before {
+      pointer-events: none;
+    }
+    &::after {
+      content: '';
+      display: block;
+      --d: 2.5px;
+      position: absolute;
+      height: 100%;
+      top: -3px;
+      bottom: 0;
+      left: 0px;
+      right: 0px;
+      pointer-events: none;
+      background: radial-gradient(
+          circle at var(--d) var(--d),
+          var(--theme-dot) calc(var(--d) - 1px),
+          var(--theme-dot-transparent) var(--d)
+        )
+        0 0 / var(--layout-column-width) var(--layout-column-width);
+      clip-path: inset(0 5px 0 5px);
+    }
+  }
+
+  .main {
+    // if content is empty, footer will remains sticky to bottom
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+  }
+}
