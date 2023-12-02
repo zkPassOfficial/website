@@ -1,0 +1,9 @@
+.debug {
+  bottom: calc(var(--layout-column-width) + var(--tiles-margin-y));
+  right: var(--layout-column-width);
+  position: fixed;
+  width: calc(4 * var(--layout-column-width));
+  z-index: 10;
+  aspect-ratio: var(--aspect);
+  border: 1px solid var(--grey);
+}

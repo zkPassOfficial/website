@@ -1,35 +1,69 @@
-## Built With
-- [React](http://www.reactjs.org)
+# zkPass
+
+## Setup
+
+The usual process for Next.js based apps/websites:
+
+1. Install node modules:
+
+   `$ pnpm i`
+
+2. Get the .env variables from Vercel (check `.env.template`), after [installing Vercel CLI](https://vercel.com/docs/cli):
+
+   `$ vc link`
+
+   `$ vc env pull`
+
+3. run development environment:
+
+   `$ pnpm dev`
+
+## Stack
+
+- [Lenis](https://github.com/studio-freight/lenis)
+- [Tempus](https://github.com/studio-freight/tempus)
+- [Hamo](https://github.com/studio-freight/hamo)
+- [PNPM](https://pnpm.io/)
 - [Next.js](https://nextjs.org/)
+- [Three.js](https://threejs.org/)
+- [@react-three/drei](https://github.com/pmndrs/drei)
+- [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+- [GSAP](https://greensock.com/gsap/)
+- [Embla Carousel](https://github.com/davidcetinkaya/embla-carousel)
+- Sass (Modules)
+- [Zustand](https://github.com/pmndrs/zustand)
+- GraphQL (CMS API)
+- [Next-Sitemap](https://github.com/iamvishnusankar/next-sitemap) (postbuild script)
+- [@svgr/webpack](https://github.com/gregberge/svgr/tree/main) (SVG Imports in `next.config.js`)
 
-## Getting Started
+## Code Style & Linting
 
-First, run the development server:
+- Eslint ([Next](https://nextjs.org/docs/basic-features/eslint#eslint-config) and [Prettier](https://github.com/prettier/eslint-config-prettier) plugins)
+- [Prettier](https://prettier.io/) with the following settings available in `.pretierrc`:
+  ```json
+  {
+    "endOfLine": "auto",
+    "semi": false,
+    "singleQuote": true
+  }
+  ```
+- [Husky + lint-staged precommit hooks](https://github.com/okonet/lint-staged)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Third Party
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [TinaCMS](https://tina.io/)
+- [Vercel (Hosting & Continuous Deployment)](https://vercel.com/home)
+- [GitHub Versioning](https://github.com/)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Folder Structure
 
-## Key Files
+Alongside the usual Next.js folder structure (`/public`, `/pages`, etc.) We've added a few other folders to keep the code easier to read:
 
-**`next.config.js`**
-
- This is a regular Node.js module, not a JSON file. It gets used by the Next.js server and build phases, and it's not included in the browser build. 
-
-**`public`**
-
-Next.js can serve static files, like images, under a folder called public in the root directory.
-
-**`pages`**
-
-In Next.js, a page is a React Component exported from a .js, .jsx, .ts, or .tsx file in the pages directory. Each page is associated with a route based on its file name.
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **/assets:** General Images/Videos and SVGs
+- **/components:** Reusable components with their respective Sass file
+- **/tina:** Fragments/Queries/Renderers
+- **/config:** General settings (mostly Leva for now)
+- **/hooks:** Reusable Custom Hooks
+- **/layouts:** High level layout component
+- **/lib:** Reusable Scripts and State Store
+- **/styles:** Global styles and Sass partials

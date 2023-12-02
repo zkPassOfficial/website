@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 320 320">
+  <style>
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fill-color: #C5FF4A;
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --fill-color: #000;
+    }
+  }
+  </style>
+  <g clip-path="url(#a)"><path fill="var(--fill-color)" fill-rule="evenodd" d="M63.96 0h191.97a63.92 63.92 0 0 1 63.96 63.95v63.96h-63.96V63.95H63.96V0ZM0 63.95h63.95v64.07h192.1v63.96H63.95V320H0V63.95Z" clip-rule="evenodd"/></g><defs><clipPath id="a"><path fill="var(--fill-color)" d="M0 0h320v320H0z"/></clipPath></defs></svg>

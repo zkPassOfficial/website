@@ -1,0 +1,25 @@
+.barLevel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  padding: mobile-vw(24px) 0;
+  width: mobile-vw(16px);
+
+  .bar {
+    height: 1px;
+    background: var(--theme-dot);
+    transition: background 1.15s cubic-bezier(0.4, 0, 0, 1);
+
+    &.filled {
+      background: var(--green);
+    }
+  }
+
+  @include desktop {
+    padding: desktop-vw(24px) 0;
+    width: desktop-vw(16px);
+  }
+}

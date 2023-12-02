@@ -1,0 +1,10 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "astro-satus": false
+    }
+  },
+  "github": {
+    "silent": true
+  }
+}

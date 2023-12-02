@@ -1,0 +1,91 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  color: var(--white);
+
+  > * {
+    border-bottom: 1px solid var(--theme-dot);
+    border-left: 1px solid var(--theme-dot);
+    align-self: flex-start;
+    height: desktop-vw(24px);
+    padding: desktop-vw(4px) desktop-vw(8px);
+  }
+  .logoLink {
+    grid-column: span 5;
+    background: var(--theme-primary);
+    border-right: 1px solid var(--theme-dot);
+
+    svg {
+      width: desktop-vw(44px);
+      height: auto;
+    }
+  }
+  .navLink {
+    grid-column: span 4;
+    background: var(--theme-primary);
+    position: relative;
+
+    &:nth-child(2) {
+      grid-column: 7 / span 4;
+    }
+
+    &.dropdownItem {
+      &:hover {
+        .dropdownLabel {
+          background: var(--theme-contrast);
+          color: var(--theme-primary);
+        }
+        .dropdown {
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+    }
+    .dropdownLabel {
+      @include fill;
+      padding: desktop-vw(4px) desktop-vw(8px);
+      transition: background 300ms ease;
+    }
+    .dropdown {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      transform: translateY(100%);
+      background: var(--theme-primary);
+      display: flex;
+      flex-direction: column;
+      width: calc(var(--layout-column-width) * 8);
+      border: solid var(--theme-dot);
+      border-width: 0 1px 1px 1px;
+
+      > * {
+        height: desktop-vw(24px);
+        display: flex;
+        align-items: center;
+        padding: 0 desktop-vw(8px);
+
+        &:not(:first-child) {
+          border-top: 1px solid var(--theme-dot);
+        }
+        .comingSoon {
+          color: var(--theme-dot);
+          font-weight: bold;
+        }
+      }
+      a:hover {
+        background: var(--theme-dot);
+      }
+    }
+  }
+  .cta {
+    grid-column: span 4;
+    background: var(--theme-contrast);
+    color: var(--theme-primary);
+    border-right: 1px solid var(--theme-dot);
+  }
+}

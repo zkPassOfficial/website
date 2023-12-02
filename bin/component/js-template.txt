@@ -1,0 +1,8 @@
+import cn from 'clsx'
+import s from './$KEBAB.module.scss'
+
+export function $PASCAL(props) {
+  return (<div className={cn(s.$CAMEL, 'layout-grid')}>
+    <h1>$PASCAL</h1>
+  </div>)
+}

@@ -1,0 +1,290 @@
+.stats {
+  .header {
+    position: relative;
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / span 20;
+    grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
+    grid-template-rows: repeat(20, minmax(0, 1fr));
+
+    .cross {
+      width: mobile-vw(16px);
+      height: auto;
+      position: absolute;
+      transform: translate(-50%, -50%);
+
+      &.one {
+        left: var(--layout-column-width);
+        top: calc(var(--layout-column-width) * 8);
+      }
+      &.two {
+        right: var(--layout-column-width);
+        top: calc(var(--layout-column-width) * 8);
+        transform: translate(50%, -50%);
+      }
+
+      @include desktop {
+        width: desktop-vw(16px);
+
+        &.one {
+          top: calc(var(--layout-column-width) * 6);
+        }
+        &.two {
+          top: calc(var(--layout-column-width) * 13);
+        }
+      }
+    }
+
+    .lineWrap {
+      grid-column: 1/-1;
+
+      .line {
+        display: inline-flex;
+        height: 100%;
+        align-items: center;
+        position: relative;
+
+        .background {
+          position: absolute;
+          inset: 0;
+        }
+      }
+
+      &:nth-child(1) {
+        grid-row: 5;
+
+        h2 {
+          margin-left: auto;
+        }
+      }
+      &:nth-child(2) {
+        grid-row: 6;
+      }
+      &:nth-child(3) {
+        grid-row: 11;
+      }
+      &:nth-child(4) {
+        grid-row: 12;
+
+        h2 {
+          margin-left: auto;
+        }
+      }
+
+      @include mobile {
+        background: var(--theme-layout);
+        margin: -3px -2px;
+      }
+      @include desktop {
+        &:nth-child(1) {
+          grid-column: span 20 / -1;
+          grid-row: 1 / span 3;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        &:nth-child(2) {
+          grid-column: span 20 / -1;
+          grid-row: 3 / span 3;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        &:nth-child(3) {
+          grid-column: 2 / span 15;
+          grid-row: span 3 / -4;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        &:nth-child(4) {
+          grid-column: 2 / span 15;
+          grid-row: span 3 / -2;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    .body {
+      grid-column: 2 / -2;
+      grid-row: 14 / span 2;
+      //   margin: var(--layout-column-width);
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &::before {
+        content: '';
+        inset: calc(-0.5 * var(--layout-column-width));
+        position: absolute;
+        background: var(--theme-layout);
+        z-index: -1;
+      }
+
+      p {
+        text-indent: mobile-vw(31px);
+      }
+      strong {
+        background: var(--theme-secondary);
+        color: var(--theme-layout);
+        padding: 0 0.1em;
+      }
+
+      @include mobile {
+        .cross {
+          display: none;
+        }
+      }
+
+      @include desktop {
+        grid-column: span 7 / -5;
+        grid-row: span 2 / -5;
+
+        p {
+          text-indent: var(--layout-column-width);
+        }
+        .cross {
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+
+    button {
+      position: relative;
+      grid-row: 8 / span 2;
+      grid-column: 4 / span 2;
+      border: 1px solid var(--theme-invert-layout);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--theme-layout);
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        background: var(--theme-invert-layout);
+        border-radius: 100%;
+        background-color: var(--theme-invert-layout);
+        transition: 400ms transform var(--ease-out-expo);
+      }
+
+      &:not(:hover) {
+        &::before {
+          transform: scale(0);
+        }
+      }
+
+      .buttonInner {
+        width: mobile-vw(12px);
+        height: mobile-vw(12px);
+        background: var(--theme-invert-layout);
+        position: relative;
+      }
+
+      @include desktop {
+        grid-column: 19 / span 4;
+        grid-row: 7 / span 4;
+
+        .buttonInner {
+          width: desktop-vw(16px);
+          height: desktop-vw(16px);
+        }
+      }
+    }
+
+    @include desktop {
+      grid-row: 1 / span 14;
+      grid-template-rows: repeat(14, minmax(0, 1fr));
+    }
+  }
+  .cardsArea {
+    grid-column: 1/-1;
+    grid-row: 21 / span 17;
+    grid-template-rows: repeat(17, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--layout-columns-count), minmax(0, 1fr));
+    display: grid;
+    color: var(--white);
+
+    h4 {
+      position: relative;
+      border-right: 1px solid var(--theme-dot);
+      grid-column: 1 / span 4;
+      padding: mobile-vw(8px);
+
+      .bg {
+        @include fill;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      @include desktop {
+        grid-column: 1 / span 6;
+        padding: desktop-vw(8px);
+      }
+    }
+    .card {
+      grid-column: 1/-1;
+      grid-row: span 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      padding: mobile-vw(8px) mobile-vw(16px) mobile-vw(19px) mobile-vw(8px);
+
+      .bg {
+        @include fill;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      p {
+        text-align: right;
+      }
+      @include mobile {
+        .barLevel {
+          height: mobile-vw(72px);
+          top: unset;
+          bottom: 0;
+          left: mobile-vw(8px);
+          box-sizing: content-box;
+        }
+      }
+
+      @include desktop {
+        grid-column: span 16;
+        grid-row: span 7;
+        padding: desktop-vw(8px);
+
+        .barLevel {
+          top: desktop-vw(40px);
+        }
+        &:nth-child(even) {
+          grid-column: 7 / span 16;
+          border-right: 1px solid var(--theme-dot);
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          border-bottom: 1px solid var(--theme-dot);
+        }
+      }
+    }
+
+    @include desktop {
+      grid-row: 22 / span 14;
+      grid-template-rows: repeat(14, minmax(0, 1fr));
+    }
+  }
+
+  .filler {
+    @include desktop {
+      grid-column: 1/-1;
+      grid-row: 36 / span 7;
+    }
+  }
+}

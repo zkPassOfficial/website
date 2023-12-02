@@ -1,0 +1,11 @@
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include desktop {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}
