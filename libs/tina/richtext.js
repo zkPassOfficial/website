@@ -1,12 +1,8 @@
-import { gsap } from 'gsap'
-import { ScrambleTextPlugin } from 'gsap/dist/ScrambleTextPlugin'
 import NextImage from 'next/image'
 import { useEffect, useRef } from 'react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { shuffle } from 'txt-shuffle'
 import s from './richtext.module.scss'
-
-gsap.registerPlugin(ScrambleTextPlugin)
 
 export const RichText = ({ content, components = {}, scramble }) => {
   return (
