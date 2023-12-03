@@ -690,7 +690,7 @@ const contact = {
       },
       contactCTA: {
         text: 'Contact',
-        url: 'mailto:hello@studiofreight.com',
+        url: 'mailto:help@zkpass.org',
       },
     },
   },

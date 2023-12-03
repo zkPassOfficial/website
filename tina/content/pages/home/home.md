@@ -6,11 +6,11 @@ global:
         - groupLabel: Resources
           links:
             - text: Whitepaper
-              url: 'https://google.com'
+              url: 'https://docsend.com/view/5wdg66beu7m95jf3'
             - text: Doc
-              url: 'https://google.com'
+              url: 'https://zkpass.gitbook.io/zkpass/'
             - text: Roadmap
-              url: 'https://google.com'
+              url: 'https://zkpass.gitbook.io/zkpass/supports/road-map'
         - groupLabel: Devs
           links:
             - text: Contributor Program
@@ -61,7 +61,7 @@ global:
               text: Github
               url: 'https://github.com/zkPassOfficial'
     _template: navigation
-  - title: zkPass
+  - title: zkPass - Private Data Protocol
     description: Privacy-focused to connect the world
     keywords:
       - web3
@@ -149,7 +149,7 @@ sections:
           web2 realm to web2 or web3.
         cta:
           text: Install
-          url: 'https://pre.zkpass.org/dashboard'
+          url: 'https://chromewebstore.google.com/detail/zkpass-transgate/afkoofjocpbclhnldmmaphappihehpma'
       - title: Proof 3 SDK
         illustration: /cms/svg/proof.svg
         description: >
@@ -231,43 +231,43 @@ sections:
         block: |
           ### 4
         setupTime: |
-          ### 0**s**
+          ### 1.2**s**
         proveTime: |
-          ### 22000**ms**
+          ### 210**ms**
         verifyTime: |
-          ### 100**ms**
+          ### 60**ms**
         memory: |
-          ### 630**m**
+          ### 80**m**
         gates: |
           ### 540,292
       - title: |
           ### Snark
         block: |
-          ### 4
+          ### 10
         setupTime: |
-          ### 0**s**
+          ### 2.2**s**
         proveTime: |
-          ### 22000**ms**
+          ### 340**ms**
         verifyTime: |
           ### 100**ms**
         memory: |
-          ### 630**m**
+          ### 130**m**
         gates: |
-          ### 540,292
+          ### 1,350,730
       - title: |
           ### Snark
         block: |
-          ### 4
+          ### 20
         setupTime: |
-          ### 0**s**
+          ### 3.4**s**
         proveTime: |
-          ### 22000**ms**
+          ### 580**ms**
         verifyTime: |
-          ### 100**ms**
+          ### 160**ms**
         memory: |
-          ### 630**m**
+          ### 180**m**
         gates: |
-          ### 540,292
+          ### 2,701,460
     _template: hardware
   - sectionTitle: Use Cases
     cards:
@@ -314,7 +314,7 @@ sections:
           manual review.
     cta:
       text: More Use Cases
-      url: 'https://google.com'
+      url: 'https://zkpass.gitbook.io/zkpass/introduction/use-cases'
     _template: useCases
   - row:
       - sectionTitle: Partners

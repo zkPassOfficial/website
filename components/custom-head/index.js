@@ -6,7 +6,7 @@ export function CustomHead({
   description,
   image,
   keywords,
-  twitter = { handle: '@studiofreight' },
+  twitter = { handle: '@zkPass' },
 }) {
   return (
     <>
