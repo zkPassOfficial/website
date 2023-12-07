@@ -97,11 +97,11 @@ sections:
     cardsSectionTitle: Our Standings
     cards:
       - title: ZkProof Generation
-        number: 200K
+        number: 315K
       - title: Transactions
-        number: 230K
+        number: 330K
       - title: Community Supporters
-        number: 126K
+        number: 130K
       - title: ZK Templates
         number: '65'
     _template: stats
