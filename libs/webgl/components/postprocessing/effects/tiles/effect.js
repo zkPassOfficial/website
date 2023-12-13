@@ -60,11 +60,17 @@ const fragmentShader = glsl`
       vec4 mask = texture2D(uTexture, aspectUV);
 
       float outline = sobel(uTexture, step / resolution.x, step / resolution.y, aspectUV);
-      outline = clamp(outline, 0., 1.);
+      outline = clamp(outline, 0., 0.8);
 
       vec3 color = blendNormal(uBackgroundColor, uOutlineColor, outline);
 
-      outputColor = vec4(color, outline + mask.r);
+      // Multiply opacity without breaking outlines
+      float alpha = outline + mask.r;
+      if (mask.a > 0.0001 && mask.a < 0.9999) {
+        alpha *= mask.a;
+      }
+
+      outputColor = vec4(color, alpha);
     }
 `
 

@@ -22,10 +22,7 @@ const MobileAccordion = ({ cards }) => {
             <div className={cn(s.cardTitle)}>
               <Background className={s.bg} />
 
-              <h4 className={cn(s.static, 'h1')}>
-                {card.title}
-                {!card.cta && <span className="p">Coming Soon</span>}
-              </h4>
+              <h4 className={cn(s.static, 'h1')}>{card.title}</h4>
 
               <Marquee className={s.marquee} repeat={3}>
                 <h4 className="h1">
@@ -83,7 +80,7 @@ export function Approach(props) {
   const handleShuffle = (text, cardIndex, isCTA = false) => {
     shuffle({
       text: text,
-      duration: 1.15,
+      duration: 0.75,
       stayFrames: 25,
       onUpdate: (output) => {
         if (isCTA) {
@@ -125,14 +122,16 @@ export function Approach(props) {
           key={i}
           onMouseEnter={() => {
             setActiveCard(i)
-            handleShuffle(card.title, i)
+            if (activeCard !== i) {
+              handleShuffle(card.title, i)
+            }
             if (card.cta) {
               handleShuffle(card.cta?.text, i, true)
             }
           }}
           onMouseLeave={() => {
             setExitingCard(i)
-            handleShuffle(card.title, i)
+            // handleShuffle(card.title, i)
             setTimeout(() => {
               setExitingCard(null)
             }, 400)

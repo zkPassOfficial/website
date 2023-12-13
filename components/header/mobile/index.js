@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import s from './header-mobile.module.scss'
+import { useLenis } from '@studio-freight/react-lenis'
 
 const ChevronLeft = dynamic(() => import('/assets/svgs/chevron-left.svg'), {
   ssr: false,
@@ -43,11 +44,17 @@ export function HeaderMobile(props) {
     }
   }, [])
 
+  const lenis = useLenis()
+
   return (
     <header className={cn(s.headerMobile, 'mobile-only')}>
-      <Link href="/" className={s.logoLink}>
+      <button
+        href="/"
+        className={s.logoLink}
+        onClick={() => lenis?.scrollTo(0)}
+      >
         ZkPass
-      </Link>
+      </button>
 
       <button className={s.menuButton} onClick={() => setMenuOpen(!menuOpen)}>
         <span>{menuOpen ? 'Close' : 'Menu'}</span>

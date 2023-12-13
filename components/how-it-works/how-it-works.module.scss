@@ -68,14 +68,6 @@
           width: mobile-vw(56px);
           height: auto;
           top: 0;
-
-          circle[fill] {
-            fill: var(--green);
-          }
-
-          path[stroke] {
-            stroke: var(--green);
-          }
         }
 
         h3 {
@@ -102,6 +94,7 @@
           grid-template-columns: auto auto;
           grid-template-rows: auto auto;
           display: grid;
+          height: auto;
 
           .icon {
             grid-column: 1/-1;

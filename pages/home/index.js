@@ -14,10 +14,6 @@ import { client } from 'tina/__generated__/client'
 import s from './home.module.scss'
 import { useStore } from '/libs/store'
 
-// @refresh reset
-
-console.log('refresh home')
-
 const pageId = 'home'
 
 export default function Home({ home }) {

@@ -1,28 +1,21 @@
 import { Image, Link } from '@studio-freight/compono'
+import { useLenis } from '@studio-freight/react-lenis'
 import cn from 'clsx'
 import { BarLevel } from 'components/bar-level'
-import { Lottie } from 'components/lottie'
+import { Rive } from 'components/rive'
 import { TextMarquee } from 'components/text-marquee'
 import { Background } from 'libs/webgl/components/background'
-import { useCallback, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { shuffle } from 'txt-shuffle'
 import s from './hero.module.scss'
 import ArrowIcon from '/assets/svgs/arrow.svg'
 import CrossIcon from '/assets/svgs/cross.svg'
 import Logomark from '/assets/svgs/logomark.svg'
-import { useEffect } from 'react'
 
 export function Hero(props) {
+  const lenis = useLenis()
   const { header, banner, bodyLeft, bodyRight } = props
-
-  const handleLottie = useCallback((lottie) => {
-    if (!lottie) return
-    lottie.addEventListener('complete', () => {
-      lottie.goToAndPlay(90, true)
-    })
-    lottie.play()
-  }, [])
 
   const [shuffledText, setShuffledText] = useState('')
   const handleShuffle = (text) => {
@@ -83,7 +76,7 @@ export function Hero(props) {
           </div>
 
           <div className={cn(s.lottieWrap, 'desktop-only')}>
-            <Lottie file="/lotties/hero.json" loop={false} ref={handleLottie} />
+            <Rive file="/animations/hero.riv" loop scrubOnLoop={1.5} />
           </div>
 
           <CrossIcon className={s.cross1} />
@@ -129,8 +122,9 @@ export function Hero(props) {
       </div>
       <button
         className={s.arrow}
+        aria-label="scroll to stats section"
         onClick={() => {
-          console.log('click')
+          lenis.scrollTo('#stats')
         }}
       >
         <Background className={s.background} />
@@ -144,7 +138,7 @@ export function Hero(props) {
         </div>
 
         <div className={s.lottieWrap}>
-          <Lottie file="/lotties/hero-2.json" loop={true} />
+          <Rive file="/animations/hero-2.riv" loop />
         </div>
 
         <CrossIcon className={s.cross} />

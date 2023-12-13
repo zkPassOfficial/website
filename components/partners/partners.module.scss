@@ -88,11 +88,14 @@
         &:first-child {
           border-left: 1px solid var(--theme-dot);
         }
+        &:last-child {
+          border: 0;
+        }
         .imgWrap {
           position: relative;
           background: var(--theme-contrast);
           transition: background 300ms;
-          width: mobile-vw(56px);
+          width: mobile-vw(200px);
           height: mobile-vw(56px);
         }
         .marquee {
@@ -143,7 +146,7 @@
       h6 {
         padding: desktop-vw(6px) desktop-vw(8px);
         grid-column: 1 / span 6;
-        // border-bottom: 1px solid var(--theme-dot);
+        margin-bottom: -1px;
 
         &::after {
           content: '';

@@ -1,5 +1,7 @@
-import { Accordion, Image, Link } from '@studio-freight/compono'
+import { Accordion, Image, Link, Marquee } from '@studio-freight/compono'
 import cn from 'clsx'
+import { useDeviceDetection } from 'components/device-detection'
+import { hyphenated } from 'hyphenated'
 import { Background } from 'libs/webgl/components/background'
 import dynamic from 'next/dynamic'
 import { tinaField } from 'tinacms/dist/react'
@@ -14,6 +16,8 @@ export function UseCases(props) {
   const { sectionTitle, cards, cta } = props
 
   const { shuffledText, handleShuffle } = useShuffle({ text: cta.text })
+
+  const { isMobile } = useDeviceDetection()
 
   return (
     <section
@@ -38,9 +42,29 @@ export function UseCases(props) {
             value={`item-${i}`}
           >
             <Accordion.Trigger className={s.accordionTrigger}>
-              <span className="p" data-tina-field={tinaField(card, 'title')}>
-                {card.title}
-              </span>
+              {isMobile && card.title?.length > 38 ? (
+                <Marquee duration={10} inverted={true}>
+                  <span
+                    className="p"
+                    data-tina-field={tinaField(card, 'title')}
+                  >
+                    {card.title}
+                  </span>
+                  <svg
+                    width="12"
+                    height="13"
+                    viewBox="0 0 12 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="6" cy="6.5" r="6" fill="currentColor" />
+                  </svg>
+                </Marquee>
+              ) : (
+                <span className="p" data-tina-field={tinaField(card, 'title')}>
+                  {card.title}
+                </span>
+              )}
             </Accordion.Trigger>
             <Accordion.Content className={s.accordionContent}>
               <div className={s.contentInner}>
@@ -53,7 +77,7 @@ export function UseCases(props) {
                     className="h1"
                     data-tina-field={tinaField(card, 'header')}
                   >
-                    {card.header}
+                    {hyphenated(card.header)}
                   </h3>
                   <div
                     className={cn(s.imgWrap, 'desktop-only')}

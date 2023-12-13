@@ -9,6 +9,7 @@ import { shuffle } from 'txt-shuffle'
 import { TextBackground } from '../../libs/webgl/components/background'
 import s from './stats.module.scss'
 
+import { useIntersectionObserver } from '@studio-freight/hamo'
 import CrossIcon from '/assets/svgs/cross.svg'
 
 export function Stats(props) {
@@ -78,8 +79,12 @@ export function Stats(props) {
     }
   }, [inView, fillLevels])
 
+  const [setRef, { isIntersecting }] = useIntersectionObserver({
+    threshold: 1,
+  })
+
   return (
-    <section className={cn(s.stats, 'layout-grid')}>
+    <section className={cn(s.stats, 'layout-grid')} id="stats">
       <div className={s.header}>
         <div className={s.lineWrap}>
           <div className={s.line}>
@@ -121,7 +126,12 @@ export function Stats(props) {
           {/* </div> */}
         </div>
 
-        <button className={s.themeButton} onClick={toggleTheme}>
+        <button
+          className={cn(s.themeButton, isIntersecting && s.inView)}
+          onClick={toggleTheme}
+          ref={setRef}
+          aria-label="toggle theme"
+        >
           <div className={s.buttonInner} />
         </button>
 

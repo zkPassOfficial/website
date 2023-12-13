@@ -1,8 +1,8 @@
 .hardwareTable {
   position: relative;
   grid-column: 1/-1;
-  grid-row: 41 / span 13;
-  grid-template-rows: repeat(13, minmax(0, 1fr));
+  grid-row: 41 / span 14;
+  grid-template-rows: repeat(14, minmax(0, 1fr));
   display: grid;
   color: var(--white);
 
@@ -16,6 +16,8 @@
     grid-column: 1/-1;
   }
   .row {
+    position: relative;
+
     &:not(.header) {
       > *:not(.bg) {
         display: flex;
@@ -48,9 +50,7 @@
     > *:first-child {
       border-left: none;
     }
-    &:nth-last-child(3) > * {
-      border-bottom: none;
-    }
+
     &:not(.header):hover {
       background: rgba(#3d3d3d, 0.32);
     }
@@ -58,8 +58,8 @@
 
   @include mobile {
     overflow-x: auto;
-    border: 1px solid var(--theme-dot);
     margin-bottom: -2px;
+    border-top: 1px solid var(--theme-dot);
 
     .row {
       width: calc(var(--layout-column-width) * 4 * 7);
@@ -72,6 +72,7 @@
         left: 0;
         width: calc(var(--layout-column-width) * 4);
         height: calc(var(--layout-column-width) * 3);
+        border-left: 1px solid var(--theme-dot);
       }
       &.header {
         border-bottom: 1px solid var(--theme-dot);
@@ -90,6 +91,37 @@
       > * {
         padding: mobile-vw(8px);
         background: var(--theme-primary);
+      }
+    }
+
+    .mobileProgress {
+      position: sticky;
+      left: 0;
+      width: calc(var(--layout-column-width) * 8);
+
+      .dotWrap {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: var(--theme-primary);
+        width: calc(var(--layout-column-width) * 4);
+        height: mobile-vw(24px);
+        border: 1px solid var(--theme-dot);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 mobile-vw(16px);
+
+        .dot {
+          width: mobile-vw(4px);
+          height: mobile-vw(4px);
+          border-radius: 50%;
+          background: var(--white);
+
+          &.active {
+            background: var(--green);
+          }
+        }
       }
     }
   }
@@ -114,6 +146,9 @@
       }
       > *:not(.bg) {
         grid-column: span 5;
+      }
+      &:nth-last-child(4) > * {
+        border-bottom: none;
       }
       &.header > * {
         padding: desktop-vw(6px) desktop-vw(8px);

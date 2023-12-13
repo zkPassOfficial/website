@@ -1,0 +1,98 @@
+<svg
+   class="svg-dot-matrix"
+   width="56"
+   height="56"
+   viewBox="0 0 56 56"
+   fill="none"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   >
+  <g>
+    <circle
+       cx="4.4210501"
+       cy="4.4210501"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="4.4210501"
+       cy="27.999901"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="4.4210501"
+       cy="51.578999"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="28"
+       cy="4.4210501"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="28"
+       cy="27.999901"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="28"
+       cy="51.578999"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="51.578899"
+       cy="4.4210501"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="51.578899"
+       cy="27.999901"
+       r="4.4210501"
+       fill="currentColor"
+        />
+    <circle
+       cx="51.578899"
+       cy="51.578999"
+       r="4.4210501"
+       fill="currentColor"
+        />
+        </g>
+        <g>
+    <path
+       d="M 4.42102,4.42114 V 27.935838"
+       stroke="currentColor"
+       stroke-width="0.516298"
+        />
+    <path
+       d="M 4.4230306,27.913187 V 51.427885"
+       stroke="currentColor"
+       stroke-width="0.516298"
+        />
+    <path
+       d="M 28.002686,4.4768066 V 27.991505"
+       stroke="currentColor"
+       stroke-width="0.516298"
+        />
+    <path
+       d="M 28.004697,27.968854 V 51.483552"
+       stroke="currentColor"
+       stroke-width="0.516298"
+        />
+    <path
+       d="M 51.574919,4.9259489 V 28.440647"
+       stroke="currentColor"
+       stroke-width="0.516298"
+        />
+    <path
+       d="M 51.57693,28.417996 V 51.932694"
+       stroke="currentColor"
+       stroke-width="0.516298"
+        />
+  </g>
+</svg>

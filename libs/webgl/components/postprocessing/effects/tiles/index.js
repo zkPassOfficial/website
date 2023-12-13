@@ -3,6 +3,8 @@ import { useWindowSize } from '@studio-freight/hamo'
 import { useLenis } from '@studio-freight/react-lenis'
 import { types } from '@theatre/core'
 import { useTheme } from 'hooks/use-theme'
+import { mapRange } from 'libs/maths'
+import { useStore } from 'libs/store'
 import { useCurrentSheet } from 'libs/theatre'
 import { useTheatre } from 'libs/theatre/hooks/use-theatre'
 import { BlendFunction } from 'postprocessing'
@@ -60,7 +62,7 @@ export function useTilesEffect() {
 
   const [canvas] = useState(() => document.createElement('canvas'))
   const context = canvas.getContext('2d')
-  canvas.style.transition = 'opacity 0.5s ease-in-out'
+  canvas.style.transition = 'opacity 0.5s ease-in-out, background 300ms ease'
 
   useEffect(() => {
     if (!lenis) return
@@ -147,16 +149,15 @@ export function useTilesEffect() {
     const data = new Uint8ClampedArray(size * 4)
 
     for (let i = 0; i < size; i++) {
-      const value = Boolean(
+      const value =
         matrix[i % matrix.length][Math.floor(i / matrix.length)] ||
-          interactiveMatrix[i % matrix.length][Math.floor(i / matrix.length)],
-      )
+        interactiveMatrix[i % matrix.length][Math.floor(i / matrix.length)]
 
       const channel = i * 4
-      data[channel] = value ? 255 : 0
-      data[channel + 1] = value ? 255 : 0
-      data[channel + 2] = value ? 255 : 0
-      data[channel + 3] = 255
+      data[channel] = value > 0 ? 255 : 0
+      data[channel + 1] = value > 0 ? 255 : 0
+      data[channel + 2] = value > 0 ? 255 : 0
+      data[channel + 3] = mapRange(0, 1, value, 0, 255)
     }
 
     const texture = new DataTexture(data, matrix.length, matrix[0].length)
@@ -178,6 +179,10 @@ export function useTilesEffect() {
 
   const { width: windowWidth, height: windowHeight } = useWindowSize()
 
+  const [currentTheme, toggleTheme] = useStore(({ theme, toggleTheme }) => [
+    theme,
+    toggleTheme,
+  ])
   useEffect(() => {
     if (!matrix) return
 
@@ -187,10 +192,13 @@ export function useTilesEffect() {
     canvas.className = s.debug
     canvas.style.setProperty('--aspect', windowWidth / windowHeight)
 
+    canvas.addEventListener('click', toggleTheme)
+
     document.body.appendChild(canvas)
 
     return () => {
       document.body.removeChild(canvas)
+      canvas.removeEventListener('click', toggleTheme)
     }
   }, [canvas, matrix, windowWidth, windowHeight])
 
@@ -199,6 +207,14 @@ export function useTilesEffect() {
   useEffect(() => {
     effect.outlineColor = theme.dot
   }, [theme, effect])
+
+  useEffect(() => {
+    if (currentTheme === 'light') {
+      canvas.classList.add(s.light)
+    } else {
+      canvas.classList.remove(s.light)
+    }
+  }, [currentTheme])
 
   const viewport = useThree(({ viewport }) => viewport)
 

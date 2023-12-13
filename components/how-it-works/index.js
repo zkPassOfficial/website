@@ -12,11 +12,9 @@ import { tinaField } from 'tinacms/dist/react'
 import { shuffle } from 'txt-shuffle'
 import { TransformProvider } from '../../hooks/use-transform'
 import { clamp, mapRange } from '../../libs/maths'
+import { ProgressMatrix } from '../progress-matrix'
 import s from './how-it-works.module.scss'
 
-const DotMatrix = dynamic(() => import('/assets/svgs/dot-matrix.svg'), {
-  ssr: false,
-})
 const Cross = dynamic(() => import('/assets/svgs/cross.svg'), {
   ssr: false,
 })
@@ -103,6 +101,10 @@ export function HowItWorks(props) {
     })
   }
 
+  const getMatrixStep = (i) => {
+    return isMobile ? (i + 1) * 3 : (currentStep + 1) * 3
+  }
+
   return (
     <TransformProvider ref={transformProviderRef}>
       <section
@@ -132,7 +134,7 @@ export function HowItWorks(props) {
 
               <div className={s.cardLeft}>
                 <div className={s.header}>
-                  <DotMatrix className={s.icon} />
+                  <ProgressMatrix className={s.icon} step={getMatrixStep(i)} />
                   <h3
                     className="h1"
                     data-tina-field={tinaField(card, 'header')}
@@ -168,12 +170,14 @@ export function HowItWorks(props) {
                   className={cn(s.imgWrap, shouldSpin && s.spin)}
                   data-tina-field={tinaField(card, 'illustration')}
                 >
-                  <Image
-                    src={card.illustration}
-                    objectFit="contain"
-                    fill
-                    alt=""
-                  />
+                  {card.illustration && (
+                    <Image
+                      src={card.illustration}
+                      objectFit="contain"
+                      fill
+                      alt=""
+                    />
+                  )}
                 </div>
 
                 <div className={s.frame}>

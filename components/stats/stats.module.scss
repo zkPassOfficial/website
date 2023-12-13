@@ -127,9 +127,10 @@
         text-indent: mobile-vw(31px);
       }
       strong {
-        background: var(--theme-secondary);
         color: var(--theme-layout);
-        padding: 0 0.1em;
+        background: var(--theme-secondary);
+        padding: 0 0.2em;
+        font-size: mobile-vw(9px);
       }
 
       @include mobile {
@@ -148,6 +149,9 @@
         .cross {
           top: 0;
           left: 0;
+        }
+        strong {
+          font-size: desktop-vw(10px);
         }
       }
     }
@@ -185,6 +189,25 @@
         height: mobile-vw(12px);
         background: var(--theme-invert-layout);
         position: relative;
+      }
+
+      &.inView .buttonInner {
+        animation: button-spin 800ms var(--ease-out-quart) infinite forwards;
+
+        @keyframes button-spin {
+          0% {
+            transform: rotate(0) scale(1);
+          }
+          20% {
+            transform: rotate(45deg) scale(1.25);
+          }
+          40% {
+            transform: rotate(90deg) scale(1);
+          }
+          100% {
+            transform: rotate(90deg) scale(1);
+          }
+        }
       }
 
       @include desktop {
@@ -226,6 +249,7 @@
       @include desktop {
         grid-column: 1 / span 6;
         padding: desktop-vw(8px);
+        margin-right: -1px;
       }
     }
     .card {

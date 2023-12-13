@@ -164,6 +164,15 @@
       border-bottom: 1px solid var(--theme-dot);
       margin-bottom: calc((var(--num-cards) + 1) * -1px);
     }
+    .accordionTrigger {
+      overflow: hidden;
+
+      svg {
+        width: mobile-vw(4px);
+        height: auto;
+        margin: 0 1em;
+      }
+    }
     .contentInner {
       border-left: 1px solid var(--theme-dot);
       border-right: 1px solid var(--theme-dot);

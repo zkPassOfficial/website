@@ -130,6 +130,10 @@ const nextConfig = {
           },
         ],
       },
+      {
+        test: /\.wasm$/,
+        type: 'asset/resource',
+      },
     )
 
     config.plugins.push(

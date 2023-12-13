@@ -1,14 +1,20 @@
 import cn from 'clsx'
+import { useDeviceDetection } from 'components/device-detection'
+import gsap from 'gsap'
 import { TransformProvider } from 'hooks/use-transform'
 import { Background } from 'libs/webgl/components/background'
 import dynamic from 'next/dynamic'
-import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react'
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import s from './features.module.scss'
+import { FeaturesMatrix } from './matrix'
 
-const DotMatrix = dynamic(() => import('/assets/svgs/dot-matrix.svg'), {
-  ssr: false,
-})
 const Cross = dynamic(() => import('/assets/svgs/cross.svg'), {
   ssr: false,
 })
@@ -24,11 +30,14 @@ const CardBackground = forwardRef(function CardBackground(
       const step = 1 / numCards
       const stepP = Math.max(0, tlProgress - step * index)
       const selfP = Math.min(stepP * numCards, 1)
+      const gridStep = window.innerWidth / 40
+
       transformProviderRef.current?.setTranslate(
-        selfP * window.innerWidth * -1,
+        selfP * (gridStep * 2) * -1,
         0,
         0,
       )
+      transformProviderRef.current?.setOpacity(selfP)
     },
     [index, numCards],
   )
@@ -40,6 +49,10 @@ const CardBackground = forwardRef(function CardBackground(
     },
     [setProgress],
   )
+
+  useEffect(() => {
+    transformProviderRef.current.setOpacity(0)
+  }, [])
 
   return (
     <TransformProvider
@@ -55,33 +68,66 @@ const CardBackground = forwardRef(function CardBackground(
 
 export function Features(props) {
   const { sectionTitle, cards } = props
-  const cardRefs = useRef([])
+  const cardRefs = useRef({})
   const cardBgRefs = useRef([])
   const startTrigger = useRef()
-  const endTrigger = useRef()
+  const tl = useRef()
 
-  //   useEffect(() => {
-  //     if (!startTrigger.current || !endTrigger.current) return
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         id: 'features',
-  //         trigger: startTrigger.current,
-  //         start: 'top 75%',
-  //         endTrigger: endTrigger.current,
-  //         end: 'bottom 50%',
-  //         scrub: true,
-  //         onUpdate: ({ progress }) => {
-  //           cardBgRefs.current?.filter(Boolean).forEach((bg) => {
-  //             bg.setProgress(progress)
-  //           })
-  //         },
-  //       },
-  //     })
+  const { isMobile } = useDeviceDetection()
 
-  //     cardRefs.current.forEach((card) => {
-  //       tl.fromTo(card, { x: window.innerWidth }, { x: 0 })
-  //     })
-  //   }, [startTrigger])
+  useEffect(() => {
+    if (isMobile || typeof isMobile === 'undefined' || !startTrigger.current)
+      return
+    if (tl.current) tl.current.kill()
+    tl.current = gsap.timeline({
+      scrollTrigger: {
+        id: 'features',
+        trigger: startTrigger.current,
+        start: 'top 75%',
+        end: '+50%',
+        scrub: true,
+        onUpdate: ({ progress }) => {
+          Object.values(cardBgRefs.current)
+            .filter(Boolean)
+            .forEach((bg) => {
+              bg.setProgress(progress)
+            })
+        },
+      },
+    })
+
+    Object.values(cardRefs.current).forEach((card) => {
+      const gridStep = window.innerWidth / 40
+      tl.current.fromTo(
+        card,
+        { x: gridStep * 2 },
+        {
+          x: 0,
+          ease: (p) => {
+            if (p <= 1 / 3) {
+              return 0
+            } else if (p <= 2 / 3) {
+              return 0.5
+            } else {
+              return 1
+            }
+          },
+        },
+      )
+      tl.current.fromTo(
+        card,
+        { opacity: 0 },
+        {
+          opacity: 1,
+        },
+        '<',
+      )
+    })
+
+    return () => {
+      tl.current?.revert()
+    }
+  }, [startTrigger, cardRefs, cardBgRefs, isMobile])
 
   return (
     <section className={cn(s.features, 'layout-grid')}>
@@ -101,20 +147,21 @@ export function Features(props) {
           className={s.card}
           key={i}
           ref={(node) => {
-            cardRefs.current.push(node)
-            if (i === cards.length - 1) {
-              endTrigger.current = node
-            }
+            if (!node) return
+            cardRefs.current[i] = node
           }}
         >
           <CardBackground
-            ref={(node) => cardBgRefs.current.push(node)}
             index={i}
             numCards={cards.length}
+            ref={(node) => {
+              if (!node) return
+              cardBgRefs.current[i] = node
+            }}
           />
 
           <div className={s.dotMatrix}>
-            <DotMatrix />
+            <FeaturesMatrix step={i + 1} />
           </div>
 
           <div className={s.title}>

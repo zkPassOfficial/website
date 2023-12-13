@@ -6,14 +6,14 @@ export function CustomHead({
   description,
   image,
   keywords,
-  twitter = { handle: '@zkPass' },
+  twitter = { handle: '@studiofreight' },
 }) {
   return (
     <>
       <NextHead>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
-        {/* <meta
+        <meta
           name="robots"
           content={
             process.env.NODE_ENV !== 'development'
@@ -28,9 +28,9 @@ export function CustomHead({
               ? 'index,follow'
               : 'noindex,nofollow'
           }
-        /> */}
-        <meta name="robots" content={'noindex,nofollow'} />
-        <meta name="googlebot" content={'noindex,nofollow'} />
+        />
+        {/* <meta name="robots" content={'noindex,nofollow'} />
+        <meta name="googlebot" content={'noindex,nofollow'} /> */}
 
         <meta
           name="keywords"

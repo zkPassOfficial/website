@@ -6,4 +6,22 @@
   z-index: 10;
   aspect-ratio: var(--aspect);
   border: 1px solid var(--grey);
+  cursor: pointer;
+
+  // Local variables because --theme not in scope
+  --black: #000000;
+  --white: #ffffff;
+  --green: #c5ff4a;
+  background: var(--black);
+
+  &:hover {
+    background: var(--green);
+  }
+  &.light {
+    background: var(--green);
+
+    &:hover {
+      background: var(--black);
+    }
+  }
 }

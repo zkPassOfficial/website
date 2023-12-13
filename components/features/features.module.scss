@@ -1,4 +1,6 @@
 .features {
+  overflow: hidden;
+
   .bg {
     @include fill;
     pointer-events: none;
@@ -23,6 +25,7 @@
     @include desktop {
       padding: desktop-vw(6px) desktop-vw(8px);
       grid-column: span 6;
+      margin-right: -1px;
     }
   }
 

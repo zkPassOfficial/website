@@ -1,12 +1,16 @@
 import cn from 'clsx'
+import { useDeviceDetection } from 'components/device-detection'
+import { useScroll } from 'hooks/use-scroll'
 import { RichText } from 'libs/tina/richtext'
 import { Background } from 'libs/webgl/components/background'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { BarLevel } from '../../bar-level'
 import s from './hardware-table.module.scss'
 
 export function HardwareTable({ table }) {
+  const tableRef = useRef()
+
   const [activeColumn, setActiveColumn] = useState(null)
   const [activeRow, setActiveRow] = useState(null)
 
@@ -19,13 +23,24 @@ export function HardwareTable({ table }) {
     setActiveRow(null)
   }
 
+  // Mobile Scroll
+  const { isDesktop } = useDeviceDetection()
+  const [scrollStep, setScrollStep] = useState(0)
+  useScroll(tableRef, ({ scrollX }) => {
+    if (isDesktop) return
+    const stepSize = 1 / 5
+    const step = Math.round(scrollX / stepSize)
+    if (step !== scrollStep) setScrollStep(step)
+  })
+
   return (
     <div
       className={cn(s.hardwareTable)}
       onMouseLeave={() => handleMouseLeave()}
+      ref={tableRef}
     >
       <div className={cn(s.row, s.header)}>
-        <span className={cn(s.title, 'p')}>zk</span>
+        <span className={cn(s.title, 'p')}>zk </span>
         <span className="p">Block</span>
         <span className="p">Setup Time</span>
         <span className="p">Prove Time</span>
@@ -75,6 +90,14 @@ export function HardwareTable({ table }) {
         />
 
         <Background className={s.bg} />
+      </div>
+
+      <div className={cn(s.mobileProgress, 'mobile-only')}>
+        <div className={s.dotWrap}>
+          {new Array(6).fill().map((_, i) => (
+            <div className={cn(s.dot, i === scrollStep && s.active)} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   )

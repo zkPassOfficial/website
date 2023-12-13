@@ -23,7 +23,6 @@ export const minLength = (min, isString = false) => {
 export const minMaxLength = ({ min = 0, max, isString = false }) => {
   return {
     validate: (value) => {
-      console.log(min, max, value?.length)
       if (value && value.length < min) {
         return `Must be ${max ? 'between' : 'more than'} ${min} ${
           max ? `and ${max}` : ''

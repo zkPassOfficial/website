@@ -1,4 +1,5 @@
 import { Link } from '@studio-freight/compono'
+import { useLenis } from '@studio-freight/react-lenis'
 import cn from 'clsx'
 import { useEffect, useState } from 'react'
 import { tinaField } from 'tinacms/dist/react'
@@ -37,17 +38,19 @@ export function Header(props) {
     handleShuffle(cta.text, 'cta')
   }, [linkGroup])
 
+  const lenis = useLenis()
+
   return (
     <header className={cn(s.header, 'layout-grid', 'desktop-only')}>
-      <Link
-        href="/"
+      <button
         className={s.logoLink}
         onMouseEnter={() => {
           handleShuffle('zkPass', 'logo')
         }}
+        onClick={() => lenis?.scrollTo(0)}
       >
         {shuffledTexts['logo']}
-      </Link>
+      </button>
 
       {anchorLinks?.map((link, i) => (
         <Link

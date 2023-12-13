@@ -23,6 +23,7 @@ const DEFAULT_TRANSFORM = {
     y: 1,
     z: 1,
   },
+  opacity: 1,
 }
 
 export const TransformContext = createContext(() => DEFAULT_TRANSFORM)
@@ -53,10 +54,15 @@ export const TransformProvider = forwardRef(function TransformProvider(
     transformRef.current.scale.z = z
   }, [])
 
+  const setOpacity = useCallback((value) => {
+    transformRef.current.opacity = value
+  }, [])
+
   useImperativeHandle(ref, () => ({
     setTranslate,
     setRotate,
     setScale,
+    setOpacity,
   }))
 
   return (

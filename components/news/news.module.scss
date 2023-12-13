@@ -55,7 +55,7 @@
     h6 {
       grid-column: span 6;
       padding: desktop-vw(6px) desktop-vw(8px);
-      // border-bottom: 1px solid var(--theme-dot);
+      margin-bottom: -1px;
 
       &::after {
         content: '';

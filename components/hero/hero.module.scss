@@ -254,7 +254,7 @@
         }
         .cross1 {
           left: calc(2 * var(--layout-column-width));
-          top: calc(0.5 * var(--layout-column-width));
+          top: calc(0.65 * var(--layout-column-width));
         }
         .cross2 {
           left: calc(3 * var(--layout-column-width));
@@ -301,6 +301,7 @@
 
       .iconWrap {
         position: relative;
+        margin-top: 1px;
       }
       .marquee {
         overflow-x: hidden;

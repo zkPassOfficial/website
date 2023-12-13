@@ -17,6 +17,10 @@
     &:nth-child(3) {
       grid-row: span 2;
     }
+    @include mobile {
+      background: var(--theme-layout);
+      margin: -2px;
+    }
   }
   .cta {
     display: grid;

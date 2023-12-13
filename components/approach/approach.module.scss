@@ -17,11 +17,16 @@
     grid-column: span 4;
     padding: mobile-vw(8px);
 
+    .bg {
+      border-bottom: none;
+    }
+
     @include desktop {
       border-bottom: 1px solid var(--theme-dot);
       grid-row: 7;
       grid-column: span 5;
       padding: desktop-vw(6px) desktop-vw(8px);
+      margin-bottom: -1px;
     }
   }
 
@@ -30,6 +35,12 @@
     align-items: center;
     position: relative;
     border-bottom: 1px solid var(--theme-dot);
+    background: var(--theme-layout);
+    color: var(--theme-dot);
+
+    :global(.theme-light) & {
+      color: #86ad32;
+    }
 
     @include mobile {
       background: var(--theme-layout);
@@ -40,7 +51,6 @@
     }
 
     .static {
-      opacity: 0.32;
       display: flex;
       align-items: flex-start;
 
@@ -93,7 +103,11 @@
       grid-row: span 3;
       grid-column: 1 / span 30;
       padding: desktop-vw(12px) desktop-vw(16px);
+      margin-left: 1px;
 
+      &:nth-child(4) {
+        margin-top: 1px;
+      }
       .marquee {
         svg {
           margin: 0 desktop-vw(60px);
@@ -153,6 +167,7 @@
   @include mobile {
     .card {
       height: calc(var(--layout-column-width) * 8);
+      border: none;
     }
   }
 
@@ -166,6 +181,7 @@
       @include fill;
       opacity: 0;
       border: none;
+      margin-top: 1px;
 
       &.active {
         opacity: 1;

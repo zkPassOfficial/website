@@ -16,7 +16,7 @@ export function WebGLBackground({ rect }) {
   useFrame(() => {
     if (!lenis) return
 
-    const { translate } = get()
+    const { translate, opacity } = get()
 
     const scroll = Math.floor(lenis.scroll) - translate.y
 
@@ -24,11 +24,6 @@ export function WebGLBackground({ rect }) {
 
     const deltaX = Math.round(translate.x / step)
     const deltaY = Math.floor(scroll / step)
-
-    // if (debug) {
-    //   // if (lenis.targetScroll === lenis.actualScroll) console.log('stop')
-    //   console.log(lenis.scroll, lenis.actualScroll, Math.floor(lenis.scroll))
-    // }
 
     if (top - scroll > windowHeight || top + height - scroll < 0) {
       return
@@ -44,7 +39,7 @@ export function WebGLBackground({ rect }) {
       for (let j = 0; j < y2 - y1; j++) {
         //check if coords exists
         if (matrix?.[x1 + i]?.[y1 + j] !== undefined) {
-          matrix[x1 + i][y1 + j] = 1
+          matrix[x1 + i][y1 + j] = opacity
         }
       }
     }

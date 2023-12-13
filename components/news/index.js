@@ -11,11 +11,7 @@ const ArticleImage = ({ src, tinaData }) => {
 
   return (
     <div className={s.imgWrap} data-tina-field={tinaData}>
-      <Image
-        src={imgSrc}
-        onLoad={({ target }) => console.log(target.src)}
-        fill
-      />
+      <Image src={imgSrc} fill alt="" />
     </div>
   )
 }

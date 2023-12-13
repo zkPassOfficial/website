@@ -13,9 +13,6 @@ export function Preload() {
   useEffect(() => {
     if (!active) return
 
-    console.log('Preloading...')
-    console.time('Preload')
-
     const invisible = []
     // Find all invisible objects, store and then flip them
     scene.traverse((object) => {

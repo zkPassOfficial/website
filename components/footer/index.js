@@ -10,7 +10,7 @@ export function Footer(props) {
 
   const lenis = useLenis()
 
-  console.log(logo)
+  // console.log(logo)
 
   return (
     <footer className={cn(s.footer, 'layout-grid')} id="footer">

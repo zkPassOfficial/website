@@ -25,10 +25,10 @@ const SliderInternal = ({ row, rtl }) => {
         </p>
 
         <div className={s.buttonWrap}>
-          <button onClick={scrollPrev}>
+          <button onClick={scrollPrev} aria-label="previous slide">
             <ChevronLeft />
           </button>
-          <button onClick={scrollNext}>
+          <button onClick={scrollNext} aria-label="next slide">
             <ChevronRight />
           </button>
         </div>
