@@ -99,13 +99,13 @@ sections:
     cardsSectionTitle: Our Standings
     cards:
       - title: ZkProof Generation
-        number: 315K
-      - title: Transactions
-        number: 330K
+        number: 1M+
+      - title: ECO PARTNERS
+        number: 60+
       - title: Community Supporters
-        number: 130K
-      - title: ZK Schemas
-        number: '65'
+        number: 200K+
+      - title: Schemas
+        number: 100+
     _template: stats
   - sectionTitle: How Does it Work?
     cards:
