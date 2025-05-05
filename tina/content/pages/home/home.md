@@ -10,7 +10,7 @@ global:
             - text: Doc
               url: 'https://zkpass.gitbook.io/zkpass/'
             - text: Roadmap
-              url: 'https://zkpass.gitbook.io/zkpass/supports/road-map'
+              url: 'https://docs.zkpass.org/supports/roadmap'
         - groupLabel: Devs
           links:
             - text: Contributor Program
@@ -99,13 +99,13 @@ sections:
     cardsSectionTitle: Our Standings
     cards:
       - title: ZkProof Generation
-        number: 1M+
+        number: 10M+
       - title: ECO PARTNERS
-        number: 60+
+        number: 80+
       - title: Community Supporters
-        number: 200K+
+        number: 1M+
       - title: Schemas
-        number: 100+
+        number: 300+
     _template: stats
   - sectionTitle: How Does it Work?
     cards:
@@ -363,18 +363,17 @@ sections:
     _template: partnersAndInvestors
   - sectionTitle: News
     articles:
-      - date: 2023-08-07T23:00:00.000Z
+      - date: 2024-10-18T23:00:00.000Z
         image: /cms/images/1Highlighted_news_0.png
         articleTitle: >-
-          zkPass Secures $2.5 Million in Seed Funding to Safeguard User Privacy
-          and Data
+          zkPass Raises $12.5M Series A Funding to Drive zkTLS Oracle Protocol
         articleURL: >-
-          https://finance.yahoo.com/news/zkpass-secures-2-5-million-122400144.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAANgyD_D5hblxMwQjmMXWHs2SikQV0Uj09X36ZeL4DXLPThn2V_PfGvmzulMRg5OMdev2XZD9NBc3Jdg3Td_--ssineJM_zpcciK6XFKr6knJeHTWwZpCr34d_EkSyzGlBQk94LpxOoeZaBRCcXCmqQTF0Zytc3u4yt1zQUSnrFUQ
-      - date: 2022-11-10T00:00:00.000Z
+          https://medium.com/zkpass/zkpass-raises-12-5m-series-a-funding-to-drive-zktls-oracle-protocol-e7612e6cf921
+      - date: 2023-11-13T00:00:00.000Z
         image: /cms/images/2Highlighted_news_01.png
-        articleTitle: zkPass was selected for Season 5 of Binance Labs Incubation Program
+        articleTitle: \@zkPass/Transgate-JS-SDK is Now Open-source
         articleURL: >-
-          https://www.binance.com/en/blog/ecosystem/12-projects-selected-for-season-5-of-binance-labs-incubation-program-325926784915574914
+          https://medium.com/zkpass/zkpass-transgate-js-sdk-is-now-open-source-dd584a1c0f8b
       - date: 2023-05-05T23:00:00.000Z
         image: /cms/images/3Highlighted_news_02.png
         articleTitle: 'Build the Block Finale: Crowning zkPass as Our Competition Winners'
