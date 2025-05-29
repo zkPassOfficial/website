@@ -41,6 +41,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'assets.tina.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'store.zkpass.org',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
   },
@@ -201,6 +205,7 @@ const nextConfig = {
         source: '/admin',
         destination: '/admin/index.html',
       },
+      { source: '/v1/:path*', destination: `http://localhost:3002/v1/:path*` },
     ]
   },
 }

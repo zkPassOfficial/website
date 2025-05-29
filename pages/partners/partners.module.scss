@@ -1,0 +1,100 @@
+.description {
+  margin: calc(var(--layout-column-width) * 2)
+    calc(var(--layout-column-width) * 1) calc(var(--layout-column-width) * 2);
+  border: 1px solid var(--theme-dot);
+  height: calc(var(--layout-column-width) * 7);
+  padding: calc(var(--layout-column-width) * 1);
+  background: var(--theme-layout);
+
+  .title {
+    font-size: desktop-vw(50px);
+    margin-bottom: desktop-vw(18px);
+  }
+  .text {
+    font-size: desktop-vw(24px);
+  }
+  @include mobile {
+    padding: calc(var(--layout-column-width) * 0.8);
+    height: calc(var(--layout-column-width) * 9);
+    .title {
+      font-size: mobile-vw(30px);
+
+      margin-bottom: mobile-vw(18px);
+    }
+    .text {
+      font-size: mobile-vw(14px);
+      line-height: 1.3rem;
+    }
+  }
+}
+.partnersContainer {
+  background: var(--theme-layout);
+  margin: calc(var(--layout-column-width) * 2)
+    calc(var(--layout-column-width) * 1);
+  grid-column: 1/-1;
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  overflow: hidden;
+
+  .partnerItem {
+    height: calc(var(--layout-column-width) * 8);
+    border: 1px solid var(--theme-dot);
+    padding: calc(var(--layout-column-width) * 0.8);
+    .cardTop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: calc(var(--layout-column-width) * 0.8);
+      .partnerName {
+        font-size: desktop-vw(28px);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .logo {
+          position: relative;
+          width: desktop-vw(50px);
+          height: desktop-vw(50px);
+          background-color: var(--theme-layout);
+        }
+      }
+      .LinkIcon {
+        width: desktop-vw(40px);
+        height: desktop-vw(40px);
+      }
+    }
+    .topic {
+      font-family: var(--font-pp);
+      text-transform: none;
+      font-size: desktop-vw(20px);
+    }
+
+    &:hover {
+      border-color: var(--theme-contrast);
+      cursor: pointer;
+    }
+  }
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: calc(var(--layout-column-width) * 2);
+    .partnerItem {
+      height: calc(var(--layout-column-width) * 6);
+      .cardTop {
+        margin-bottom: calc(var(--layout-column-width) * 0.5);
+        .partnerName {
+          font-size: mobile-vw(16px);
+          .logo {
+            width: mobile-vw(34px);
+            height: mobile-vw(34px);
+          }
+        }
+        .LinkIcon {
+          width: mobile-vw(30px);
+          height: mobile-vw(30px);
+        }
+      }
+      .topic {
+        font-size: mobile-vw(14px);
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="borard" transform="translate(-1511.000000, -1102.000000)" stroke="#C6FB58" stroke-width="0.5">
+            <g id="g-3" transform="translate(100.000000, 1040.000000)">
+                <g id="open" transform="translate(1411.000000, 62.000000)">
+                    <rect id="polygon" x="0.25" y="0.25" width="38.5" height="38.5"></rect>
+                    <line x1="27.8194488" y1="12" x2="27.8194488" y2="26.9630968" id="line-7" stroke-linecap="square"></line>
+                    <polyline id="path" points="11.4363199 12 27.5294118 12 12.072058 26.6244317"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
