@@ -13,12 +13,6 @@ global:
               url: 'https://docs.zkpass.org/supports/roadmap'
             - text: TransGate SDK
               url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
-        - groupLabel: ECOSYSTEM
-          links:
-            - text: Contributor Program
-            - text: Run a Node
-            - text: Partners
-              url: '/partners'
       cta:
         text: Launch App
         url: 'https://pre.zkpass.org/dashboard'

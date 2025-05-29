@@ -16,6 +16,8 @@ export function Header(props) {
     { text: 'Use Cases', url: '/#use-cases' },
   ]
 
+  const links = [{ text: 'Ecosystem', url: '/ecosystem' }]
+
   const [shuffledTexts, setShuffledTexts] = useState({})
   const handleShuffle = (text, cardIndex) => {
     shuffle({
@@ -34,6 +36,9 @@ export function Header(props) {
     anchorLinks.forEach((link, i) => handleShuffle(link.text, i))
     linkGroup.forEach((group, i) =>
       handleShuffle(group.groupLabel, i + anchorLinks.length),
+    )
+    links.forEach((link, i) =>
+      handleShuffle(link.text, i + anchorLinks.length + linkGroup.length),
     )
     handleShuffle(cta.text, 'cta')
   }, [linkGroup])
@@ -94,6 +99,19 @@ export function Header(props) {
             ))}
           </div>
         </div>
+      ))}
+
+      {links?.map((link, i) => (
+        <Link
+          className={s.navLink}
+          href={link.url}
+          key={i}
+          onMouseEnter={() => {
+            handleShuffle(link.text, i + anchorLinks.length + linkGroup.length)
+          }}
+        >
+          {shuffledTexts[i + anchorLinks.length + linkGroup.length]}
+        </Link>
       ))}
 
       <Link

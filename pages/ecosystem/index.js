@@ -4,13 +4,14 @@ import { useTinaObjects } from 'hooks/use-tina'
 import { Layout } from 'layouts/default'
 import { useEffect, useState } from 'react'
 import { client } from 'tina/__generated__/client'
-import s from './partners.module.scss'
+import s from './ecosystem.module.scss'
 import LinkIcon from '/assets/svgs/link.svg'
 import { useStore } from '/libs/store'
 const pageId = 'home'
 
-export default function Partners({ home }) {
+export default function Ecosystem({ home }) {
   const { global } = useTinaObjects(home, pageId)
+
   const { navigation, metadata } = global
 
   const theme = useStore(({ theme }) => theme)
@@ -38,7 +39,7 @@ export default function Partners({ home }) {
   return (
     <Layout theme={theme} className={s.page} {...navigation} seo={metadata}>
       <div className={s.description}>
-        <p className={s.title}>Partners</p>
+        <p className={s.title}>Ecosystem</p>
         <p className={s.text}>
           Explore the growing network of builders, protocols, and platforms
           integrating zkPass. From verifiable credentials to privacy-preserving
