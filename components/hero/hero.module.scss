@@ -120,17 +120,28 @@
       }
       h1:nth-child(2) {
         text-align: center;
-        left: calc(2.5 * var(--layout-column-width));
-        top: calc(4.5 * var(--layout-column-width));
+        left: calc(4.3 * var(--layout-column-width));
+        top: calc(5 * var(--layout-column-width));
         width: calc(24 * var(--layout-column-width));
       }
       h1:nth-child(3) {
-        left: calc(0.5 * var(--layout-column-width));
+        left: calc(1 * var(--layout-column-width));
         top: calc(7.5 * var(--layout-column-width));
       }
-      h1:nth-child(4) {
-        left: calc(2.5 * var(--layout-column-width));
-        top: calc(9.5 * var(--layout-column-width));
+      .checkBtn {
+        left: calc(2.8 * var(--layout-column-width));
+        top: calc(12.2 * var(--layout-column-width));
+        height: calc(0.8 * var(--layout-column-width));
+        line-height: calc(0.8 * var(--layout-column-width));
+        width: calc(6 * var(--layout-column-width));
+        padding-left: desktop-vw(8px);
+        background-color: var(--theme-contrast);
+        color: var(--black);
+        text-transform: uppercase;
+        font-size: desktop-vw(18px);
+        font-family: var(--font-pp);
+        cursor: pointer;
+        font-weight: 600;
       }
       .body {
         left: calc(13 * var(--layout-column-width));

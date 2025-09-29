@@ -15,8 +15,7 @@ import Logomark from '/assets/svgs/logomark.svg'
 
 export function Hero(props) {
   const lenis = useLenis()
-  const { header, banner, bodyLeft, bodyRight } = props
-
+  const { header, banner, bodyLeft, bodyRight, linkBtn } = props
   const [shuffledText, setShuffledText] = useState('')
   const handleShuffle = (text) => {
     shuffle({
@@ -52,10 +51,13 @@ export function Hero(props) {
           <h1 className="h1" data-tina-field={tinaField(header, 'rowThree')}>
             {header.rowThree}
           </h1>
-          <h1 className="h1" data-tina-field={tinaField(header, 'rowFour')}>
-            {header.rowFour}
-          </h1>
-
+          <Link
+            className={s.checkBtn}
+            href={linkBtn.url}
+            data-tina-field={tinaField(linkBtn, 'cta')}
+          >
+            {linkBtn.text}
+          </Link>
           <div className={s.body}>
             <div className={s.logoWrap}>
               <Logomark />

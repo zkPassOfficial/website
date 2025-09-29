@@ -29,12 +29,6 @@ const hero = {
           ui: maxLength(10, true),
           required: true,
         },
-        {
-          name: 'rowFour',
-          type: 'string',
-          ui: maxLength(8, true),
-          required: true,
-        },
       ],
     },
     {
@@ -48,6 +42,22 @@ const hero = {
       type: 'string',
       component: 'textarea',
       required: true,
+    },
+    {
+      name: 'linkBtn',
+      type: 'object',
+      fields: [
+        {
+          type: 'string',
+          label: 'Text',
+          name: 'text',
+        },
+        {
+          type: 'string',
+          label: 'Url',
+          name: 'url',
+        },
+      ],
     },
     {
       name: 'banner',

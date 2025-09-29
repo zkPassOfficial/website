@@ -14,8 +14,8 @@ global:
             - text: TransGate SDK
               url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
       cta:
-        text: Launch App
-        url: 'https://pre.zkpass.org/dashboard'
+        text: Launch Portal
+        url: 'https://portal.zkpass.org'
     footer:
       logo: /cms/svg/p.svg
       topLeftLinks:
@@ -67,21 +67,23 @@ global:
     _template: metadata
 sections:
   - header:
-      rowOne: Privacy-Focused
-      rowTwo: To Connect
-      rowThree: the
-      rowFour: World
+      rowOne: Welcome to the
+      rowTwo: Verifiable
+      rowThree: Internet
     bodyLeft: 'Protocol for Private Data based on MPC, ZKP, 3P-TLS.'
     bodyRight: >-
       Verify your real-world private data without revealing your private
       details.
+    linkBtn:
+      text: $ZKP Checker
+      url: 'https://portal.zkpass.org'
     banner:
       icon: /cms/svg/Logo wire 2.svg
       marquee:
         textEntry:
-          - zkPass Pre-alpha Testnet is Open for All Now!
+          - $ZKP Optimistic Airdrop is Live / Built for On-chain Freedom
       cta:
-        text: Launch App
+        text: Learn More
         url: 'https://pre.zkpass.org/dashboard'
     _template: hero
   - header:
