@@ -232,6 +232,21 @@
           left: mobile-vw(119px);
           top: mobile-vw(235px);
         }
+        .checkBtn {
+          left: mobile-vw(78px);
+          top: mobile-vw(250px);
+          width: mobile-vw(120px);
+          height: mobile-vw(30px);
+          line-height: mobile-vw(30px);
+          padding-left: mobile-vw(8px);
+          background-color: var(--theme-contrast);
+          color: var(--black);
+          text-transform: uppercase;
+          font-size: mobile-vw(12px);
+          font-family: var(--font-pp);
+          cursor: pointer;
+          font-weight: 600;
+        }
         .body {
           left: 0;
           right: var(--layout-column-width);
