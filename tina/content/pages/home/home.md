@@ -81,10 +81,10 @@ sections:
       icon: /cms/svg/Logo wire 2.svg
       marquee:
         textEntry:
-          - $ZKP Optimistic Airdrop is Live / Built for On-chain Freedom
+          - $ZKP Optimistic Airdrop is Coming Soon
       cta:
         text: Learn More
-        url: 'https://pre.zkpass.org/dashboard'
+        url: ''
     _template: hero
   - header:
       rowOne: ZkProof of
