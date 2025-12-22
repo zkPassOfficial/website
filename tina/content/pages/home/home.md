@@ -75,13 +75,13 @@ sections:
       Verify your real-world private data without revealing your private
       details.
     linkBtn:
-      text: $ZKP Checker
-      url: 'https://portal.zkpass.org'
+      text: $ZKP is Live
+      url: 'https://docs.zkpass.org/zkpass-dao/zkp'
     banner:
       icon: /cms/svg/Logo wire 2.svg
       marquee:
         textEntry:
-          - $ZKP Optimistic Airdrop is Coming Soon
+          - $ZKP is launching across multiple global exchanges
       cta:
         text: Learn More
         url: ''
