@@ -63,16 +63,34 @@ export default function Home({ home }) {
 }
 
 export async function getStaticProps() {
-  const [home] = await Promise.all([
-    client.queries[pageId]({
-      relativePath: 'home.md',
-    }),
-  ])
+  try {
+    const [home] = await Promise.all([
+      client.queries[pageId]({
+        relativePath: 'home.md',
+      }),
+    ])
 
-  return {
-    props: {
-      id: pageId,
-      home,
-    },
+    return {
+      props: {
+        id: pageId,
+        home,
+      },
+    }
+  } catch (error) {
+    console.warn('TinaCMS client request failed:', error.message)
+
+    return {
+      props: {
+        id: pageId,
+        home: {
+          data: {
+            [pageId]: {
+              global: [],
+              sections: [],
+            },
+          },
+        },
+      },
+    }
   }
 }

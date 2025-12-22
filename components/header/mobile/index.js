@@ -111,9 +111,11 @@ export function HeaderMobile(props) {
               </Link>
             ))}
           </nav>
-          <Link className={s.cta} href={cta.url}>
-            {cta.text}
-          </Link>
+          {cta?.url && (
+            <Link className={s.cta} href={cta.url}>
+              {cta?.text}
+            </Link>
+          )}
         </div>
       </div>
     </header>

@@ -12,46 +12,55 @@ const Cross = dynamic(() => import('/assets/svgs/cross.svg'), {
 
 export function Contact(props) {
   const { header, contactCTA } = props
-  const { rowOne, rowTwo, rowThree } = header
+  const { rowOne, rowTwo, rowThree } = header || {}
 
-  const { shuffledText, handleShuffle } = useShuffle({ text: contactCTA.text })
+  const { shuffledText, handleShuffle } = useShuffle({
+    text: contactCTA?.text || '',
+  })
 
   return (
     <div className={cn(s.contact, 'layout-grid')}>
-      <div className={s.header}>
-        <div className={s.lineWrap}>
-          <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
-            {rowOne}
-          </h2>
-        </div>
-        <div className={s.lineWrap}>
-          <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
-            {rowTwo}
-          </h2>
-        </div>
-        <div className={s.lineWrap}>
-          <h2 className="h1" data-tina-field={tinaField(header, 'rowThree')}>
-            {rowThree}
-          </h2>
-        </div>
+      {header && (
+        <div className={s.header}>
+          <div className={s.lineWrap}>
+            <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
+              {rowOne}
+            </h2>
+          </div>
+          <div className={s.lineWrap}>
+            <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
+              {rowTwo}
+            </h2>
+          </div>
+          <div className={s.lineWrap}>
+            <h2 className="h1" data-tina-field={tinaField(header, 'rowThree')}>
+              {rowThree}
+            </h2>
+          </div>
 
-        <Link
-          className={s.cta}
-          href={contactCTA.url}
-          onMouseEnter={() => handleShuffle()}
-          data-tina-field={tinaField(contactCTA, 'url')}
-        >
-          {new Array(4).fill().map((_, i) => (
-            <Background className={s.bg} key={i} />
-          ))}
+          {contactCTA?.url && (
+            <Link
+              className={s.cta}
+              href={contactCTA.url}
+              onMouseEnter={() => handleShuffle()}
+              data-tina-field={tinaField(contactCTA, 'url')}
+            >
+              {new Array(4).fill().map((_, i) => (
+                <Background className={s.bg} key={i} />
+              ))}
 
-          <span className="p" data-tina-field={tinaField(contactCTA, 'text')}>
-            {shuffledText}
-          </span>
+              <span
+                className="p"
+                data-tina-field={tinaField(contactCTA, 'text')}
+              >
+                {shuffledText}
+              </span>
 
-          <Cross />
-        </Link>
-      </div>
+              <Cross />
+            </Link>
+          )}
+        </div>
+      )}
     </div>
   )
 }

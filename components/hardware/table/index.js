@@ -50,7 +50,7 @@ export function HardwareTable({ table }) {
         <Background className={s.bg} />
       </div>
       <div className={cn(s.spacer, 'desktop-only')} />
-      {table.map((row, rowIndex) => (
+      {table?.map((row, rowIndex) => (
         <div className={s.row} key={rowIndex}>
           {Object.keys(row)
             .filter((r) => !r.startsWith('_'))
@@ -78,12 +78,12 @@ export function HardwareTable({ table }) {
         <BarLevel
           className={s.barLevel}
           fillLow={
-            activeRow === null
+            activeRow === null || !table?.length
               ? 0
               : (table.length - 1 - activeRow) / table.length
           }
           fillHigh={
-            activeRow === null
+            activeRow === null || !table?.length
               ? 1
               : (table.length - 1 - (activeRow - 1)) / table.length
           }

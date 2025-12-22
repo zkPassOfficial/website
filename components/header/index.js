@@ -38,9 +38,12 @@ export function Header(props) {
       handleShuffle(group.groupLabel, i + anchorLinks.length),
     )
     links.forEach((link, i) =>
-      handleShuffle(link.text, i + anchorLinks.length + linkGroup.length),
+      handleShuffle(
+        link.text,
+        i + anchorLinks.length + (linkGroup?.length || 0),
+      ),
     )
-    handleShuffle(cta.text, 'cta')
+    cta?.text && handleShuffle(cta.text, 'cta')
   }, [linkGroup])
 
   const lenis = useLenis()
@@ -87,7 +90,7 @@ export function Header(props) {
             {group.links?.map((link, i) => (
               <Link
                 className="p"
-                href={link.url}
+                href={link?.url || '#'}
                 key={i}
                 data-tina-field={tinaField(link, 'text')}
               >
@@ -107,23 +110,28 @@ export function Header(props) {
           href={link.url}
           key={i}
           onMouseEnter={() => {
-            handleShuffle(link.text, i + anchorLinks.length + linkGroup.length)
+            handleShuffle(
+              link.text,
+              i + anchorLinks.length + (linkGroup?.length || 0),
+            )
           }}
         >
-          {shuffledTexts[i + anchorLinks.length + linkGroup.length]}
+          {shuffledTexts[i + anchorLinks.length + (linkGroup?.length || 0)]}
         </Link>
       ))}
 
-      <Link
-        className={s.cta}
-        href={cta.url}
-        data-tina-field={tinaField(cta, 'text')}
-        onMouseEnter={() => {
-          handleShuffle(cta.text, 'cta')
-        }}
-      >
-        {shuffledTexts['cta']}
-      </Link>
+      {cta?.url && (
+        <Link
+          className={s.cta}
+          href={cta.url}
+          data-tina-field={tinaField(cta, 'text')}
+          onMouseEnter={() => {
+            cta?.text && handleShuffle(cta.text, 'cta')
+          }}
+        >
+          {shuffledTexts['cta']}
+        </Link>
+      )}
     </header>
   )
 }

@@ -15,14 +15,14 @@ const Cross = dynamic(() => import('/assets/svgs/cross.svg'), {
 export function UseCases(props) {
   const { sectionTitle, cards, cta } = props
 
-  const { shuffledText, handleShuffle } = useShuffle({ text: cta.text })
+  const { shuffledText, handleShuffle } = useShuffle({ text: cta?.text || '' })
 
   const { isMobile } = useDeviceDetection()
 
   return (
     <section
       className={cn(s.useCases, 'layout-grid')}
-      style={{ '--num-cards': cards.length }}
+      style={{ '--num-cards': cards?.length || 0 }}
     >
       <h6
         className="p"

@@ -8,14 +8,16 @@ export const useTinaObjects = (input, pageId) => {
     ...input,
   })
 
-  if (data[pageId].global) {
-    global = convertArrayToObject(data[pageId].global)
-    global = shortenObjectKeys(global, 'Global')
-  }
+  if (data && data[pageId]) {
+    if (data[pageId].global && Array.isArray(data[pageId].global)) {
+      global = convertArrayToObject(data[pageId].global)
+      global = shortenObjectKeys(global, 'Global')
+    }
 
-  if (data[pageId].sections) {
-    sections = convertArrayToObject(data[pageId].sections)
-    sections = shortenObjectKeys(sections, 'Sections')
+    if (data[pageId].sections && Array.isArray(data[pageId].sections)) {
+      sections = convertArrayToObject(data[pageId].sections)
+      sections = shortenObjectKeys(sections, 'Sections')
+    }
   }
 
   return { global, sections, data }

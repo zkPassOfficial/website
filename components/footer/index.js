@@ -27,67 +27,79 @@ export function Footer(props) {
 
         <div className={s.inner}>
           <div className={s.list}>
-            <span
-              className="p"
-              data-tina-field={tinaField(topLeftLinks, 'label')}
-            >
-              {topLeftLinks.label}
-            </span>
+            {topLeftLinks && (
+              <span
+                className="p"
+                data-tina-field={tinaField(topLeftLinks, 'label')}
+              >
+                {topLeftLinks.label}
+              </span>
+            )}
 
-            <div className={s.links}>
-              {topLeftLinks?.links?.map(({ link }, i) => (
-                <Link
-                  href={link.url}
-                  key={i}
-                  className="h3"
-                  data-tina-field={tinaField(link, 'text')}
-                >
-                  {link.text}
-                </Link>
-              ))}
-            </div>
+            {topLeftLinks && (
+              <div className={s.links}>
+                {topLeftLinks?.links?.map(({ link }, i) => (
+                  <Link
+                    href={link?.url || '#'}
+                    key={i}
+                    className="h3"
+                    data-tina-field={tinaField(link, 'text')}
+                  >
+                    {link?.text}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
           <div className={s.list}>
-            <span
-              className="p"
-              data-tina-field={tinaField(topRightLinks, 'label')}
-            >
-              {topRightLinks.label}
-            </span>
+            {topRightLinks && (
+              <span
+                className="p"
+                data-tina-field={tinaField(topRightLinks, 'label')}
+              >
+                {topRightLinks.label}
+              </span>
+            )}
 
-            <div className={s.links}>
-              {topRightLinks?.links?.map(({ link }, i) => (
-                <Link
-                  href={link.url}
-                  key={i}
-                  className="p"
-                  data-tina-field={tinaField(link, 'text')}
-                >
-                  {link.text}
-                </Link>
-              ))}
-            </div>
+            {topRightLinks && (
+              <div className={s.links}>
+                {topRightLinks?.links?.map(({ link }, i) => (
+                  <Link
+                    href={link?.url || '#'}
+                    key={i}
+                    className="p"
+                    data-tina-field={tinaField(link, 'text')}
+                  >
+                    {link?.text}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
           <div className={s.list}>
-            <span
-              className="p"
-              data-tina-field={tinaField(bottomLinks, 'label')}
-            >
-              {bottomLinks.label}
-            </span>
+            {bottomLinks && (
+              <span
+                className="p"
+                data-tina-field={tinaField(bottomLinks, 'label')}
+              >
+                {bottomLinks.label}
+              </span>
+            )}
 
-            <div className={s.links}>
-              {bottomLinks?.links?.map(({ link }, i) => (
-                <Link
-                  href={link.url}
-                  key={i}
-                  className="h3"
-                  data-tina-field={tinaField(link, 'text')}
-                >
-                  {link.text}
-                </Link>
-              ))}
-            </div>
+            {bottomLinks && (
+              <div className={s.links}>
+                {bottomLinks?.links?.map(({ link }, i) => (
+                  <Link
+                    href={link?.url || '#'}
+                    key={i}
+                    className="h3"
+                    data-tina-field={tinaField(link, 'text')}
+                  >
+                    {link?.text}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
