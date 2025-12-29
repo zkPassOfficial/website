@@ -42,31 +42,22 @@ export function Hero(props) {
         </div>
 
         <div className={s.fg}>
-          {header && (
-            <>
-              <h1 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
-                {header.rowOne}
-              </h1>
-              <h1 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
-                {header.rowTwo}
-              </h1>
-              <h1
-                className="h1"
-                data-tina-field={tinaField(header, 'rowThree')}
-              >
-                {header.rowThree}
-              </h1>
-            </>
-          )}
-          {linkBtn?.url && (
-            <Link
-              className={s.checkBtn}
-              href={linkBtn.url}
-              data-tina-field={tinaField(linkBtn, 'cta')}
-            >
-              {linkBtn.text}
-            </Link>
-          )}
+          <h1 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
+            {header.rowOne}
+          </h1>
+          <h1 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
+            {header.rowTwo}
+          </h1>
+          <h1 className="h1" data-tina-field={tinaField(header, 'rowThree')}>
+            {header.rowThree}
+          </h1>
+          <Link
+            className={s.checkBtn}
+            href={linkBtn.url}
+            data-tina-field={tinaField(linkBtn, 'cta')}
+          >
+            {linkBtn.text}
+          </Link>
           <div className={s.body}>
             <div className={s.logoWrap}>
               <Logomark />
@@ -103,36 +94,26 @@ export function Hero(props) {
         <Background className={s.background} />
 
         <div className={s.fg}>
-          {banner && (
-            <>
-              <div
-                className={s.iconWrap}
-                data-tina-field={tinaField(banner, 'icon')}
-              >
-                {banner.icon && (
-                  <Image src={banner.icon} objectFit="contain" fill alt="" />
-                )}
-              </div>
-              {banner.marquee && (
-                <TextMarquee
-                  className={s.marquee}
-                  {...banner.marquee}
-                  data-tina-field={tinaField(banner, 'textMarquee')}
-                />
-              )}
-              {banner.cta?.url && (
-                <Link
-                  className={s.cta}
-                  href={banner.cta.url}
-                  data-tina-field={tinaField(banner, 'cta')}
-                  onMouseEnter={() =>
-                    banner.cta?.text && handleShuffle(banner.cta.text)
-                  }
-                >
-                  {shuffledText}
-                </Link>
-              )}
-            </>
+          <div
+            className={s.iconWrap}
+            data-tina-field={tinaField(banner, 'icon')}
+          >
+            <Image src={banner.icon} objectFit="contain" fill alt="" />
+          </div>
+          <TextMarquee
+            className={s.marquee}
+            {...banner.marquee}
+            data-tina-field={tinaField(banner, 'textMarquee')}
+          />
+          {banner.cta?.url && (
+            <Link
+              className={s.cta}
+              href={banner.cta.url}
+              data-tina-field={tinaField(banner, 'cta')}
+              onMouseEnter={() => handleShuffle(banner.cta.text)}
+            >
+              {shuffledText}
+            </Link>
           )}
         </div>
 

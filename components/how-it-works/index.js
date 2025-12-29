@@ -51,9 +51,8 @@ export function HowItWorks(props) {
       let progress = mapRange(start, end, Math.floor(scroll), 0, 1)
       progress = clamp(0, progress, 1)
 
-      const cardsLength = cards?.length || 0
-      let currentStep = Math.floor(progress * cardsLength)
-      currentStep = clamp(0, currentStep, Math.max(0, cardsLength - 1))
+      let currentStep = Math.floor(progress * cards.length)
+      currentStep = clamp(0, currentStep, cards.length - 1)
       setCurrentStep(currentStep)
 
       const fillLevel = Math.ceil(progress / (1 / 30))
@@ -66,7 +65,7 @@ export function HowItWorks(props) {
 
       transformProviderRef.current?.setTranslate(0, offset, 0)
     },
-    [rect, step, cards?.length || 0, setOffset, cardRect],
+    [rect, step, cards.length, setOffset, cardRect],
     0,
   )
 
@@ -110,7 +109,7 @@ export function HowItWorks(props) {
     <TransformProvider ref={transformProviderRef}>
       <section
         className={cn(s.howItWorks, 'layout-block')}
-        style={{ '--count': cards?.length || 0 }}
+        style={{ '--count': cards.length }}
         ref={setRectRef}
       >
         <div className={s.scrollWrap} ref={wrapRef}>

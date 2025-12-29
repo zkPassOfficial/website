@@ -36,7 +36,7 @@ export function Stats(props) {
           if (entry.isIntersecting) {
             setInView(true)
 
-            cards?.forEach((card, i) => {
+            cards.forEach((card, i) => {
               shuffleText(card.title, i, 'title')
               shuffleText(card.number, i, 'number')
             })
@@ -148,7 +148,7 @@ export function Stats(props) {
           {cardsSectionTitle}
         </h4>
 
-        {cards?.map((card, i) => (
+        {cards.map((card, i) => (
           <div className={s.card} key={i}>
             <Background className={s.bg} />
             <h6 className="p" data-tina-field={tinaField(card, 'title')}>

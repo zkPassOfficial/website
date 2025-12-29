@@ -38,7 +38,7 @@ const SliderInternal = ({ row, rtl }) => {
 
       <div className={cn(s.slider, rtl && s.rtl)}>
         <Slider.Slides className={s.container}>
-          {row.cards?.map((card, i) => (
+          {row.cards.map((card, i) => (
             <div
               className={cn(s.card, currentIndex === i && s.active)}
               key={i}

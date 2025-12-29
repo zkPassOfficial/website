@@ -153,7 +153,7 @@ export function Features(props) {
         >
           <CardBackground
             index={i}
-            numCards={cards?.length || 0}
+            numCards={cards.length}
             ref={(node) => {
               if (!node) return
               cardBgRefs.current[i] = node

@@ -13,55 +13,50 @@ const Cross = dynamic(() => import('/assets/svgs/cross.svg'), {
 
 export function Hardware(props) {
   const { header, cardsSectionTitle, cards, table } = props
-  const { rowOne, rowTwo, rowThree, label, body } = header || {}
+  const { rowOne, rowTwo, rowThree, label, body } = header
 
   return (
     <div className={cn(s.hardware, 'layout-grid')}>
       {/* Header */}
-      {header && (
-        <div className={s.header} id="hybrid-zk">
-          <div className={s.lineWrap}>
-            <div className={s.line}>
-              <TextBackground className={s.background} align="center" />
-              <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
-                {rowOne}
-              </h2>
-            </div>
+      <div className={s.header} id="hybrid-zk">
+        <div className={s.lineWrap}>
+          <div className={s.line}>
+            <TextBackground className={s.background} align="center" />
+            <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
+              {rowOne}
+            </h2>
           </div>
-          <div className={s.lineWrap}>
-            <div className={s.line}>
-              <TextBackground className={s.background} align="right" />
-              <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
-                {rowTwo}
-              </h2>
-            </div>
-          </div>
-          <div className={s.lineWrap}>
-            <div className={s.line}>
-              <TextBackground className={s.background} align="left" />
-              <h2
-                className="h1"
-                data-tina-field={tinaField(header, 'rowThree')}
-              >
-                {rowThree}
-              </h2>
-            </div>
-          </div>
-
-          <div className={s.cross}>
-            <Cross />
-            <Cross />
-            <Cross />
-          </div>
-
-          <span className="p" data-tina-field={tinaField(header, 'label')}>
-            {label}
-          </span>
-          <p className="p" data-tina-field={tinaField(header, 'body')}>
-            {body}
-          </p>
         </div>
-      )}
+        <div className={s.lineWrap}>
+          <div className={s.line}>
+            <TextBackground className={s.background} align="right" />
+            <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
+              {rowTwo}
+            </h2>
+          </div>
+        </div>
+        <div className={s.lineWrap}>
+          <div className={s.line}>
+            <TextBackground className={s.background} align="left" />
+            <h2 className="h1" data-tina-field={tinaField(header, 'rowThree')}>
+              {rowThree}
+            </h2>
+          </div>
+        </div>
+
+        <div className={s.cross}>
+          <Cross />
+          <Cross />
+          <Cross />
+        </div>
+
+        <span className="p" data-tina-field={tinaField(header, 'label')}>
+          {label}
+        </span>
+        <p className="p" data-tina-field={tinaField(header, 'body')}>
+          {body}
+        </p>
+      </div>
 
       {/* Cards */}
       <div className={s.cardsSection}>
@@ -80,7 +75,7 @@ export function Hardware(props) {
                 {card.label}
               </span>
               <p className="h2" data-tina-field={tinaField(card, 'body')}>
-                {card.body?.split('\n').map((line, i) => (
+                {card.body.split('\n').map((line, i) => (
                   <Fragment key={i}>
                     <span key={i}>{line}</span>
                     <br />
@@ -96,7 +91,7 @@ export function Hardware(props) {
       </div>
 
       {/* Table */}
-      {table && <HardwareTable table={table} />}
+      <HardwareTable table={table} />
     </div>
   )
 }
