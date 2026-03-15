@@ -323,10 +323,18 @@ sections:
           https://coinmarketcap.com/currencies/zkpass/
         ctaText: VIEW MARKETS
       - title: CONTRACT ADDRESS
+        articleTitle: ''
         image: /cms/images/3Highlighted_news_02.png
-        articleTitle: 'Build the Block Finale: Crowning zkPass as Our Competition Winners'
-        articleURL: >-
-
+        logos:
+          - network: Ethereum (Mainnet)
+            logo: /cms/svg/Ethereum.svg
+            url: 'https://etherscan.io/token/0xe1be424f442d0687129128c6c38aace44f8c8dbc'
+          - network: BNB Smart Chain (BSC)
+            logo: /cms/svg/Bnbchain.svg
+            url: 'https://bscscan.com/token/0xd89B7dD376E671c124352267516BEF1C2cc231a3'
+          - network: Base (Mainnet)
+            logo: /cms/svg/Base.svg
+            url: 'https://basescan.org/token/0xc6c1be6c6d828f9cea70f1b8351879510fbf0065'
     _template: news
   - header:
       rowOne: Here

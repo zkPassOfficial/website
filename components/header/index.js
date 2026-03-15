@@ -14,6 +14,7 @@ export function Header(props) {
     { text: 'Features', url: '/#features' },
     // { text: 'Hybrid ZK', url: '/#hybrid-zk' },
     { text: 'Use Cases', url: '/#use-cases' },
+    { text: '$ZKP', url: '/#ZKP' },
   ]
 
   const links = [{ text: 'Ecosystem', url: '/ecosystem' }]

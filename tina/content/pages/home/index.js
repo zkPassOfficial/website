@@ -639,6 +639,25 @@ const news = {
           name: 'ctaText',
           type: 'string',
         },
+        {
+          name: 'logos',
+          type: 'object',
+          list: true,
+          fields: [
+            {
+              name: 'network',
+              type: 'string',
+            },
+            {
+              name: 'logo',
+              type: 'image',
+            },
+            {
+              name: 'url',
+              type: 'string',
+            },
+          ],
+        },
       ],
       ui: {
         itemProps: (item) => ({

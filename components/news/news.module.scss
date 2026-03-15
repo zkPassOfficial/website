@@ -33,6 +33,40 @@
       .titleArea {
         margin-top: mobile-vw(16px);
       }
+
+      .logoRow {
+        margin-top: mobile-vw(12px);
+        display: flex;
+        gap: mobile-vw(12px);
+        align-items: center;
+
+        .logoLink {
+          width: mobile-vw(32px);
+          height: mobile-vw(32px);
+          @include desktop {
+            width: mobile-vw(12px);
+            height: mobile-vw(12px);
+          }
+          border-radius: 999px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .logoWrap {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .logoIcon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+          }
+        }
+      }
     }
   }
 
