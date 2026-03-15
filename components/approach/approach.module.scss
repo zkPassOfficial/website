@@ -60,6 +60,20 @@
       }
     }
 
+    .h1Small {
+      font-family: var(--font-kh);
+      font-style: normal;
+      font-weight: 300;
+      line-height: 0.91;
+      text-transform: uppercase;
+      font-size: mobile-vw(32px);
+
+      @include desktop {
+        font-size: desktop-vw(64px);
+        line-height: 0.902;
+      }
+    }
+
     .marquee {
       @include fill;
       background: var(--theme-invert-layout);

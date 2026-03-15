@@ -128,9 +128,13 @@
         left: calc(1 * var(--layout-column-width));
         top: calc(7.5 * var(--layout-column-width));
       }
+      h1:nth-child(4) {
+        left: calc(4.6 * var(--layout-column-width));
+        top: calc(10 * var(--layout-column-width));
+      }
       .checkBtn {
-        left: calc(2.8 * var(--layout-column-width));
-        top: calc(12.2 * var(--layout-column-width));
+        left: calc(4 * var(--layout-column-width));
+        top: calc(13 * var(--layout-column-width));
         height: calc(0.8 * var(--layout-column-width));
         line-height: calc(0.8 * var(--layout-column-width));
         width: calc(6 * var(--layout-column-width));
@@ -214,23 +218,26 @@
       }
 
       @include mobile {
+        h1 {
+          font-size: mobile-vw(38px);
+        }
         h1:nth-child(1) {
-          left: mobile-vw(24px);
+          left: mobile-vw(20px);
           top: mobile-vw(56px);
         }
         h1:nth-child(2) {
-          left: mobile-vw(24px);
-          top: mobile-vw(135px);
+          left: mobile-vw(44px);
+          top: mobile-vw(130px);
           text-align: left;
           width: unset;
         }
         h1:nth-child(3) {
-          left: mobile-vw(78px);
-          top: mobile-vw(195px);
+          left: mobile-vw(55px);
+          top: mobile-vw(170px);
         }
         h1:nth-child(4) {
-          left: mobile-vw(119px);
-          top: mobile-vw(235px);
+          left: mobile-vw(100px);
+          top: mobile-vw(210px);
         }
         .checkBtn {
           left: mobile-vw(78px);

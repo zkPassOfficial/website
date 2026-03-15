@@ -1,6 +1,5 @@
 import { Image, Link } from '@studio-freight/compono'
 import cn from 'clsx'
-import { format } from 'fecha'
 import { useTinaMedia } from 'hooks/use-tina-media'
 import { Background } from 'libs/webgl/components/background'
 import { tinaField } from 'tinacms/dist/react'
@@ -37,8 +36,8 @@ export function News(props) {
             )}
 
             <div className={s.titleArea}>
-              <span className="p" data-tina-field={tinaField(article, 'date')}>
-                {format(new Date(article.date), 'DD MMM YYYY')}
+              <span className="p" data-tina-field={tinaField(article, 'title')}>
+                {article.title}
               </span>
               <h3
                 className="h3"
@@ -48,7 +47,7 @@ export function News(props) {
               </h3>
             </div>
 
-            <span className={cn(s.cta, 'desktop-only')}>Read More</span>
+            <span className={cn(s.cta, 'desktop-only')}>{article.ctaText}</span>
           </Link>
         ))}
 

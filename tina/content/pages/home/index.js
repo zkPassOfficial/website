@@ -29,6 +29,12 @@ const hero = {
           ui: maxLength(10, true),
           required: true,
         },
+        {
+          name: 'rowFour',
+          type: 'string',
+          ui: maxLength(16, true),
+          required: true,
+        },
       ],
     },
     {
@@ -116,6 +122,12 @@ const stats = {
           name: 'rowFour',
           type: 'string',
           ui: maxLength(8, true),
+          required: true,
+        },
+        {
+          name: 'rowFive',
+          type: 'string',
+          ui: maxLength(13, true),
           required: true,
         },
       ],
@@ -346,12 +358,6 @@ const hardware = {
           required: true,
         },
         {
-          name: 'rowThree',
-          type: 'string',
-          ui: maxLength(14, true),
-          required: true,
-        },
-        {
           name: 'label',
           type: 'string',
           required: true,
@@ -408,34 +414,24 @@ const hardware = {
           //   required: true,
         },
         {
-          name: 'block',
+          name: 'prover',
           type: 'rich-text',
           //   required: true,
         },
         {
-          name: 'setupTime',
+          name: 'verifier',
           type: 'rich-text',
           //   required: true,
         },
         {
-          name: 'proveTime',
+          name: 'dataSource',
           type: 'rich-text',
           //   required: true,
         },
         {
-          name: 'verifyTime',
-          type: 'rich-text',
-          //   required: true,
-        },
-        {
-          name: 'memory',
+          name: 'example',
           type: 'rich-text',
           required: true,
-        },
-        {
-          name: 'gates',
-          type: 'rich-text',
-          //   required: true,
         },
       ],
       ui: {
@@ -622,8 +618,8 @@ const news = {
       list: true,
       fields: [
         {
-          name: 'date',
-          type: 'datetime',
+          name: 'title',
+          type: 'string',
           required: true,
         },
         {
@@ -638,7 +634,10 @@ const news = {
         {
           name: 'articleURL',
           type: 'string',
-          required: true,
+        },
+        {
+          name: 'ctaText',
+          type: 'string',
         },
       ],
       ui: {

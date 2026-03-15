@@ -22,13 +22,14 @@ export function HardwareTable({ table }) {
     setActiveColumn(null)
     setActiveRow(null)
   }
+  console.log('table.length', table.length)
 
   // Mobile Scroll
   const { isDesktop } = useDeviceDetection()
   const [scrollStep, setScrollStep] = useState(0)
   useScroll(tableRef, ({ scrollX }) => {
     if (isDesktop) return
-    const stepSize = 1 / 5
+    const stepSize = 1 / 4
     const step = Math.round(scrollX / stepSize)
     if (step !== scrollStep) setScrollStep(step)
   })
@@ -40,13 +41,11 @@ export function HardwareTable({ table }) {
       ref={tableRef}
     >
       <div className={cn(s.row, s.header)}>
-        <span className={cn(s.title, 'p')}>zk </span>
-        <span className="p">Block</span>
-        <span className="p">Setup Time</span>
-        <span className="p">Prove Time</span>
-        <span className="p">Verify Time</span>
-        <span className="p">Memory</span>
-        <span className="p">Gates</span>
+        <span className={cn(s.title, 'p')}>TRUST SCENARIOS</span>
+        <span className="p">PROVER</span>
+        <span className="p">VERIFIER</span>
+        <span className="p">DATA SOURCE</span>
+        <span className="p">EXAMPLE</span>
         <Background className={s.bg} />
       </div>
       <div className={cn(s.spacer, 'desktop-only')} />
@@ -94,7 +93,7 @@ export function HardwareTable({ table }) {
 
       <div className={cn(s.mobileProgress, 'mobile-only')}>
         <div className={s.dotWrap}>
-          {new Array(6).fill().map((_, i) => (
+          {new Array(5).fill().map((_, i) => (
             <div className={cn(s.dot, i === scrollStep && s.active)} key={i} />
           ))}
         </div>

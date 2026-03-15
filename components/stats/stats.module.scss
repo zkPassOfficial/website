@@ -35,9 +35,74 @@
       }
     }
 
-    .lineWrap {
-      grid-column: 1/-1;
+    .threeLines {
+      grid-column: 1 / -1;
+      grid-row: 14 / span 6;
+      display: flex;
+      flex-direction: column;
+      gap: mobile-vw(4px);
+      justify-content: flex-start;
+      align-items: flex-start;
 
+      @include mobile {
+        grid-row: 10 / span 6;
+        padding: mobile-vw(8px) 0;
+        row-gap: mobile-vw(4px);
+        text-align: center;
+        gap: mobile-vw(4px);
+        align-items: center;
+      }
+
+      @include desktop {
+        grid-column: 2 / span 20;
+        grid-row: 14 / span 6;
+        justify-content: flex-start;
+        align-self: center;
+      }
+    }
+
+    .twoLines {
+      grid-column: 1 / -1;
+      grid-row: 7 / span 4;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      @include mobile {
+        grid-row: 2 / span 4;
+        padding: mobile-vw(8px) 0;
+        row-gap: mobile-vw(4px);
+        text-align: center;
+        gap: mobile-vw(4px);
+        align-items: center;
+      }
+
+      @include desktop {
+        grid-column: span 20 / -1;
+        grid-row: 1 / span 6;
+        justify-content: center;
+        align-items: flex-end;
+        align-self: center;
+      }
+    }
+
+    .h1Left {
+      font-family: var(--font-kh);
+      font-style: normal;
+      font-weight: 300;
+      line-height: 0.91;
+      text-transform: uppercase;
+      font-size: mobile-vw(36px);
+
+      @include desktop {
+        font-size: desktop-vw(72px);
+        line-height: 0.902;
+      }
+    }
+
+    .lineWrap {
       .line {
         display: inline-flex;
         height: 100%;
@@ -50,58 +115,20 @@
         }
       }
 
-      &:nth-child(1) {
-        grid-row: 5;
-
-        h2 {
-          margin-left: auto;
-        }
-      }
-      &:nth-child(2) {
-        grid-row: 6;
-      }
-      &:nth-child(3) {
-        grid-row: 11;
-      }
-      &:nth-child(4) {
-        grid-row: 12;
-
-        h2 {
-          margin-left: auto;
-        }
-      }
-
       @include mobile {
         background: var(--theme-layout);
         margin: -3px -2px;
+        padding: mobile-vw(8px) 0;
       }
       @include desktop {
-        &:nth-child(1) {
-          grid-column: span 20 / -1;
-          grid-row: 1 / span 3;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-        }
-        &:nth-child(2) {
-          grid-column: span 20 / -1;
-          grid-row: 3 / span 3;
-          display: flex;
-          align-items: center;
+        display: flex;
+        align-items: center;
+        padding: desktop-vw(4px) 0;
+
+        .threeLines & {
           justify-content: flex-start;
         }
-        &:nth-child(3) {
-          grid-column: 2 / span 15;
-          grid-row: span 3 / -4;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-        }
-        &:nth-child(4) {
-          grid-column: 2 / span 15;
-          grid-row: span 3 / -2;
-          display: flex;
-          align-items: center;
+        .twoLines & {
           justify-content: flex-end;
         }
       }
@@ -134,6 +161,7 @@
       }
 
       @include mobile {
+        grid-row: 17 / span 2;
         .cross {
           display: none;
         }

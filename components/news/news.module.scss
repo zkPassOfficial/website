@@ -38,6 +38,7 @@
 
   @include mobile {
     .articles {
+      grid-row: 7 / span 32;
       .article {
         grid-row: span 10;
 

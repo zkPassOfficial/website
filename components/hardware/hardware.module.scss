@@ -83,11 +83,6 @@
           right: -2px;
           left: -2px;
         }
-        &:nth-child(3) {
-          top: mobile-vw(87px);
-          left: -2px;
-          right: -2px;
-        }
       }
 
       @include desktop {
@@ -106,19 +101,13 @@
         &:nth-child(1) {
           grid-column: 1 / -1;
           grid-row: 1 / span 3;
-          text-align: center;
+          text-align: right;
         }
 
         &:nth-child(2) {
           grid-column: 1 / -1;
           grid-row: 3 / span 3;
           text-align: right;
-        }
-
-        &:nth-child(3) {
-          grid-column: 1 / -1;
-          grid-row: 5 / span 3;
-          text-align: left;
         }
       }
     }
@@ -167,6 +156,9 @@
     display: grid;
     color: var(--white);
 
+    @include mobile {
+      grid-row: 17 / span 22;
+    }
     .sectionTitle {
       position: relative;
       border-right: 1px solid var(--theme-dot);
@@ -175,7 +167,7 @@
       padding: mobile-vw(8px);
 
       @include desktop {
-        padding: desktop-vw(6px) desktop-vw(8px);
+        padding: desktop-vw(6px) desktop-vw(4px);
         grid-column: 1 / span 5;
         grid-row: 1;
         margin-right: -1px;

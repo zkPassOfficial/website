@@ -86,36 +86,59 @@ export function Stats(props) {
   return (
     <section className={cn(s.stats, 'layout-grid')} id="stats">
       <div className={s.header}>
-        <div className={s.lineWrap}>
-          <div className={s.line}>
-            <TextBackground className={s.background} align="right" />
-            <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
-              {header.rowOne}
-            </h2>
+        <div className={s.threeLines}>
+          <div className={s.lineWrap}>
+            <div className={s.line}>
+              <TextBackground className={s.background} align="left" />
+              <h2
+                className={s.h1Left}
+                data-tina-field={tinaField(header, 'rowThree')}
+              >
+                {header.rowThree}
+                {' · '}
+              </h2>
+            </div>
+          </div>
+          <div className={s.lineWrap}>
+            <div className={s.line}>
+              <TextBackground className={s.background} align="left" />
+              <h2
+                className={s.h1Left}
+                data-tina-field={tinaField(header, 'rowFour')}
+              >
+                {header.rowFour}
+                {' · '}
+              </h2>
+            </div>
+          </div>
+          <div className={s.lineWrap}>
+            <div className={s.line}>
+              <TextBackground className={s.background} align="left" />
+              <h2
+                className={s.h1Left}
+                data-tina-field={tinaField(header, 'rowFive')}
+              >
+                {header.rowFive}
+              </h2>
+            </div>
           </div>
         </div>
-        <div className={s.lineWrap}>
-          <div className={s.line}>
-            <TextBackground className={s.background} align="left" />
-            <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
-              {header.rowTwo}
-            </h2>
+        <div className={s.twoLines}>
+          <div className={s.lineWrap}>
+            <div className={s.line}>
+              <TextBackground className={s.background} align="right" />
+              <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
+                {header.rowOne}
+              </h2>
+            </div>
           </div>
-        </div>
-        <div className={s.lineWrap}>
-          <div className={s.line}>
-            <TextBackground className={s.background} align="left" />
-            <h2 className="h1" data-tina-field={tinaField(header, 'rowThree')}>
-              {header.rowThree}
-            </h2>
-          </div>
-        </div>
-        <div className={s.lineWrap}>
-          <div className={s.line}>
-            <TextBackground className={s.background} align="left" />
-            <h2 className="h1" data-tina-field={tinaField(header, 'rowFour')}>
-              {header.rowFour}
-            </h2>
+          <div className={s.lineWrap}>
+            <div className={s.line}>
+              <TextBackground className={s.background} align="right" />
+              <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
+                {header.rowTwo}
+              </h2>
+            </div>
           </div>
         </div>
 
@@ -125,7 +148,6 @@ export function Stats(props) {
           <CrossIcon className={s.cross} />
           {/* </div> */}
         </div>
-
         <button
           className={cn(s.themeButton, isIntersecting && s.inView)}
           onClick={toggleTheme}
@@ -134,7 +156,6 @@ export function Stats(props) {
         >
           <div className={s.buttonInner} />
         </button>
-
         <CrossIcon className={cn(s.cross, s.one)} />
         <CrossIcon className={cn(s.cross, s.two)} />
       </div>

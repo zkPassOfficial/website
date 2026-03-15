@@ -12,7 +12,7 @@ export function Header(props) {
     { text: 'Technologies', url: '/#technologies' },
     { text: 'Solutions', url: '/#solutions' },
     { text: 'Features', url: '/#features' },
-    { text: 'Hybrid ZK', url: '/#hybrid-zk' },
+    // { text: 'Hybrid ZK', url: '/#hybrid-zk' },
     { text: 'Use Cases', url: '/#use-cases' },
   ]
 

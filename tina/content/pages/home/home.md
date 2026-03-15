@@ -14,8 +14,8 @@ global:
             - text: TransGate SDK
               url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
       cta:
-        text: Launch Portal
-        url: 'https://portal.zkpass.org'
+        text: BUILD →
+        url: 'https://dev.zkpass.org'
     footer:
       logo: /cms/svg/p.svg
       topLeftLinks:
@@ -67,13 +67,13 @@ global:
     _template: metadata
 sections:
   - header:
-      rowOne: Welcome to the
-      rowTwo: Verifiable
-      rowThree: Internet
-    bodyLeft: 'Protocol for Private Data based on MPC, ZKP, 3P-TLS.'
+      rowOne: THE TRUST LAYER
+      rowTwo: FOR THE
+      rowThree: VERIFIABLE
+      rowFour: INTERNET
+    bodyLeft: 'PROOF WITHOUT EXPOSURE.'
     bodyRight: >-
-      Verify your real-world private data without revealing your private
-      details.
+      VERIFY ANYTHING WITHOUT REVEALING THE UNDERLYING DATA. FOR HUMANS AND AI AGENTS.
     linkBtn:
       text: $ZKP is Live
       url: 'https://docs.zkpass.org/zkpass-dao/zkp'
@@ -87,13 +87,13 @@ sections:
         url: ''
     _template: hero
   - header:
-      rowOne: ZkProof of
-      rowTwo: Everything
-      rowThree: Pass to
-      rowFour: Anywhere
+      rowOne: TRUST BETWEEN
+      rowTwo: ANY TWO NODES
+      rowThree: HUMAN ↔ HUMAN
+      rowFour: HUMAN ↔ AGENT
+      rowFive: AGENT ↔ AGENT
     body: >
-      zkPass serves as **a seamless gateway** between the private data of the
-      Web2 and Web3 ecosystem.
+      ZKPASS ENABLES A TRUST GRAPH WHERE ANY NODE — HUMAN OR AI AGENT — CAN VERIFY CLAIMS ABOUT ANY OTHER NODE WITHOUT EXPOSING RAW DATA.
     cardsSectionTitle: Our Standings
     cards:
       - title: ZkProof Generation
@@ -107,166 +107,130 @@ sections:
     _template: stats
   - sectionTitle: How Does it Work?
     cards:
-      - header: TLS
-        subHeader: Transport Layer Security
+      - header: FETCH
+        subHeader: DATA ACQUISITION
         text: >-
-          zkPass integrates decentralized MPC Nodes into a 3-party Handshake
-          process, improving the standard TLS protocol. It allows users to log
-          in securely and generate ZKPs locally without API access or data
-          source authorization.
+          YOUR APP OR AGENT MAKES A STANDARD API CALL THROUGH ZKPASS. THE DATA IS FETCHED FROM ANY HTTPS SOURCE VIA A SECURE 3-PARTY TLS HANDSHAKE. NO API KEYS SHARED, NO DATA EXPOSED TO MIDDLEMEN.
         illustration: /cms/svg/tls.svg
-      - header: MPC
-        subHeader: Multi-Party Computation
+      - header: PROVE
+        subHeader: PROOF GENERATION
         text: >-
-          Randomly selected task nodes supervise the 3-party handshake,
-          obtaining a portion of the mac_key to ensure data integrity and
-          authenticity, prevent scams and tampering, and maintain user privacy. 
-
-
-          The enc_key only remains with the user, so the nodes cannot access or
-          gather user data, providing additional privacy and security.
+          ZKPASS GENERATES A ZERO-KNOWLEDGE PROOF USING VOLEITH — MILLISECOND PROOF GENERATION, NO TRUSTED SETUP, QUANTUM-SAFE. THE PROOF CONFIRMS THE DATA IS AUTHENTIC AND THE CLAIM IS TRUE, WITHOUT REVEALING THE RAW DATA.
         illustration: /cms/svg/mpc.svg
-      - header: ZKP
-        subHeader: Zero-Knowledge Proof
+      - header: VERIFY
+        subHeader: TRUST ESTABLISHED
         text: >-
-          Users generate a Zero-Knowledge Proof (ZKP) locally using the response
-          from a TLS-based data source. They can then upload this ZKP on-chain
-          as a unique soul-zkSBT or share it solely with a specified address,
-          providing enhanced privacy options.
+          THE PROOF IS RETURNED TO THE CALLER ALONGSIDE THE RESULT. ANY PARTY — ON-CHAIN OR OFF-CHAIN — CAN INDEPENDENTLY VERIFY THE PROOF. TRUST IS ESTABLISHED. NO RAW DATA EVER LEAVES THE SOURCE.
         illustration: /cms/svg/zkp.svg
     _template: howItWorks
-  - sectionTitle: Approach
+  - sectionTitle: BUILD WITH ZKPASS
     cards:
-      - title: Transgate
+      - title: VERIFIABLE FETCH API
         illustration: /cms/svg/transgate.svg
         description: >
-          **TransGate** is a foundational product that incorporates three key
-          technologies: MPC network, Interactive Zero-knowledge proof system,
-          and 3P-TLS protocol.
-
-
-          The TransGate enables the seamless transfer of private data from the
-          web2 realm to web2 or web3.
+          THE CORE PRIMITIVE. ONE API CALL TO MAKE ANY HTTPS DATA FETCH CRYPTOGRAPHICALLY VERIFIABLE. REST API, PAY-PER-CALL. WORKS WITH ANY LANGUAGE, ANY FRAMEWORK.
         cta:
-          text: Install
-          url: 'https://chromewebstore.google.com/detail/zkpass-transgate/afkoofjocpbclhnldmmaphappihehpma'
-      - title: TransGate SDK
+          text: DOCUMENTATION
+          url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
+      - title: AGENT TOOLS
         illustration: /cms/svg/proof.svg
         description: >
-          The included **client-sdk** and **server-sdk**, both low-code integrations, enable businesses to trust the zero-knowledge proofs generated by individual or enterprise users from trusted data sources without compromising privacy, to unlock eligible access or privileges.
+          NATIVE INTEGRATIONS FOR AI AGENT FRAMEWORKS. MCP SERVER, OPENAI FUNCTION SCHEMA, LANGCHAIN TOOL. YOUR AGENT GETS VERIFIABLE FETCH AS A BUILT-IN CAPABILITY.
         cta:
-          text: TransGate SDK Doc
-          url: https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction
-      - title: Schema
+          text: INTEGRATE
+          url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
+      - title: SCHEMA REGISTRY
         illustration: /cms/svg/template.svg
         description: >
-          **Schema** is a mapping of specific HTML elements to the certificate
-          generation system. Through schema, users can select target data
-          sources and personalized fields according to business needs, and
-          seamlessly integrate them into the zkPass protocol.
+          A PUBLIC DIRECTORY OF VERIFIABLE CLAIMS. CREDIT SCORES, KYC STATUS, PLATFORM RATINGS, TASK COMPLETION. ANYONE CAN CREATE, ANYONE CAN REFERENCE.
+        cta:
+          text: EXPLORE SCHEMAS
+          url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
     _template: approach
   - sectionTitle: Features
     cards:
-      - title: Privacy-Preserving
-        body: Users can prove everything without uploading any documents via zkPass.
-      - title: Compatibility
-        body: Seamless compatible with all HTTPS-based web sessions without APIs.
-      - title: Verifiability
+      - title: PROOF WITHOUT EXPOSURE
+        body: VERIFY ANY CLAIM WITHOUT REVEALING THE UNDERLYING DATA. ZERO-KNOWLEDGE PROOFS ENSURE COMPLETE PRIVACY FOR BOTH HUMANS AND AGENTS.
+      - title: ONE CALL, ANY SOURCE
+        body: COMPATIBLE WITH ALL HTTPS-BASED DATA SOURCES. NO SPECIAL API INTEGRATIONS REQUIRED. IF IT'S ON THE INTERNET, IT'S VERIFIABLE.
+      - title: AGENT-NATIVE
         body: >-
-          Verify the provenance, authenticity, integrity and validity of private
-          data.
-      - title: Anti-Cheating
+          BUILT FOR THE AGENTIC INTERNET. MCP SERVER, OPENAI TOOLS, LANGCHAIN — AI AGENTS GET VERIFIABLE DATA AS A NATIVE CAPABILITY.
+      - title: MILLISECOND PROOFS
         body: >-
-          Protects against malicious activities such as identity theft and data
-          tampering.
-      - title: Memory-Efficiency
+          VOLEITH GENERATES PROOFS IN MILLISECONDS. NO TRUSTED SETUP. LOW HARDWARE REQUIREMENTS. FAST ENOUGH FOR REAL-TIME AGENT DECISIONS.
+      - title: QUANTUM-SAFE
         body: >-
-          Hybrid ZK proof system that enables millisecond ZKP generation in a
-          browser environment.
+          POST-QUANTUM SECURITY BY DEFAULT. AS AGENTS HANDLE INCREASINGLY SENSITIVE OPERATIONS, YOUR TRUST LAYER IS ALREADY FUTURE-PROOF.
+      - title: COMPOSABLE TRUST
+        body: >-
+          EVERY VERIFICATION BUILDS THE TRUST GRAPH. SCHEMAS ARE REUSABLE, PROOFS ARE PORTABLE, AND TRUST COMPOUNDS OVER TIME.
     _template: features
   - header:
-      rowOne: The Most Efficient
-      rowTwo: and Affordable
-      rowThree: Zero-Knowledge
-      label: Hybrid ZK
+      rowOne: BUILT FOR
+      rowTwo: THE AGENTIC INTERNET
+      label: WHY AGENTS NEED ZKPASS
       body: >-
-        We have developed and optimized the memory-efficient Hybird ZK proof
-        system including VOLE-ZK and zk-SNARKs algorithm, which allows users to
-        generate zero knowledge in less than 1 second in the browser environment
-        of a PC, process tens of millions of gates per second, and handle large
-        circuits with billions of gates while requiring less than 300M of
-        memory.
-    cardsSectionTitle: Hardware Setup
+        AI AGENTS ARE MAKING AUTONOMOUS DECISIONS — TRADING, HIRING, ALLOCATING RESOURCES — BASED ON DATA THEY CANNOT VERIFY. EVERY API CALL IS AN ACT OF BLIND TRUST. ZKPASS GIVES AGENTS THE ABILITY TO CRYPTOGRAPHICALLY VERIFY ANY DATA BEFORE ACTING ON IT.
+    cardsSectionTitle: WITH AND WITHOUT ZKPASS
     cards:
-      - label: Prover
+      - label: WITHOUT ZKPASS
         body: |-
-          MacBook Pro 15-inch Mid 2015
-          16GB DDR3 Memory
-          2.5GHz Intel Core i7 Processor
-      - label: Verifier
+          AGENT FETCHES PRICE DATA FROM API HOPES THE DATA IS AUTHENTIC EXECUTES $500K TRADE DATA WAS MANIPULATED → LOSS
+      - label: WITH ZKPASS
         body: |-
-          AWS c6a.2xlarge Instance
-          8 virtual CPUs
-          16GB Memory (GiB)
+          AGENT CALLS ZKPASS.FETCH() RECEIVES DATA + CRYPTOGRAPHIC PROOF VERIFIES AUTHENTICITY IN MILLISECONDS EXECUTES $500K TRADE WITH CONFIDENCE → PROFIT
     table:
       - title: |
-          ### Snark
-        block: |
-          ### 4
-        setupTime: |
-          ### 0**s**
-        proveTime: |
-          ### 22000**ms**
-        verifyTime: |
-          ### 100**ms**
-        memory: |
-          ### 630**m**
-        gates: |
-          ### 540,292
+          ### DEFI LENDING
+        prover: |
+          ### HUMAN
+        verifier: |
+          ### SMART CONTRACT
+        dataSource: |
+          ### BANK API
+        example: |
+          ### PROVE CREDIT SCORE > 700 WITHOUT REVEALING EXACT SCORE
       - title: |
-          ### Vole23-ZK
-
-          Powered by ZKPass
-        block: |
-          ### 4
-        setupTime: |
-          ### 1.2**s**
-        proveTime: |
-          ### 210**ms**
-        verifyTime: |
-          ### 60**ms**
-        memory: |
-          ### 80**m**
-        gates: |
-          ### 540,292
+          ### AGENT TRADING
+        prover: |
+          ### AGENT
+        verifier: |
+          ### AGENT
+        dataSource: |
+          ### PRICE FEED API
+        example: |
+          ### VERIFY BTC PRICE IS AUTHENTIC BEFORE EXECUTING TRADE
       - title: |
-          ### Snark
-        block: |
-          ### 10
-        setupTime: |
-          ### 2.2**s**
-        proveTime: |
-          ### 340**ms**
-        verifyTime: |
-          ### 100**ms**
-        memory: |
-          ### 130**m**
-        gates: |
-          ### 1,350,730
+          ### AGENT HIRING
+        prover: |
+          ### HUMAN
+        verifier: |
+          ### AGENT
+        dataSource: |
+          ### UBER, DOORDASH
+        example: |
+          ### AGENT VERIFIES DRIVER RATING BEFORE DELEGATING DELIVERY
       - title: |
-          ### Snark
-        block: |
-          ### 20
-        setupTime: |
-          ### 3.4**s**
-        proveTime: |
-          ### 580**ms**
-        verifyTime: |
-          ### 160**ms**
-        memory: |
-          ### 180**m**
-        gates: |
-          ### 2,701,460
+          ### IDENTITY
+        prover: |
+          ### HUMAN
+        verifier: |
+          ### PLATFORM
+        dataSource: |
+          ### KYC PROVIDER
+        example: |
+          ### PROVE IDENTITY WITHOUT UPLOADING DOCUMENTS
+      - title: |
+          ### TASK VERIFICATION
+        prover: |
+          ### HUMAN
+        verifier: |
+          ### AGENT
+        dataSource: |
+          ### GPS, IOT DATA
+        example: |
+          ### PROVE PHYSICAL TASK WAS COMPLETED FOR AGENT PAYMENT
     _template: hardware
   - sectionTitle: Use Cases
     cards:
@@ -274,43 +238,27 @@ sections:
         header: ZKKYC
         illustration: /cms/svg/Frame 1073715487.svg
         body: >-
-          An decentralized authentication solution that verifies your legal
-          identity without requiring file uploads or the over-disclosure of
-          private information.
-      - title: Undercollateralized DeFi Lending Protocol
-        header: Undercollateralized DeFi Lending Protocol
+          DECENTRALIZED IDENTITY VERIFICATION THAT PROVES YOUR LEGAL IDENTITY, CREDIT STATUS, OR AGE WITHOUT UPLOADING DOCUMENTS OR OVER-DISCLOSING PERSONAL INFORMATION.
+      - title: UNDERCOLLATERALIZED DEFI LENDING
+        header: UNDERCOLLATERALIZED DEFI LENDING
         illustration: /cms/svg/Frame 1073715487(1).svg
         body: >-
-          A DeFi lending protocol combining on-chain and off-chain credit allows
-          users to selectively verify their on-chain and off-chain reputations
-          have access to lower collateralized borrowing opportunities,
-          increasing capital efficiency.
-      - title: Healthcare zk-data Marketplace
-        header: Healthcare zk-data Marketplace
+          PROVE CREDITWORTHINESS FROM TRADITIONAL FINANCE DATA TO ACCESS DEFI LOANS WITHOUT OVERCOLLATERALIZATION. WORKS FOR HUMAN BORROWERS AND AI AGENTS MANAGING TREASURY.
+      - title: VERIFIABLE AGENT TRADING
+        header: VERIFIABLE AGENT TRADING
         illustration: /cms/svg/Healthcare zk-data Marketplace svg.svg
         body: >-
-          A private healthcare data marketplace that allows users to selectively
-          disclose trusted healthcare data to earn rewards.
-      - title: Decentralized Job Marketplace
-        header: Decentralized Job Marketplace
+          AI TRADING AGENTS VERIFY PRICE FEEDS AND MARKET DATA BEFORE EXECUTING TRADES. REPLACE BLIND TRUST WITH CRYPTOGRAPHIC PROOF.
+      - title: AGENT-TO-HUMAN DELEGATION
+        header: AGENT-TO-HUMAN DELEGATION
         illustration: /cms/svg/djm.svg
         body: >-
-          A decentralized freelance marketplace that allows users to secure
-          remote work opportunities by privately disclosing some of their
-          trusted data through zkPass.
-
-
-          A DeFi lending protocol combining on-chain and off-chain credit allows
-          users to selectively verify their on-chain and off-chain reputations
-          have access.
-      - title: INSURANCE CLAIMS
-        header: Insurance Claims
+          AI AGENTS VERIFY HUMAN QUALIFICATIONS AND CONFIRM TASK COMPLETION FOR DELIVERY, INSPECTION, AND MAINTENANCE. TRUSTLESS HIRING BETWEEN MACHINES AND HUMANS.
+      - title: CROSS-PLATFORM REPUTATION
+        header: CROSS-PLATFORM REPUTATION
         illustration: /cms/svg/Insurance Claims.svg
         body: >-
-          Generate zero-knowledge proofs from private data during a web session
-          and submit them to a smart contract for insurance policy eligibility
-          verification, enabling automatic claim settlement without the need for
-          manual review.
+          CARRY YOUR REPUTATION ACROSS PLATFORMS. PROVE YOUR RATINGS, REVIEWS, AND CREDENTIALS TO ANY NEW SERVICE WITHOUT EXPOSING YOUR ACCOUNTS.
     cta:
       text: More Use Cases
       url: 'https://zkpass.gitbook.io/zkpass/introduction/use-cases'
@@ -359,24 +307,26 @@ sections:
           - companyName: Sequoia
             companyLogo: /cms/svg/sequoia.svg
     _template: partnersAndInvestors
-  - sectionTitle: News
+  - sectionTitle: $ZKP
     articles:
-      - date: 2024-10-18T23:00:00.000Z
+      - title: TOKENOMICS
         image: /cms/images/1Highlighted_news_0.png
         articleTitle: >-
-          zkPass Raises $12.5M Series A Funding to Drive zkTLS Oracle Protocol
+          ZKP IS THE SETTLEMENT UNIT FOR EVERY VERIFIABLE FETCH CALL. VERIFICATION FEES, SCHEMA STAKING, TRUST REGISTRY QUERIES.
         articleURL: >-
-          https://medium.com/zkpass/zkpass-raises-12-5m-series-a-funding-to-drive-zktls-oracle-protocol-e7612e6cf921
-      - date: 2023-11-13T00:00:00.000Z
+          https://docs.zkpass.org/zkpass-dao/zkp
+        ctaText: VIEW TOKENOMICS
+      - title: TRADE $ZKP
         image: /cms/images/2Highlighted_news_01.png
-        articleTitle: \@zkPass/Transgate-JS-SDK is Now Open-source
+        articleTitle: LISTED ON BINANCE, OKX, AND MORE.
         articleURL: >-
-          https://medium.com/zkpass/zkpass-transgate-js-sdk-is-now-open-source-dd584a1c0f8b
-      - date: 2023-05-05T23:00:00.000Z
+          https://coinmarketcap.com/currencies/zkpass/
+        ctaText: VIEW MARKETS
+      - title: CONTRACT ADDRESS
         image: /cms/images/3Highlighted_news_02.png
         articleTitle: 'Build the Block Finale: Crowning zkPass as Our Competition Winners'
         articleURL: >-
-          https://www.binance.com/en/blog/ecosystem/build-the-block-finale-crowning-zkpass-as-our-competition-winners-8266623440845959186
+
     _template: news
   - header:
       rowOne: Here

@@ -27,7 +27,6 @@ const MobileAccordion = ({ cards }) => {
               <Marquee className={s.marquee} repeat={3}>
                 <h4 className="h1">
                   <span>{card.title}</span>
-                  {!card.cta && <span className="p">Coming Soon</span>}
                 </h4>
                 <svg
                   width="12"
@@ -51,12 +50,11 @@ const MobileAccordion = ({ cards }) => {
                 <div className={s.description}>
                   <RichText content={card.description} />
                 </div>
-                <Link
-                  href={card.cta?.url}
-                  className={cn(s.cta, !card.cta && s.disabled, 'p')}
-                >
-                  {card.cta?.text || 'Coming Soon'}
-                </Link>
+                {card.cta && (
+                  <Link href={card.cta.url} className={cn(s.cta, 'p')}>
+                    {card.cta.text}
+                  </Link>
+                )}
               </div>
 
               <CrossIcon className={s.cross} />
@@ -147,17 +145,15 @@ export function Approach(props) {
           <Background className={s.bg} />
 
           {exitingCard === i ? (
-            <h4 className={cn(s.static, 'h1')}>{shuffledTexts[i]}</h4>
+            <h4 className={cn(s.static, s.h1Small)}>{shuffledTexts[i]}</h4>
           ) : (
-            <h4 className={cn(s.static, 'h1')}>
+            <h4 className={cn(s.static, s.h1Small)}>
               <span>{card.title}</span>
-              {!card.cta && <span className="p">Coming Soon</span>}
             </h4>
           )}
           <Marquee className={s.marquee} repeat={3}>
-            <h4 className="h1">
+            <h4 className={s.h1Small}>
               <span>{activeCard === i ? shuffledTexts[i] : card.title}</span>
-              {!card.cta && <span className="p">Coming Soon</span>}
             </h4>
             <svg
               width="12"
@@ -197,13 +193,15 @@ export function Approach(props) {
                   content={card.description}
                 />
               </div>
-              <Link
-                href={card.cta?.url}
-                className={cn(s.cta, !card.cta && s.disabled, 'p')}
-                data-tina-field={tinaField(card, 'cta')}
-              >
-                {shuffledCTAs[i] ? shuffledCTAs[i] : 'Coming Soon'}
-              </Link>
+              {card.cta && (
+                <Link
+                  href={card.cta.url}
+                  className={cn(s.cta, 'p')}
+                  data-tina-field={tinaField(card, 'cta')}
+                >
+                  {shuffledCTAs[i] || card.cta.text}
+                </Link>
+              )}
             </div>
             <CrossIcon className={s.cross} />
           </div>
