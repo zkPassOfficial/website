@@ -125,27 +125,21 @@ sections:
     _template: howItWorks
   - sectionTitle: BUILD WITH ZKPASS
     cards:
-      - title: VERIFIABLE FETCH API
+      - title: ZKPASS AGENT CLIENT
         illustration: /cms/svg/transgate.svg
         description: >
-          THE CORE PRIMITIVE. ONE API CALL TO MAKE ANY HTTPS DATA FETCH CRYPTOGRAPHICALLY VERIFIABLE. REST API, PAY-PER-CALL. WORKS WITH ANY LANGUAGE, ANY FRAMEWORK.
+          TRANSGATE IS EVOLVING INTO AN AI AGENT. The agent can automatically retrieve web data and execute zkTLS to generate proofs for applications.
         cta:
-          text: DOCUMENTATION
-          url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
-      - title: AGENT TOOLS
+          text: Install
+          url: 'https://chromewebstore.google.com/detail/zkpass-transgate/afkoofjocpbclhnldmmaphappihehpma'
+      - title: ZKPASS AGENT SKILLS
         illustration: /cms/svg/proof.svg
         description: >
-          NATIVE INTEGRATIONS FOR AI AGENT FRAMEWORKS. MCP SERVER, OPENAI FUNCTION SCHEMA, LANGCHAIN TOOL. YOUR AGENT GETS VERIFIABLE FETCH AS A BUILT-IN CAPABILITY.
-        cta:
-          text: INTEGRATE
-          url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
-      - title: SCHEMA REGISTRY
+          ZKPASS PACKAGES ITS CAPABILITIES AS SKILLS FOR AI AGENTS. These skills enable agents to execute zkTLS on demand. Frameworks such as Claude Code, OpenClaw, or custom agents can integrate them directly.
+      - title: ZKPASS VERIFIABLE AGENT EXECUTION
         illustration: /cms/svg/template.svg
         description: >
-          A PUBLIC DIRECTORY OF VERIFIABLE CLAIMS. CREDIT SCORES, KYC STATUS, PLATFORM RATINGS, TASK COMPLETION. ANYONE CAN CREATE, ANYONE CAN REFERENCE.
-        cta:
-          text: EXPLORE SCHEMAS
-          url: 'https://zkpass.gitbook.io/zkpass/extension-js-sdk/introduction'
+          ZKPASS ENABLES TRUSTED AGENT INTERACTIONS. By combining zkTLS and trusted execution, agent actions and external data become verifiable. This enables trustless interactions between agents and applications across the internet.
     _template: approach
   - sectionTitle: Features
     cards:
