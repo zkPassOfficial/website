@@ -88,12 +88,12 @@ sections:
     _template: hero
   - header:
       rowOne: TRUST BETWEEN
-      rowTwo: ANY TWO NODES
+      rowTwo: ANY TWO ENTITIES
       rowThree: HUMAN ↔ HUMAN
       rowFour: HUMAN ↔ AGENT
       rowFive: AGENT ↔ AGENT
     body: >
-      ZKPASS ENABLES A TRUST GRAPH WHERE ANY NODE — HUMAN OR AI AGENT — CAN VERIFY CLAIMS ABOUT ANY OTHER NODE WITHOUT EXPOSING RAW DATA.
+      ZKPASS ENABLES A TRUST GRAPH WHERE ANY ENTITY — HUMAN OR AI AGENT — CAN VERIFY CLAIMS ABOUT ANY OTHER WITHOUT EXPOSING RAW DATA.
     cardsSectionTitle: Our Standings
     cards:
       - title: ZkProof Generation
@@ -107,10 +107,10 @@ sections:
     _template: stats
   - sectionTitle: How Does it Work?
     cards:
-      - header: FETCH
-        subHeader: DATA ACQUISITION
+      - header: PERCEIVE
+        subHeader: DATA ACCESS
         text: >-
-          YOUR APP OR AGENT MAKES A STANDARD API CALL THROUGH ZKPASS. THE DATA IS FETCHED FROM ANY HTTPS SOURCE VIA A SECURE 3-PARTY TLS HANDSHAKE. NO API KEYS SHARED, NO DATA EXPOSED TO MIDDLEMEN.
+          YOUR APP OR AGENT PERCEIVES REAL-WORLD DATA THROUGH ZKPASS VIA A SECURE 3-PARTY TLS HANDSHAKE. NO API KEYS SHARED, NO DATA EXPOSED.
         illustration: /cms/svg/tls.svg
       - header: PROVE
         subHeader: PROOF GENERATION
@@ -136,21 +136,21 @@ sections:
         illustration: /cms/svg/proof.svg
         description: >
           ZKPASS PACKAGES ITS CAPABILITIES AS SKILLS FOR AI AGENTS. These skills enable agents to execute zkTLS on demand. Frameworks such as Claude Code, OpenClaw, or custom agents can integrate them directly.
-      - title: ZKPASS VERIFIABLE AGENT EXECUTION
+      - title: ZKPASS  AGENT EXECUTION
         illustration: /cms/svg/template.svg
         description: >
-          ZKPASS ENABLES TRUSTED AGENT INTERACTIONS. By combining zkTLS and trusted execution, agent actions and external data become verifiable. This enables trustless interactions between agents and applications across the internet.
+          ZKPASS ENABLES TRUSTED AGENT INTERACTIONS. By combining zkTLS and TEE, agent actions and external data become verifiable. This enables trustless interactions between agents across the internet.
     _template: approach
   - sectionTitle: Features
     cards:
-      - title: PROOF WITHOUT EXPOSURE
+      - title: PROOF PRIVACY
         body: VERIFY ANY CLAIM WITHOUT REVEALING THE UNDERLYING DATA. ZERO-KNOWLEDGE PROOFS ENSURE COMPLETE PRIVACY FOR BOTH HUMANS AND AGENTS.
-      - title: ONE CALL, ANY SOURCE
+      - title: UNIVERSAL ACCESS
         body: COMPATIBLE WITH ALL HTTPS-BASED DATA SOURCES. NO SPECIAL API INTEGRATIONS REQUIRED. IF IT'S ON THE INTERNET, IT'S VERIFIABLE.
       - title: AGENT-NATIVE
         body: >-
           BUILT FOR THE AGENTIC INTERNET. MCP SERVER, OPENAI TOOLS, LANGCHAIN — AI AGENTS GET VERIFIABLE DATA AS A NATIVE CAPABILITY.
-      - title: MILLISECOND PROOFS
+      - title: REAL-TIME PROVING
         body: >-
           VOLEITH GENERATES PROOFS IN MILLISECONDS. NO TRUSTED SETUP. LOW HARDWARE REQUIREMENTS. FAST ENOUGH FOR REAL-TIME AGENT DECISIONS.
       - title: QUANTUM-SAFE
