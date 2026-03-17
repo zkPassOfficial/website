@@ -20,12 +20,12 @@ export function Contact(props) {
     <div className={cn(s.contact, 'layout-grid')}>
       <div className={s.header}>
         <div className={s.lineWrap}>
-          <h2 className="h2" data-tina-field={tinaField(header, 'rowOne')}>
+          <h2 className="h1" data-tina-field={tinaField(header, 'rowOne')}>
             {rowOne}
           </h2>
         </div>
         <div className={s.lineWrap}>
-          <h2 className="h2" data-tina-field={tinaField(header, 'rowTwo')}>
+          <h2 className="h1" data-tina-field={tinaField(header, 'rowTwo')}>
             {rowTwo}
           </h2>
         </div>

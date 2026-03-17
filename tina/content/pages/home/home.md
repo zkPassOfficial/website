@@ -87,8 +87,8 @@ sections:
         url: ''
     _template: hero
   - header:
-      rowOne: TRUST BETWEEN
-      rowTwo: ANY TWO ENTITIES
+      rowOne: TRUST ACROSS
+      rowTwo: ANY ENTITIES
       rowThree: HUMAN ↔ HUMAN
       rowFour: HUMAN ↔ AGENT
       rowFive: AGENT ↔ AGENT
