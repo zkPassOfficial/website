@@ -23,9 +23,9 @@ The source route [pages/index.js](pages/index.js) delegates to [pages/home/index
 
 ## Stack
 
-- [Lenis](https://github.com/studio-freight/lenis)
-- [Tempus](https://github.com/studio-freight/tempus)
-- [Hamo](https://github.com/studio-freight/hamo)
+- [Lenis](https://github.com/darkroomengineering/lenis)
+- [Tempus](https://github.com/darkroomengineering/tempus)
+- [Hamo](https://github.com/darkroomengineering/hamo)
 - [PNPM](https://pnpm.io/)
 - [Next.js](https://nextjs.org/)
 - [Three.js](https://threejs.org/)
