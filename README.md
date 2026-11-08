@@ -73,10 +73,14 @@ Alongside the usual Next.js folder structure (`/public`, `/pages`, etc.) We've a
 
 ## Content and validation boundaries
 
-[tina/content/pages/home/home.md](tina/content/pages/home/home.md) is CMS frontmatter consumed by the site, not developer documentation. It includes historical campaign copy, metrics, protocol/performance descriptions, partner names, and links. These business/research claims were not verified or rewritten from frontend code. Generated types, CMS content, images, and licenses remain unchanged.
+[tina/content/pages/home/home.md](tina/content/pages/home/home.md) is CMS frontmatter consumed by the site, not developer documentation. It includes historical campaign copy, metrics, protocol/performance descriptions, partner names, and links. These business/research claims were not verified or rewritten from frontend code. The earlier documentation review left generated types, CMS content, images, and licenses unchanged. The current first-party licensing change is described below and in [LICENSE-SCOPE.md](LICENSE-SCOPE.md); generated types, CMS content and images remain unchanged.
 
 [checklist.md](checklist.md) contains pending frontend review items. An unchecked item is a follow-up, not a reproduced defect or a test failure. The empty `todo.md` has no executable instructions.
 
 The tracked Lighthouse workflow triggers on pushes to `main`; this checkout's original branch is `master`. It obtains a Vercel preview URL, runs Lighthouse, uploads reports (including temporary public storage), and posts a commit comment. It does not provide functional test coverage or evidence of a passing audit. The workflow is unchanged and is not triggered by this documentation push to `master`; external hosting integrations are unknown.
 
 No dependency installation, Husky setup, project scripts, tests, build, preview browsing, CMS write, deployment, or business request was performed. No automated test suite was identified. Review generated CMS artifacts, configuration, source/content accuracy, accessibility, performance, and deployment behavior separately before relying on the site.
+
+## Current first-party licensing
+
+Original code owned by zkPass is licensed under MIT; see [LICENSE](LICENSE). Third-party code and dependencies retain their existing terms; see [LICENSE-SCOPE.md](LICENSE-SCOPE.md). This current root first-party scope supersedes historical root-project license descriptions; statements describing third-party licenses remain applicable. The combined artifact is not represented as MIT-only.
